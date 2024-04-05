@@ -1,0 +1,3 @@
+tslog( Infinity ); // Infinity
+
+ForLoop

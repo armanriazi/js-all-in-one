@@ -4,6 +4,8 @@
 /// ```
 ///
 
-[1, 2].forEach(console.log('ok'));
+alert("Hello");
 
+[1, 2].forEach(alert);
 
+// 
