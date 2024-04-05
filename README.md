@@ -1,1 +1,1 @@
-# js-all-in-one
+# JS-All-In-One

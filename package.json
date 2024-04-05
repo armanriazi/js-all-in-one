@@ -1,0 +1,19 @@
+{
+  "name": "js-all-in-one",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Arman Riazi",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom-quokka-plugin": "^1.0.16"
+  },
+  "dependencies": {
+    "jsdom": "^24.0.0"
+  }
+}
