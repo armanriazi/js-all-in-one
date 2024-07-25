@@ -1,6 +1,6 @@
 ///
 /// ```bash
-/// node ./src/types/empty/infinity-ex1.js
+/// node ./src/js/types/empty/infinity-ex1.js
 /// ```
 ///
 console.log( Infinity ); // Infinity

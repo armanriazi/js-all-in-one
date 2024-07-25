@@ -1,3 +1,8 @@
-tslog( Infinity ); // Infinity
+///
+/// ```bash
+/// node ./src/js/variable/variable-ex1.js
+/// ```
+///
 
-ForLoop
+//tslog( Infinity ); // Infinity
+//ForLoop

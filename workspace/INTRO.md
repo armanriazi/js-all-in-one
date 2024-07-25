@@ -1,18 +1,21 @@
 # Introductory 
 
-## Protocols
+## Types
 
-`Port 5672`: AMQP 0-9-1 protocol, used for client-broker communication
-`Port 15672`: HTTP/HTTPS protocol, used for web management interface
 
-‍‍‍```bash
-curl -u guest:guest localhost:15672/api/overview
-‍‍‍```
+### Empty Types
 
-## Setup
+- [x] NaN
+- [x] Infinity
 
-### Docker
+### BigInt
 
-```bash
-docker run -d --hostname localhost --network=gateway --name localhost_rabbit13 -p 8080:15672 -p 5672:5672 -p 25676:25676 js-all-in-one:3-management
+Although, the other way around is proposed by the developers of **JSBI library**.
+This library implements big numbers using its own methods. We can use them instead of native bigints.
+
+```js
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+const bigInt = 1234567890123456789012345678901234567890n;
+const sameBigint = BigInt("1234567890123456789012345678901234567890");
 ```

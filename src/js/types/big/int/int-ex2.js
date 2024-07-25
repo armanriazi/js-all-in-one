@@ -1,3 +1,8 @@
+///
+/// ```bash
+/// node ./src/js/types/big/int/int-ex2.js
+/// ```
+///
 // A bigint is created by appending n to the end of an integer literal or by calling the function BigInt
 const bigint = 1234567890123456789012345678901234567890n;
 

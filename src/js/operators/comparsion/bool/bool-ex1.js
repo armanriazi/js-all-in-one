@@ -1,3 +1,10 @@
-alert( 1 == 1n ); // true
+///
+/// ```bash
+/// node ./src/js/operators/comparsion/bool/bool-ex1.js
+/// ```
+///
 
-alert( 1 === 1n ); // false
+
+console.log( 1 == 1n ); // true
+
+console.log( 1 === 1n ); // false
