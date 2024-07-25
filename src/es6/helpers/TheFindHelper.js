@@ -1,3 +1,9 @@
+///
+/// ```bash
+/// node ./src/es6/helpers/TheFindHelper.js
+/// ```
+///
+
 # Section 05: The `find` Helper
 
 - [The `find` Helper](#the-find-helper)

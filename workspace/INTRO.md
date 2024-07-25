@@ -31,7 +31,7 @@ let y = 20;
 
 ### Primitive Types
 
-> `Number`, `String`, `Boolean`, `Null`, `Undefined`, and `Symbol`
+> `Number`, `String`, `Boolean`, `Null`, `Undefined`, and `Symbol`(es6)
 
 ### Empty Types
 

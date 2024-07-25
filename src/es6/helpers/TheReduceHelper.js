@@ -1,3 +1,9 @@
+///
+/// ```bash
+/// node ./src/es6/helpers/TheReduceHelper.js
+/// ```
+///
+
 # Section 07: The `reduce` Helper
 
 - [The `reduce` Helper](#the-reduce-helper)

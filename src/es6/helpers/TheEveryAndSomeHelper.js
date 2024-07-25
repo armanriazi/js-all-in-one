@@ -1,3 +1,9 @@
+///
+/// ```bash
+/// node ./src/es6/helpers/TheEveryAndSomeHelper.js
+/// ```
+///
+
 # Section 06: The `every` and `some` Helper
 
 - [The `every` and `some` Helper](#the-every-and-some-helper)

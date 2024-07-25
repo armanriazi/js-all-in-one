@@ -1,3 +1,9 @@
+///
+/// ```bash
+/// node ./src/es6/helpers/TheFilterHelper.js
+/// ```
+///
+
 # Section 04: The `filter` Helper
 
 - [The `filter` Helper](#the-filter-helper)
