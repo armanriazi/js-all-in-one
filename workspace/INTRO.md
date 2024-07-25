@@ -1,3 +1,9 @@
+# JS : The Complete Developer's Guide
+
+<p align="center">
+  <img src="https://i.imgur.com/KTEorEU.png" alt="ES6 : The Complete Developer's Guide" height="250px">
+</p>
+
 # Introductory 
 
 ## Types
