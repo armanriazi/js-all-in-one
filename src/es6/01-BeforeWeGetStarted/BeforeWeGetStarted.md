@@ -5,7 +5,7 @@
 
 ## What is ECMAScript 6?
 
-The ECMAScript is the standard or the description of scripting languages such as JavaScript. In other words, JavaScript is one of the implementation of that standard. The ECMAScript 6, also known as ES6 and ECMAScript 2015, was the second major revision to JavaScript.
+The ECMAScript is the *standard* or the description of **scripting languages such as JavaScript**. In other words, JavaScript is one of the implementation of that standard. The ECMAScript 6, also known as **ES6 and ECMAScript 2015**, was the **second major revision to JavaScript.**
 
 These new features of ECMAScript 6 has to be implemented by the browser that's running on. All the browsers might not have full support for the ECMAScript 6 standard, so we should write the codes and run it through the tool called [`babel`](https://babeljs.io/).
 
