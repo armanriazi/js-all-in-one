@@ -2,6 +2,9 @@
 
 ## Types
 
+### Primitive Types
+
+> `Number`, `String`, `Boolean`, `Null`, `Undefined`, and `Symbol`
 
 ### Empty Types
 
@@ -19,3 +22,48 @@ console.log(9007199254740991 + 2); // 9007199254740992
 const bigInt = 1234567890123456789012345678901234567890n;
 const sameBigint = BigInt("1234567890123456789012345678901234567890");
 ```
+
+## Prototypes
+In JavaScript, the prototype is a fundamental concept that underpins the language's object-oriented nature. It serves as the mechanism through which objects inherit features from one another. **Every JavaScript object has a prototype**, except for the most primitive types like `Number`, `String`, `Boolean`, `Null`, `Undefined`, and `Symbol`. These primitive types do not have a prototype because they are not objects; however, they do have a prototype when they are wrapped in object form.
+
+### How Prototypes Work
+
+- **Prototype Chains**: When you attempt to access a property or method on an object, *JavaScript first checks if the property exists on the object itself. If it doesn't, JavaScript looks for the property on the object's prototype.* This process continues up the prototype chain until the property is found or the end of the chain is reached **(`Object.prototype`)**. If the property is not found anywhere in the chain, `undefined` is returned.
+
+- **Constructor Functions and Prototypes**: Constructor functions in JavaScript have a special property called `prototype`. When **you create an object using a constructor function**, *the object inherits* **the properties and methods attached** *to the constructor's `prototype`.*
+
+### Setting and Using Prototypes
+
+- **Using Constructors**: You can define a constructor function and attach methods to its `prototype` property. Objects created with this constructor will inherit these methods.
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name}.`);
+};
+ 
+const john = new Person('John');
+john.sayHello(); // Outputs: Hello, my name is John.
+```
+
+- **Using `Object.create()`**: Another way to set an object's prototype is by using `Object.create()`, which takes an existing object and returns a new object with the specified object as its prototype.
+
+```javascript
+const personProto = {
+  greet() {
+    console.log('Hello!');
+  }
+};
+
+const jim = Object.create(personProto);
+jim.greet(); // Outputs: Hello!
+```
+
+### Prototypes and Inheritance
+
+Prototypes enable a form of inheritance in JavaScript, allowing objects to share properties and methods. This is particularly useful for **creating relationships between objects**, such as having a `Car` object inherit from a `Vehicle` object, which in turn inherits from `Object.prototype`.
+
+
