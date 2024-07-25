@@ -5,6 +5,11 @@
 </p>
 
 # Introductory 
+JavaScript is a programming language initially designed to interact with elements of web pages. Within web browsers, JavaScript consists of three main parts:
+
+- [x] ECMAScript provides the core functionality.
+- [x] The Document Object Model [(DOM)](https://www.javascripttutorial.net/javascript-dom/) provides interfaces for interacting with elements on web pages
+- [x] The Browser Object Model [(BOM)](https://www.javascripttutorial.net/javascript-bom) provides the browser API for interacting with the web browser.
 
 ## Types
 
