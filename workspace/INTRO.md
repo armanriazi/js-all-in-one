@@ -11,6 +11,22 @@ JavaScript is a programming language initially designed to interact with element
 - [x] The Document Object Model [(DOM)](https://www.javascripttutorial.net/javascript-dom/) provides interfaces for interacting with elements on web pages
 - [x] The Browser Object Model [(BOM)](https://www.javascripttutorial.net/javascript-bom) provides the browser API for interacting with the web browser.
 
+JavaScript can run on both web browsers and servers. A popular **JavaScript server-side environment is Node.js**. Unlike client-side JavaScript, server-side JavaScript executes on the server and allows you to access databases, file systems, etc.
+
+To define a variable in JavaScript, you use var keyword. For example:
+
+```javascript
+var x = 10;
+var y = 20;
+```
+
+ES6 added a new way to declare a variable with the let keyword:
+
+```javascript
+let x = 10;
+let y = 20;
+```
+
 ## Types
 
 ### Primitive Types
