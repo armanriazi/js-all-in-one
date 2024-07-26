@@ -22,7 +22,7 @@
         * [Enhanced Object Literals](./es6/EnhancedObjectLiterals.md)        
     * [Operators](./es6/Operator.md)    
         * [Rest and Spread Operators](./es6/RestAndSpreadOperator.md)
-    * [Destructuring](./es6/Destructuring.md)
+        * [Destructuring](./es6/Destructuring.md)
     * [Object Oriented Programming](./es6/OOP.md)
         * [Classes](./es6/Classes.md)
         * [Generators](./es6/Generators.md)
