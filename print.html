@@ -1,0 +1,2925 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>js-all-in-one(A.R)</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="INTRO.html"><strong aria-hidden="true">2.</strong> Introductory</a></li><li class="chapter-item expanded "><a href="es6/ES6.html"><strong aria-hidden="true">3.</strong> ES6</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/BeforeWeGetStarted.html"><strong aria-hidden="true">3.1.</strong> Before We Get Started</a></li><li class="chapter-item "><a href="es6/Helper.html"><strong aria-hidden="true">3.2.</strong> Helpers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/TheForEachHelper.html"><strong aria-hidden="true">3.2.1.</strong> The forEach</a></li><li class="chapter-item "><a href="es6/TheMapHelper.html"><strong aria-hidden="true">3.2.2.</strong> The map</a></li><li class="chapter-item "><a href="es6/TheFilterHelper.html"><strong aria-hidden="true">3.2.3.</strong> The filter</a></li><li class="chapter-item "><a href="es6/TheFindHelper.html"><strong aria-hidden="true">3.2.4.</strong> The find</a></li><li class="chapter-item "><a href="es6/TheEveryAndSomeHelper.html"><strong aria-hidden="true">3.2.5.</strong> The every and some Helper</a></li><li class="chapter-item "><a href="es6/TheReduceHelper.html"><strong aria-hidden="true">3.2.6.</strong> The reduce Helper</a></li></ol></li><li class="chapter-item "><a href="es6/Variable.html"><strong aria-hidden="true">3.3.</strong> Variables</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/ConstAndLet.html"><strong aria-hidden="true">3.3.1.</strong> const and let</a></li><li class="chapter-item "><a href="es6/TemplateStrings.html"><strong aria-hidden="true">3.3.2.</strong> Template Strings</a></li></ol></li><li class="chapter-item "><a href="es6/FP.html"><strong aria-hidden="true">3.4.</strong> Functional Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/ArrowFunctions.html"><strong aria-hidden="true">3.4.1.</strong> Arrow Functions</a></li><li class="chapter-item "><a href="es6/DefaultArguments.html"><strong aria-hidden="true">3.4.2.</strong> DefaultArguments</a></li><li class="chapter-item "><a href="es6/DefaultFunctionArguments.html"><strong aria-hidden="true">3.4.3.</strong> Default Function Arguments</a></li><li class="chapter-item "><a href="es6/EnhancedObjectLiterals.html"><strong aria-hidden="true">3.4.4.</strong> Enhanced Object Literals</a></li></ol></li><li class="chapter-item "><a href="es6/Operator.html"><strong aria-hidden="true">3.5.</strong> Operators</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/RestAndSpreadOperator.html"><strong aria-hidden="true">3.5.1.</strong> Rest and Spread Operators</a></li><li class="chapter-item "><a href="es6/Destructuring.html"><strong aria-hidden="true">3.5.2.</strong> Destructuring</a></li></ol></li><li class="chapter-item "><a href="es6/OOP.html"><strong aria-hidden="true">3.6.</strong> Object Oriented Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/Classes.html"><strong aria-hidden="true">3.6.1.</strong> Classes</a></li></ol></li><li class="chapter-item "><a href="es6/concurrency.html"><strong aria-hidden="true">3.7.</strong> Concurrency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/Generators.html"><strong aria-hidden="true">3.7.1.</strong> Generators</a></li><li class="chapter-item "><a href="es6/PromisesAndFetch.html"><strong aria-hidden="true">3.7.2.</strong> Promises and Fetch</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Glossery.html"><strong aria-hidden="true">4.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">js-all-in-one(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="js-all-in-one-mdbook"><a class="header" href="#js-all-in-one-mdbook">js-all-in-one MDBook</a></h1>
+<p>This book is completely Free and Open Source.</p>
+<p>If you found this js-all-in-one book valuable and wish to contribute, consider supporting my efforts via cryptocurrency. Thanks!</p>
+<pre><code class="language-md">0xde5D732a5AB44832E1c69b18be30834639F44A2c
+</code></pre>
+<h2 id="downloads"><a class="header" href="#downloads">Downloads</a></h2>
+<p>You can also download the Epub version here:</p>
+<p><a href="https://github.com/armanriazi/js-all-in-one/tree/main/downloads">https://github.com/armanriazi/js-all-in-one/tree/main/downloads</a></p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Welcome to The Concise js-all-in-one Book! This guide equips you with essential knowledge and practical skills for effective NodeJs development. Discover key concepts and techniques to write clean, robust code. Whether you’re a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging ES6 power in your projects.</p>
+<h2 id="about-the-author"><a class="header" href="#about-the-author">About the Author</a></h2>
+<p>Arman Riazi is an experienced Senior Backend-end Developer with a passion for Rust, R&amp;D and Blockchain since 2012.
+You can reach Arman Riazi on the following platforms:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+LinkedIn: <a href="https://www.linkedin.com/showcase/armanriazi">https://www.linkedin.com/showcase/armanriazi</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+GitHub: <a href="https://github.com/armanriazi">https://github.com/armanriazi</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Twitter: <a href="https://twitter.com/armanriazi.meta">https://twitter.com/armanriazi.meta</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Email: armanriyazi.github.io📧gmail.com</li>
+</ul>
+<!-- - [x] Instagram: <https://instagram.com/armanriazi_meta>-->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="js--the-complete-developers-guide"><a class="header" href="#js--the-complete-developers-guide">JS : The Complete Developer’s Guide</a></h1>
+<p align="center">
+  <img src="https://i.imgur.com/KTEorEU.png" alt="ES6 : The Complete Developer's Guide" height="250px">
+</p>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<ul>
+<li><a href="INTRO.html#Introductory">Introductory</a></li>
+<li><a href="INTRO.html#Types">Types</a></li>
+<li><a href="INTRO.html#Equality">Equality</a></li>
+<li><a href="INTRO.html#Function">Function</a></li>
+<li><a href="INTRO.html#Closure">Closure</a></li>
+<li><a href="INTRO.html#This">This</a></li>
+<li><a href="INTRO.html#Prototypes">Prototype</a></li>
+<li><a href="INTRO.html#References">References</a></li>
+<li><a href="INTRO.html#Recap">Recap</a></li>
+</ul>
+<h2 id="introductory"><a class="header" href="#introductory">Introductory</a></h2>
+<p>JavaScript is a programming language initially designed to interact with elements of web pages. Within web browsers, JavaScript consists of three main parts:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+ECMAScript provides the core functionality.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+The Document Object Model <a href="https://www.javascripttutorial.net/javascript-dom/">(DOM)</a> provides interfaces for interacting with elements on web pages</li>
+<li><input disabled="" type="checkbox" checked=""/>
+The Browser Object Model <a href="https://www.javascripttutorial.net/javascript-bom">(BOM)</a> provides the browser API for interacting with the web browser.</li>
+</ul>
+<p>JavaScript can run on both web browsers and servers. A popular <strong>JavaScript server-side environment is Node.js</strong>. Unlike client-side JavaScript, server-side JavaScript executes on the server and allows you to access databases, file systems, etc.</p>
+<p>To define a variable in JavaScript, you use var keyword. For example:</p>
+<pre><code class="language-javascript">var x = 10;
+var y = 20;
+</code></pre>
+<p>ES6 added a new way to declare a variable with the let keyword:</p>
+<pre><code class="language-javascript">let x = 10;
+let y = 20;
+</code></pre>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<h3 id="primitive-types"><a class="header" href="#primitive-types">Primitive Types</a></h3>
+<blockquote>
+<p><code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>Null</code>, <code>Undefined</code>, and <code>Symbol</code>(es6)</p>
+</blockquote>
+<h3 id="number"><a class="header" href="#number">Number</a></h3>
+<p>Whenever you are handling numbers in any programming language you need to be aware of the idiosyncrasies of how the language handles numbers. Here are a few critical pieces of information about numbers in JavaScript that you should be aware of.</p>
+<h3 id="core-type"><a class="header" href="#core-type">Core Type</a></h3>
+<p>JavaScript has only one number type. It is a double-precision 64-bit <code>Number</code>. Below we discuss its limitations along with a recommended solution.</p>
+<h3 id="decimal"><a class="header" href="#decimal">Decimal</a></h3>
+<p>For those familiar with doubles / float in other languages, you would know that binary floating point numbers <em>do not</em> map correctly to Decimal numbers. A trivial (and famous) example with JavaScript’s built in numbers is shown below:</p>
+<pre><code class="language-js">console.log(.1 + .2); // 0.30000000000000004
+</code></pre>
+<blockquote>
+<p>For true decimal math use <code>big.js</code> mentioned below.</p>
+</blockquote>
+<h3 id="integer"><a class="header" href="#integer">Integer</a></h3>
+<p>The integer limits represented by the built in number type are <code>Number.MAX_SAFE_INTEGER</code> and <code>Number.MIN_SAFE_INTEGER</code>.</p>
+<p>[[MAX_SAFE_INTEGER]]</p>
+<pre><code class="language-js">console.log({max: Number.MAX_SAFE_INTEGER, min: Number.MIN_SAFE_INTEGER});
+// {max: 9007199254740991, min: -9007199254740991}
+</code></pre>
+<p><strong>Safe</strong> in this context refers to the fact that the value <em>cannot be the result of a rounding error</em>.</p>
+<p>The unsafe values are <code>+1 / -1</code> away from these safe values and any amount of addition / subtraction will <em>round</em> the result.</p>
+<pre><code class="language-js">console.log(Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2); // true!
+console.log(Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2); // true!
+
+console.log(Number.MAX_SAFE_INTEGER);      // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER + 1);  // 9007199254740992 - Correct
+console.log(Number.MAX_SAFE_INTEGER + 2);  // 9007199254740992 - Rounded!
+console.log(Number.MAX_SAFE_INTEGER + 3);  // 9007199254740994 - Rounded - correct by luck
+console.log(Number.MAX_SAFE_INTEGER + 4);  // 9007199254740996 - Rounded!
+</code></pre>
+<p>To check safety you can use ES6 <code>Number.isSafeInteger</code>:</p>
+<pre><code class="language-js">// Safe value
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER)); // true
+
+// Unsafe value
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1)); // false
+
+// Because it might have been rounded to it due to overflow
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 10)); // false
+</code></pre>
+<blockquote>
+<p>JavaScript will eventually get <a href="https://developers.google.com/web/updates/2018/05/bigint">BigInt</a> support. For now, if you want arbitrary precision integer math use <code>big.js</code> mentioned below.</p>
+</blockquote>
+<h3 id="bigjs"><a class="header" href="#bigjs">big.js</a></h3>
+<p>Whenever you use math for financial calculations (e.g. GST calculation, money with cents, addition etc) use a library like <a href="https://github.com/MikeMcl/big.js/">big.js</a> which is designed for</p>
+<ul>
+<li>Perfect decimal math</li>
+<li>Safe out of bound integer values</li>
+</ul>
+<p>Installation is simple:</p>
+<pre><code class="language-bash">npm install big.js @types/big.js
+</code></pre>
+<p>Quick Usage example:</p>
+<pre><code class="language-js">import { Big } from 'big.js';
+
+export const foo = new Big('111.11111111111111111111');
+export const bar = foo.plus(new Big('0.00000000000000000001'));
+
+// To get a number:
+const x: number = Number(bar.toString()); // Loses the precision
+</code></pre>
+<blockquote>
+<p>Do not use this library for math used for UI / performance intensive purposes e.g charts, canvas drawing etc.</p>
+</blockquote>
+<h3 id="nan"><a class="header" href="#nan">NaN</a></h3>
+<p>When some number calculation is not representable by a valid number, JavaScript returns a special <code>NaN</code> value. A  classic example is imaginary numbers:</p>
+<pre><code class="language-js">console.log(Math.sqrt(-1)); // NaN
+</code></pre>
+<p>Note: Equality checks <strong>don’t</strong> work on <code>NaN</code> values. Use <code>Number.isNaN</code> instead:</p>
+<pre><code class="language-js">// Don't do this
+console.log(NaN === NaN); // false!!
+
+// Do this
+console.log(Number.isNaN(NaN)); // true
+</code></pre>
+<h3 id="infinity"><a class="header" href="#infinity">Infinity</a></h3>
+<p>The outer bounds of values representable in Number are available as static <code>Number.MAX_VALUE</code> and <code>-Number.MAX_VALUE</code> values.</p>
+<pre><code class="language-js">console.log(Number.MAX_VALUE);  // 1.7976931348623157e+308
+console.log(-Number.MAX_VALUE); // -1.7976931348623157e+308
+</code></pre>
+<p>Values outside the range where precision isn’t changed are clamped to these limits e.g.</p>
+<pre><code class="language-js">console.log(Number.MAX_VALUE + 1 == Number.MAX_VALUE);   // true!
+console.log(-Number.MAX_VALUE - 1 == -Number.MAX_VALUE); // true!
+</code></pre>
+<p>Values outside the range where precision is changed resolve to special values <code>Infinity</code>/<code>-Infinity</code> e.g.</p>
+<pre><code class="language-js">console.log(Number.MAX_VALUE + 1e292);  // Infinity
+console.log(-Number.MAX_VALUE - 1e292); // -Infinity
+</code></pre>
+<p>Of-course, these special infinity values also show up with arithmetic that requires it e.g.</p>
+<pre><code class="language-js">console.log( 1 / 0); // Infinity
+console.log(-1 / 0); // -Infinity
+</code></pre>
+<p>You can use these <code>Infinity</code> values manually or using static members of the <code>Number</code> class as shown below:</p>
+<pre><code class="language-js">console.log(Number.POSITIVE_INFINITY === Infinity);  // true
+console.log(Number.NEGATIVE_INFINITY === -Infinity); // true
+</code></pre>
+<p>Fortunately comparison operators (<code>&lt;</code> / <code>&gt;</code>) work reliably on infinity values:</p>
+<pre><code class="language-js">console.log( Infinity &gt;  1); // true
+console.log(-Infinity &lt; -1); // true
+</code></pre>
+<h3 id="infinitesimal"><a class="header" href="#infinitesimal">Infinitesimal</a></h3>
+<p>The smallest non-zero value representable in Number is available as static <code>Number.MIN_VALUE</code></p>
+<pre><code class="language-js">console.log(Number.MIN_VALUE);  // 5e-324
+</code></pre>
+<p>Values smaller than <code>MIN_VALUE</code> (“underflow values”) are converted to 0.</p>
+<pre><code class="language-js">console.log(Number.MIN_VALUE / 10);  // 0
+</code></pre>
+<blockquote>
+<p>Further intuition: Just like values bigger than <code>Number.MAX_VALUE</code> get clamped to INFINITY, values smaller than <code>Number.MIN_VALUE</code> get clamped to <code>0</code>.</p>
+</blockquote>
+<h3 id="truthy"><a class="header" href="#truthy">Truthy</a></h3>
+<p>JavaScript has a concept of <code>truthy</code> i.e. things that evaluate like <code>true</code> would in certain positions (e.g. <code>if</code> conditions and the boolean <code>&amp;&amp;</code> <code>||</code> operators). The following things are truthy in JavaScript. An example is any number other than <code>0</code> e.g.</p>
+<pre><code class="language-typescript">if (123) { // Will be treated like `true`
+  console.log('Any number other than 0 is truthy');
+}
+</code></pre>
+<p>Something that isn’t truthy is called <code>falsy</code>.</p>
+<p>Here’s a handy table for your reference.</p>
+<div class="table-wrapper"><table><thead><tr><th>Variable Type</th><th>When it is <em>falsy</em></th><th>When it is <em>truthy</em></th></tr></thead><tbody>
+<tr><td><code>boolean</code></td><td><code>false</code></td><td><code>true</code></td></tr>
+<tr><td><code>string</code></td><td><code>''</code> (empty string)</td><td>any other string</td></tr>
+<tr><td><code>number</code></td><td><code>0</code>  <code>NaN</code></td><td>any other number</td></tr>
+<tr><td><code>null</code></td><td>always</td><td>never</td></tr>
+<tr><td><code>undefined</code></td><td>always</td><td>never</td></tr>
+<tr><td>Any other Object including empty ones like <code>{}</code>,<code>[]</code></td><td>never</td><td>always</td></tr>
+</tbody></table>
+</div>
+<h3 id="being-explicit"><a class="header" href="#being-explicit">Being explicit</a></h3>
+<blockquote>
+<p>The <code>!!</code> pattern</p>
+</blockquote>
+<p>Quite commonly it helps to be explicit that the intent is to treat the value as a <code>boolean</code> and convert it into a <em>true boolean</em> (one of <code>true</code>|<code>false</code>). You can easily convert values to a true boolean by prefixing it with <code>!!</code> e.g. <code>!!foo</code>. Its just <code>!</code> used <em>twice</em>. The first <code>!</code> converts the variable (in this case <code>foo</code>) to a boolean but inverts the logic (<em>truthy</em> -<code>!</code>&gt; <code>false</code>, <em>falsy</em> -<code>!</code>&gt; <code>true</code>). The second one toggles it again to match the nature of the original object (e.g. <em>truthy</em> -<code>!</code>&gt; <code>false</code> -<code>!</code>&gt; <code>true</code>).</p>
+<p>It is common to use this pattern in lots of places e.g.</p>
+<pre><code class="language-js">// Direct variables
+const hasName = !!name;
+
+// As members of objects
+const someObj = {
+  hasName: !!name
+}
+
+// e.g. in ReactJS JSX
+{!!someName &amp;&amp; &lt;div&gt;{someName}&lt;/div&gt;}
+</code></pre>
+<h2 id="empty-types"><a class="header" href="#empty-types">Empty Types</a></h2>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+NaN</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Infinity</li>
+</ul>
+<h2 id="bigint"><a class="header" href="#bigint">BigInt</a></h2>
+<p>Although, the other way around is proposed by the developers of <strong>JSBI library</strong>.
+This library implements big numbers using its own methods. We can use them instead of native bigints.</p>
+<pre><code class="language-js">console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+const bigInt = 1234567890123456789012345678901234567890n;
+const sameBigint = BigInt(&quot;1234567890123456789012345678901234567890&quot;);
+</code></pre>
+<h2 id="equality"><a class="header" href="#equality">Equality</a></h2>
+<p>One thing to be careful about in JavaScript is the difference between <code>==</code> and <code>===</code>. As JavaScript tries to
+be resilient against programming errors <code>==</code> tries to do type coercion between two variables e.g. converts a
+string to a number so that you can compare with a number as shown below:</p>
+<p>However, the choices JavaScript makes are not always ideal. For example, in the below example the first statement is false
+because <code>&quot;&quot;</code> and <code>&quot;0&quot;</code> are both strings and are clearly not equal. However, in the second case both <code>0</code> and the
+empty string (<code>&quot;&quot;</code>) are falsy (i.e. behave like <code>false</code>) and are therefore equal with respect to <code>==</code>. Both statements
+are false when you use <code>===</code>.</p>
+<p>[[Error_Equality]] [[Error_TS2367]]</p>
+<!-- skip -->
+<pre><code class="language-typescript">console.log(5 == &quot;5&quot;); // true   , TS Error
+console.log(5 === &quot;5&quot;); // false , TS Error
+console.log(&quot;&quot; == &quot;0&quot;); // false , TS Error
+console.log(0 == &quot;&quot;); // true , TS Error
+console.log(&quot;&quot; === &quot;0&quot;); // false , TS Error
+console.log(0 === &quot;&quot;); // false , TS Error
+
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2367: This comparison appears to be unintentional because the types 'number' and 'string' have no overlap.
+</code></pre>
+<blockquote>
+<p>Note that <code>string == number</code> and <code>string === number</code> are both compile time errors in TypeScript, so you don’t normally need to worry about this.</p>
+</blockquote>
+<p>Similar to <code>==</code> vs. <code>===</code>, there is <code>!=</code> vs. <code>!==</code></p>
+<p>So ProTip: Always use <code>===</code> and <code>!==</code> except for null checks, which we cover later.</p>
+<h2 id="structural-equality"><a class="header" href="#structural-equality">Structural Equality</a></h2>
+<p>If you want to compare two objects for structural equality <code>==</code>/<code>===</code> are <em><strong>not</strong></em> sufficient. e.g. </p>
+<p><code>&gt;tags:</code> #Important [[Error_Equality]] [[Error_TS2839]]</p>
+<!-- skip -->
+<pre><code class="language-js">console.log({a:123} == {a:123}); // False
+console.log({a:123} === {a:123}); // False
+</code></pre>
+<p>To do such checks use the <a href="https://www.npmjs.com/package/deep-equal">deep-equal</a> npm package e.g. </p>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2839: This condition will always return 'false' since JavaScript compares objects by reference, not value.
+</code></pre>
+<p>[[Library_Deep-Equal]]</p>
+<pre><code class="language-typescript">import * as deepEqual from &quot;deep-equal&quot;;
+
+console.log(deepEqual({a:123},{a:123})); // True
+</code></pre>
+<p>However, quite commonly you don’t need deep checks and all you really need is to check by some <code>id</code> e.g. </p>
+<pre><code class="language-typescript">type IdDisplay = {
+  id: string,
+  display: string
+}
+const list: IdDisplay[] = [
+  {
+    id: 'foo',
+    display: 'Foo Select'
+  },
+  {
+    id: 'bar',
+    display: 'Bar Select'
+  },
+]
+
+const fooIndex = list.map(i =&gt; i.id).indexOf('foo');
+console.log(fooIndex); // Output 0
+</code></pre>
+<h2 id="function"><a class="header" href="#function">Function</a></h2>
+<p>by defining a function will have access to the objects like:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Call</li>
+<li><input disabled="" type="checkbox" checked=""/>
+prototype</li>
+<li><input disabled="" type="checkbox" checked=""/>
+arguments</li>
+</ul>
+<h2 id="closure"><a class="header" href="#closure">Closure</a></h2>
+<p>The best thing that JavaScript ever got was closures. A function in JavaScript has access to any variables defined in the outer scope. Closures are best explained with examples:</p>
+<pre><code class="language-typescript">function outerFunction(arg:String) {
+    var variableInOuterFunction = arg;
+
+    function bar() {
+        console.log(variableInOuterFunction); // Access a variable from the outer scope
+    }
+
+    // Call the local function to demonstrate that it has access to arg
+    bar();
+}
+
+outerFunction(&quot;hello closure&quot;); // Result: hello closure
+</code></pre>
+<p>You can see that the inner function has access to a variable (variableInOuterFunction) from the outer scope. The variables in the outer function have been closed by (or bound in) the inner function. Hence the term <strong>closure</strong>. The concept in itself is simple enough and pretty intuitive.</p>
+<p>Now the awesome part: The inner function can access the variables from the outer scope <em>even after the outer function has returned</em>. This is because the variables are still bound in the inner function and not dependent on the outer function. Again let’s look at an example:</p>
+<pre><code class="language-typescript">function outerFunction(arg) {
+    var variableInOuterFunction = arg;
+    return function() {
+        console.log(variableInOuterFunction);
+    }
+}
+
+var innerFunction = outerFunction(&quot;hello closure!&quot;);
+
+// Note the outerFunction has returned
+innerFunction(); // logs hello closure!
+</code></pre>
+<h3 id="reason-why-its-awesome"><a class="header" href="#reason-why-its-awesome">Reason why it’s awesome</a></h3>
+<p>It allows you to compose objects easily e.g. the revealing module pattern:</p>
+<pre><code class="language-typescript">function createCounter() {
+    let val = 0;
+    return {
+        increment() { val++ },
+        getVal() { return val }
+    }
+}
+
+let counter = createCounter();
+counter.increment();
+console.log(counter.getVal()); // 1
+counter.increment();
+console.log(counter.getVal()); // 2
+</code></pre>
+<p>At a high level it is also what makes something like Node.js possible.</p>
+<pre><code class="language-typescript">// Pseudo code to explain the concept
+server.on(function handler(req, res) {
+    loadData(req.id).then(function(data) {
+        // the `res` has been closed over and is available
+        res.send(data);
+    })
+});
+</code></pre>
+<h2 id="this"><a class="header" href="#this">This</a></h2>
+<p>Any access to <code>this</code> keyword within a function is controlled by how the function is actually called. It is commonly referred to as the “calling context.”</p>
+<p>Here is an example:</p>
+<p>[[Error_TS2683]]</p>
+<pre><code class="language-typescript">function foo() {
+  console.log(this);
+}
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md"> error TS2683: 'this' implicitly has type 'any' because it does not have a type annotation.
+</code></pre>
+<pre><code class="language-typescript">foo(); // logs out the global e.g. `window` in browsers
+let bar = {
+  foo
+}
+bar.foo(); // Logs out `bar` as `foo` was called on `bar`
+</code></pre>
+<p>So be mindful of your usage of <code>this</code>. If you want to disconnect <code>this</code> in a class from the calling context use an arrow function, <a href="../arrow-functions.html">more on that later</a>.</p>
+<p><a href="../fp/call_method.html">This keyword in functions and containers</a></p>
+<h2 id="prototypes"><a class="header" href="#prototypes">Prototypes</a></h2>
+<p>In JavaScript, the prototype is a fundamental concept that underpins the language’s object-oriented nature. It serves as the mechanism through which objects inherit features from one another. <strong>Every JavaScript object has a prototype</strong>, except for the most primitive types like <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>Null</code>, <code>Undefined</code>, and <code>Symbol</code>. These primitive types do not have a prototype because they are not objects; however, they do have a prototype when they are wrapped in object form.</p>
+<h3 id="how-prototypes-work"><a class="header" href="#how-prototypes-work">How Prototypes Work</a></h3>
+<ul>
+<li>
+<p><strong>Prototype Chains</strong>: When you attempt to access a property or method on an object, <em>JavaScript first checks if the property exists on the object itself. If it doesn’t, JavaScript looks for the property on the object’s prototype.</em> This process continues up the prototype chain until the property is found or the end of the chain is reached <strong>(<code>Object.prototype</code>)</strong>. If the property is not found anywhere in the chain, <code>undefined</code> is returned.</p>
+</li>
+<li>
+<p><strong>Constructor Functions and Prototypes</strong>: Constructor functions in JavaScript have a special property called <code>prototype</code>. When <strong>you create an object using a constructor function</strong>, <em>the object inherits</em> <strong>the properties and methods attached</strong> <em>to the constructor’s <code>prototype</code>.</em></p>
+</li>
+</ul>
+<h3 id="setting-and-using-prototypes"><a class="header" href="#setting-and-using-prototypes">Setting and Using Prototypes</a></h3>
+<ul>
+<li><strong>Using Constructors</strong>: You can define a constructor function and attach methods to its <code>prototype</code> property. Objects created with this constructor will inherit these methods.</li>
+</ul>
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name}.`);
+};
+ 
+const john = new Person('John');
+john.sayHello(); // Outputs: Hello, my name is John.
+</code></pre>
+<ul>
+<li><strong>Using <code>Object.create()</code></strong>: Another way to set an object’s prototype is by using <code>Object.create()</code>, which takes an existing object and returns a new object with the specified object as its prototype.</li>
+</ul>
+<pre><code class="language-javascript">const personProto = {
+  greet() {
+    console.log('Hello!');
+  }
+};
+
+const jim = Object.create(personProto);
+jim.greet(); // Outputs: Hello!
+</code></pre>
+<h2 id="prototypes-and-inheritance"><a class="header" href="#prototypes-and-inheritance">Prototypes and Inheritance</a></h2>
+<p>Prototypes enable a form of inheritance in JavaScript, allowing objects to share properties and methods. This is particularly useful for <strong>creating relationships between objects</strong>, such as having a <code>Car</code> object inherit from a <code>Vehicle</code> object, which in turn inherits from <code>Object.prototype</code>.</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Beyond literals, any Object in JavaScript (including functions, arrays, regexp etc) are references. This means the following</p>
+<h3 id="mutations-are-across-all-references"><a class="header" href="#mutations-are-across-all-references">Mutations are across all references</a></h3>
+<p>[[Error_TS2339]]</p>
+<pre><code class="language-js">var foo = {};
+var bar = foo; // bar is a reference to the same object
+
+foo.baz = 123;
+console.log(bar.baz); // JS Result: 123, TS Result : Error
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2339: Property 'baz' does not exist on type '{}'.
+</code></pre>
+<h3 id="equality-is-for-references"><a class="header" href="#equality-is-for-references">Equality is for references</a></h3>
+<p>[[Error_TS2304]]</p>
+<pre><code class="language-js">var foo = {};
+var bar = foo; // bar is a reference
+var baz = {}; // baz is a *new object* distinct from `foo`
+
+console.log(foo === bar); //JS, TS Result: true
+console.log(foo === baz); //JS, TS Result: false
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2304: Cannot find name 'someglobal'.
+</code></pre>
+<h2 id="recap"><a class="header" href="#recap">Recap</a></h2>
+<h3 id="your-javascript-is-typescript"><a class="header" href="#your-javascript-is-typescript">Your JavaScript is TypeScript</a></h3>
+<p>There were (and will continue to be) a lot of competitors in <em>Some syntax</em> to <em>JavaScript</em> compilers. TypeScript is different from them in that <em>Your JavaScript is TypeScript</em>. Here’s a diagram:</p>
+<p><img src="https://raw.githubusercontent.com/armanriazi/typescript-all-in-one/master/images/venn.png" alt="JavaScript is TypeScript" /></p>
+<p>However, it does mean that <em>you need to learn JavaScript</em> (the good news is <em>you <strong>only</strong> need to learn JavaScript</em>). TypeScript is just standardizing all the ways you provide <em>good documentation</em> on JavaScript.</p>
+<ul>
+<li>Just giving you a new syntax doesn’t help catch bugs - but might help you write cleaner / less bugs (e.g. CoffeeScript).</li>
+<li>Creating a new language abstracts you too far from your runtimes and communities - but might help on-board you easier if its an already familiar flavour (e.g. Dart - closer for Java / C# devs).</li>
+</ul>
+<p>TypeScript is just JavaScript with docs.</p>
+<blockquote>
+<p>JSNext is open to interpretation - not everything proposed for the next version of JS actually makes it to browsers. TypeScript only adds support for proposals once they reach <a href="https://tc39.es/process-document/">stage 3</a>.</p>
+</blockquote>
+<h3 id="making-javascript-better"><a class="header" href="#making-javascript-better">Making JavaScript Better</a></h3>
+<p>TypeScript will try to protect you from portions of JavaScript that never worked (so you don’t need to remember this stuff):</p>
+<pre><code class="language-typescript">[] + []; // JavaScript will give you &quot;&quot; (which makes little sense), TypeScript will error
+
+//
+// other things that are nonsensical in JavaScript
+// - don't give a runtime error (making debugging hard)
+// - but TypeScript will give a compile time error (making debugging unnecessary)
+//
+{} + []; // JS : 0, TS Error
+[] + {}; // JS : &quot;[object Object]&quot;, TS Error
+{} + {}; // JS : NaN or [object Object][object Object] depending upon browser, TS Error
+&quot;hello&quot; - 1; // JS : NaN, TS Error
+
+function add(a,b) {
+  return
+    a + b; // JS : undefined, TS Error 'unreachable code detected'
+}
+</code></pre>
+<p>Essentially TypeScript is linting JavaScript. Just doing a better job at it than other linters that don’t have <em>type information</em>.</p>
+<h3 id="you-still-need-to-learn-javascript"><a class="header" href="#you-still-need-to-learn-javascript">You still need to learn JavaScript</a></h3>
+<p>That said TypeScript is very pragmatic about the fact that <em>you do write JavaScript</em> so there are some things about JavaScript that you still need to know in order to not be caught off-guard. Let’s discuss them next.</p>
+<blockquote>
+<p>Note: TypeScript is a superset of JavaScript. Just with documentation that can actually be used by compilers / IDEs ;)</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><div align="right">
+<p><a href="https://www.udemy.com/course/javascript-es6-tutorial/"><img src="https://img.shields.io/badge/Udemy--EC5252.svg?logo=udemy&amp;style=flat-square" alt="" /></a>
+<a href="es6/./LICENSE"><img src="https://img.shields.io/github/license/armanriazi/js-all-in-one?style=flat-square" alt="" /></a></p>
+</div>
+<h1 id="es6--the-complete-developers-guide"><a class="header" href="#es6--the-complete-developers-guide">ES6 : The Complete Developer’s Guide</a></h1>
+<p align="center">
+  <img src="https://i.imgur.com/KTEorEU.png" alt="ES6 : The Complete Developer's Guide" height="250px">
+</p>
+<h2 id="contents-1"><a class="header" href="#contents-1">Contents</a></h2>
+<ol>
+<li><a href="es6/./01-BeforeWeGetStarted/BeforeWeGetStarted.html">Before We Get Started</a></li>
+<li><a href="es6/./02-TheForEachHelper/TheForEachHelper.html">The <code>forEach</code> Helper</a></li>
+<li><a href="es6/./03-TheMapHelper/TheMapHelper.html">The <code>map</code> Helper</a></li>
+<li><a href="es6/./04-TheFilterHelper/TheFilterHelper.html">The <code>filter</code> Helper</a></li>
+<li><a href="es6/./05-TheFindHelper/TheFindHelper.html">The <code>find</code> Helper</a></li>
+<li><a href="es6/./06-TheEveryAndSomeHelper/TheEveryAndSomeHelper.html">The <code>every</code> and <code>some</code> Helper</a></li>
+<li><a href="es6/./07-TheReduceHelper/TheReduceHelper.html">The <code>reduce</code> Helper</a></li>
+<li><a href="es6/./08-ConstAndLet/ConstAndLet.html"><code>const</code> and <code>let</code></a></li>
+<li><a href="es6/./09-TemplateStrings/TemplateStrings.html">Template Strings</a></li>
+<li><a href="es6/./10-ArrowFunctions/ArrowFunctions.html">Arrow Functions</a></li>
+<li><a href="es6/./11-EnhancedObjectLiterals/EnhancedObjectLiterals.html">Enhanced Object Literals</a></li>
+<li><a href="es6/./12-DefaultFunctionArguments/DefaultFunctionArguments.html">Default Function Arguments</a></li>
+<li><a href="es6/./13-RestAndSpreadOperator/RestAndSpreadOperator.html">Rest and Spread Operators</a></li>
+<li><a href="es6/./14-Destructuring/Destructuring.html">Destructuring</a></li>
+<li><a href="es6/./15-Classes/Classes.html">Classes</a></li>
+<li><a href="es6/./16-Generators/Generators.html">Generators</a></li>
+<li><a href="es6/./17-PromisesAndFetch/PromisesAndFetch.html">Promises and Fetch</a></li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-01-before-we-get-started"><a class="header" href="#section-01-before-we-get-started">Section 01: Before We Get Started</a></h1>
+<ul>
+<li><a href="es6/BeforeWeGetStarted.html#what-is-ecmascript-6">What is ECMAScript 6?</a></li>
+<li><a href="es6/BeforeWeGetStarted.html#javascript-playgrounds">JavaScript Playgrounds</a></li>
+</ul>
+<h2 id="what-is-ecmascript-6"><a class="header" href="#what-is-ecmascript-6">What is ECMAScript 6?</a></h2>
+<p>The ECMAScript is the <em>standard</em> or the description of <strong>scripting languages such as JavaScript</strong>. In other words, JavaScript is one of the implementation of that standard. The ECMAScript 6, also known as <strong>ES6 and ECMAScript 2015</strong>, was the <strong>second major revision to JavaScript.</strong></p>
+<p>These new features of ECMAScript 6 has to be implemented by the browser that’s running on. All the browsers might not have full support for the ECMAScript 6 standard, so we should write the codes and run it through the tool called <a href="https://babeljs.io/"><code>babel</code></a>.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/BeforeWeGetStarted.html#section-01-before-we-get-started">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="javascript-playgrounds"><a class="header" href="#javascript-playgrounds">JavaScript Playgrounds</a></h2>
+<ul>
+<li><a href="https://jsfiddle.net/">JSFiddle</a></li>
+<li><a href="https://playcode.io/">PlayCode</a></li>
+<li><a href="https://jscomplete.com/playground">jsComplete</a></li>
+<li><a href="https://jsbin.com/">JS Bin</a></li>
+</ul>
+<br/>
+<div align="right">
+  <b><a href="es6/BeforeWeGetStarted.html#section-01-before-we-get-started">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="helpers"><a class="header" href="#helpers">Helpers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-02-the-foreach-helper"><a class="header" href="#section-02-the-foreach-helper">Section 02: The <code>forEach</code> Helper</a></h1>
+<ul>
+<li><a href="es6/TheForEachHelper.html#the-foreach-helper">The <code>forEach</code> Helper</a></li>
+<li><a href="es6/TheForEachHelper.html#exercise-moving-away-from-for-loops">[Exercise] Moving Away From For Loops</a></li>
+<li><a href="es6/TheForEachHelper.html#exercise-processing-values">[Exercise] Processing Values</a></li>
+</ul>
+<h2 id="the-foreach-helper"><a class="header" href="#the-foreach-helper">The <code>forEach</code> Helper</a></h2>
+<p>The <code>forEach()</code> method executes a provided function once for each array element.</p>
+<pre><code class="language-javascript">let colors = ['red', 'blue', 'green'];
+
+// loop the array by using for loop
+for (let i = 0; i &lt; colors.legnth; i++) {
+  console.log(colors[i]);
+}
+
+// loop the array by using forEach method
+colors.forEach(color =&gt; console.log(color));
+</code></pre>
+<p>Let’s see another example, we’re going to use <code>forEach()</code> helper to calculate the sum of a list of numbers.</p>
+<pre><code class="language-javascript">let sum = 0                     // create a variable to hold the sum
+let numbers = [1, 2, 3, 4, 5];  // create an array of numbers to be added
+
+// loop over the array with forEach() helper
+numbers.forEach(num =&gt; sum += num);
+</code></pre>
+<p>Note that the <code>forEach()</code> helper is kind of Swiss Army Knife of array helpers and every other helpers could be reimplemented using <code>forEach()</code> helper.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/TheForEachHelper.html#section-02-the-foreach-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-moving-away-from-for-loops"><a class="header" href="#exercise-moving-away-from-for-loops">[Exercise] Moving Away From For Loops</a></h2>
+<h3 id="question"><a class="header" href="#question">Question</a></h3>
+<p>The code below is calling <code>savePost</code> three times, but it is doing so using a for loop. This implementation works, but the for loop makes it more challenging to understand the purpose of the function. Rather than using a for loop, refactor the code below to instead use the forEach helper.</p>
+<pre><code class="language-javascript">function handlePosts() {
+  var posts = [
+    { id: 23, title: 'Daily JS News' },
+    { id: 52, title: 'Code Refactor City' },
+    { id: 105, title: 'The Brightest Ruby' }
+  ];
+
+  for (var i = 0; i &lt; posts.length; i++) {
+    savePost(posts[i]);
+  }
+}
+</code></pre>
+<h3 id="solution"><a class="header" href="#solution">Solution</a></h3>
+<pre><code class="language-javascript">function handlePosts() {
+  let posts = [
+    { id: 23, title: 'Daily JS News' },
+    { id: 52, title: 'Code Refactor City' },
+    { id: 105, title: 'The Brightest Ruby' }
+  ];
+
+  posts.forEach(post =&gt; savePost(post));
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheForEachHelper.html#section-02-the-foreach-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-processing-values"><a class="header" href="#exercise-processing-values">[Exercise] Processing Values</a></h2>
+<h3 id="question-1"><a class="header" href="#question-1">Question</a></h3>
+<p>The array below contains an array of objects, each of which is a representation of an image. Using the <code>forEach()</code> helper, calculate the area of each image and store it in a new array called <code>areas</code>. The area of an image can be calculated as <code>image.height * image.width</code>.</p>
+<pre><code class="language-javascript">var images = [
+  { height: 10, width: 30 },
+  { height: 20, width: 90 },
+  { height: 54, width: 32 }
+];
+var areas = [];
+</code></pre>
+<h3 id="solution-1"><a class="header" href="#solution-1">Solution</a></h3>
+<pre><code class="language-javascript">let images = [
+  { height: 10, width: 30 },
+  { height: 20, width: 90 },
+  { height: 54, width: 32 }
+];
+
+let areas = [];
+images.forEach(image =&gt; areas.push(image.height * image.width));
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheForEachHelper.html#section-02-the-foreach-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="section-03-the-map-helper"><a class="header" href="#section-03-the-map-helper">Section 03: The <code>map</code> Helper</a></h1>
+<ul>
+<li><a href="es6/TheMapHelper.html#the-map-helper">The <code>map</code> Helper</a></li>
+<li><a href="es6/TheMapHelper.html#exercise-plucking-values">[Exercise] Plucking Values</a></li>
+<li><a href="es6/TheMapHelper.html#exercise-calculate-values-with-map">[Exercise] Calculate Values with <code>map()</code></a></li>
+<li><a href="es6/TheMapHelper.html#exercise-implement-pluck">[Exercise] Implement <code>Pluck</code></a></li>
+</ul>
+<h2 id="the-map-helper"><a class="header" href="#the-map-helper">The <code>map</code> Helper</a></h2>
+<p>The <code>map()</code> method executes a provided function once for each array element and creates a new array with the results. Make sure that we have the <code>return</code> keyword in the given function.</p>
+<pre><code class="language-javascript">let numbers = [1, 2, 3];
+let doubleNumbers = [];
+
+// loop the array by using for loop
+for (let i = 0; i &lt; numbers.length; i++) {
+  doubleNumbers.push(numbers[i] * 2);
+}
+
+// loop the array by using map() method
+doubleNumbers = numbers.map(number =&gt; number *2);
+</code></pre>
+<p>Note that the <code>map()</code> method doesn’t change the original array. Let’s see another example which would be frequently with client side rendering frameworks like React or Angular.</p>
+<pre><code class="language-javascript">let cars = [
+  { model: 'Buick', price: 'cheap' },
+  { model: 'Camaro', price: 'expensive' }
+];
+
+let prices = cars.map(car =&gt; car.price);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheMapHelper.html#section-03-the-map-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-plucking-values"><a class="header" href="#exercise-plucking-values">[Exercise] Plucking Values</a></h2>
+<h3 id="question-2"><a class="header" href="#question-2">Question</a></h3>
+<p>Using <code>map()</code>, create a new array that contains the <code>height</code> property of each object. Assign this new array to the variable <code>heights</code>. Don’t forget to use the <code>return</code> keyword in the function!</p>
+<pre><code class="language-javascript">var images = [
+  { height: '34px', width: '39px' },
+  { height: '54px', width: '19px' },
+  { height: '83px', width: '75px' },
+];
+
+var heights;
+</code></pre>
+<h3 id="solution-2"><a class="header" href="#solution-2">Solution</a></h3>
+<pre><code class="language-javascript">let images = [
+  { height: '34px', width: '39px' },
+  { height: '54px', width: '19px' },
+  { height: '83px', width: '75px' },
+];
+
+let heights = images.map(image =&gt; image.height);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheMapHelper.html#section-03-the-map-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-calculate-values-with-map"><a class="header" href="#exercise-calculate-values-with-map">[Exercise] Calculate Values with <code>map()</code></a></h2>
+<p>Using <code>map()</code>, create a new array that contains the <code>(distance / time)</code> value from each trip. In other words, the new array should contain the <code>(distance / time)</code> value. Assign the result to the variable <code>speeds</code>.</p>
+<h3 id="question-3"><a class="header" href="#question-3">Question</a></h3>
+<pre><code class="language-javascript">var trips = [
+  { distance: 34, time: 10 },
+  { distance: 90, time: 50 },
+  { distance: 59, time: 25 }
+];
+
+var speeds;
+</code></pre>
+<h3 id="solution-3"><a class="header" href="#solution-3">Solution</a></h3>
+<pre><code class="language-javascript">let trips = [
+  { distance: 34, time: 10 },
+  { distance: 90, time: 50 },
+  { distance: 59, time: 25 }
+];
+
+let speeds = trips.map(trip =&gt; trip.distance / trip.time);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheMapHelper.html#section-03-the-map-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-implement-pluck"><a class="header" href="#exercise-implement-pluck">[Exercise] Implement <code>Pluck</code></a></h2>
+<h3 id="question-4"><a class="header" href="#question-4">Question</a></h3>
+<p>Implement a <code>pluck</code> function. Pluck should accept an array and a string representing a property <code>name</code> and return an array containing that property from each object.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-javascript">var paints = [ { color: 'red' }, { color: 'blue' }, { color: 'yellow' }];
+
+// returns ['red', 'yellow', 'blue']
+pluck(paints, 'color');
+</code></pre>
+<p><strong>Hint</strong></p>
+<p>Remember that you can access a property on an object by using square bracket notation.</p>
+<pre><code class="language-javascript">var person = { name: 'Bill' };
+// returns 'Bill'
+person['name'];
+</code></pre>
+<h3 id="solution-4"><a class="header" href="#solution-4">Solution</a></h3>
+<pre><code class="language-javascript">function pluck(array, property) {
+  return array.map(object =&gt; object[property]);
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheMapHelper.html#section-03-the-map-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-04-the-filter-helper"><a class="header" href="#section-04-the-filter-helper">Section 04: The <code>filter</code> Helper</a></h1>
+<ul>
+<li><a href="es6/TheFilterHelper.html#the-filter-helper">The <code>filter</code> Helper</a></li>
+<li><a href="es6/TheFilterHelper.html#exercise-filtering-values">[Exercise] Filtering Values</a></li>
+<li><a href="es6/TheFilterHelper.html#exercise-handling-permissions-with-filter">[Exercise] Handling Permissions with Filter</a></li>
+<li><a href="es6/TheFilterHelper.html#exercise-implementing-reject">[Exercise] Implementing <code>reject</code></a></li>
+</ul>
+<h2 id="the-filter-helper"><a class="header" href="#the-filter-helper">The <code>filter</code> Helper</a></h2>
+<p>The <code>filter()</code> method executes the provided function once for each array element and returns <strong>all the elements passing the test by provided function</strong>. Otherwise it returns <code>undefined</code>.</p>
+<pre><code class="language-javascript">let products = [
+  { name: 'cucumber', type: 'vegetable' },
+  { name: 'banana', type: 'fruit' },
+  { name: 'celery', type: 'vegetable' },
+  { name: 'orange', type: 'fruit' },
+];
+
+// loop the array by using for loop
+let filteredProducts = [];
+for (let i = 0; i &lt; products.length; i++) {
+  if (products[i].type === 'fruit') {
+    filteredProducts.push(products[i]);
+  }
+}
+
+// loop the array by using filter() method
+let filteredProducts = products.filter(product =&gt; product.type === 'fruit');
+</code></pre>
+<p>Note that the <code>filter()</code> method doesn’t change the original array. Let’s see the example with multi-conditions.</p>
+<pre><code class="language-javascript">let products = [
+  { name: 'cucumber', type: 'vegetable', quantity: 0, price: 1 },
+  { name: 'banana', type: 'fruit', quantity: 10, price: 15 },
+  { name: 'celery', type: 'vegetable', quantity: 30, price: 9 },
+  { name: 'orange', type: 'fruit', quantity: 3, price: 5 },
+];
+
+// Filter out:  (1) 'vegetable' Type
+//              (2) quantity is greater than 0
+//              (3) price is less than 10
+let products = [
+  { name: 'cucumber', type: 'vegetable', quantity: 0, price: 1 },
+  { name: 'banana', type: 'fruit', quantity: 10, price: 15 },
+  { name: 'celery', type: 'vegetable', quantity: 30, price: 9 },
+  { name: 'orange', type: 'fruit', quantity: 3, price: 5 },
+];
+
+// Filter out:  (1) 'vegetable' Type
+//              (2) quantity is greater than 0
+//              (3) price is less than 10
+let filteredProducts = products.filter(
+  (product) =&gt;
+    product.type === &quot;vegetable&quot; &amp;&amp; product.quantity &gt; 0 &amp;&amp; product.price &lt; 10
+);
+
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFilterHelper.html#section-04-the-filter-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-filtering-values"><a class="header" href="#exercise-filtering-values">[Exercise] Filtering Values</a></h2>
+<h3 id="question-5"><a class="header" href="#question-5">Question</a></h3>
+<p>Filter the array of numbers using the filter helper, creating a new array that only contains numbers greater than 50.  Assign this new array to a variable called <code>filteredNumbers</code>. Don’t forget to use the <code>return</code> keyword in the function!</p>
+<pre><code class="language-javascript">var numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+var filteredNumbers;
+</code></pre>
+<h3 id="solution-5"><a class="header" href="#solution-5">Solution</a></h3>
+<pre><code class="language-javascript">let numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+let filteredNumbers = numbers.filter(number =&gt; number &gt; 50);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFilterHelper.html#section-04-the-filter-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-handling-permissions-with-filter"><a class="header" href="#exercise-handling-permissions-with-filter">[Exercise] Handling Permissions with Filter</a></h2>
+<h3 id="question-6"><a class="header" href="#question-6">Question</a></h3>
+<p>Filter the array of users, only returning users who have admin level access. Assign the result to the variable <code>filteredUsers</code>. Don’t forget to use the <code>return</code> keyword in the function!</p>
+<pre><code class="language-javascript">var users = [
+ { id: 1, admin: true },
+ { id: 2, admin: false },
+ { id: 3, admin: false },
+ { id: 4, admin: false },
+ { id: 5, admin: true },
+];
+
+var filteredUsers;
+</code></pre>
+<h3 id="solution-6"><a class="header" href="#solution-6">Solution</a></h3>
+<pre><code class="language-javascript">let users = [
+ { id: 1, admin: true },
+ { id: 2, admin: false },
+ { id: 3, admin: false },
+ { id: 4, admin: false },
+ { id: 5, admin: true },
+];
+
+let filteredUsers = users.filter(user =&gt; user.admin);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFilterHelper.html#section-04-the-filter-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-implementing-reject"><a class="header" href="#exercise-implementing-reject">[Exercise] Implementing <code>reject</code></a></h2>
+<h3 id="question-7"><a class="header" href="#question-7">Question</a></h3>
+<p>Create a function called <code>reject</code>. Reject should work in the opposite way of <code>filter</code> - if a function returns <code>true</code>, the item should <em>not</em> be included in the new array. </p>
+<p><strong>Hint</strong>: you can reuse filter.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-javascript">var numbers = [10, 20, 30];
+var lessThanFifteen = reject(numbers, function(number) {
+  return number &gt; 15;
+});
+
+// returns: [10]
+lessThanFifteen()
+</code></pre>
+<h3 id="solution-7"><a class="header" href="#solution-7">Solution</a></h3>
+<pre><code class="language-javascript">function reject(array, iteratorFunction) {
+  return array.filter(item =&gt; !iteratorFunction(item));
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFilterHelper.html#section-04-the-filter-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-05-the-find-helper"><a class="header" href="#section-05-the-find-helper">Section 05: The <code>find</code> Helper</a></h1>
+<ul>
+<li><a href="es6/TheFindHelper.html#the-find-helper">The <code>find</code> Helper</a></li>
+<li><a href="es6/TheFindHelper.html#usind-find-to-match-posts-and-comment">Usind <code>find()</code> to Match posts and comment</a></li>
+<li><a href="es6/TheFindHelper.html#exercise-finding-admin-users">[Exercise] Finding Admin Users</a></li>
+<li><a href="es6/TheFindHelper.html#exercise-whats-your-balance">[Exercise] What’s Your Balance?</a></li>
+<li><a href="es6/TheFindHelper.html#exercise-custom-findwhere-helper">[Exercise] Custom <code>findWhere</code> Helper</a></li>
+</ul>
+<h2 id="the-find-helper"><a class="header" href="#the-find-helper">The <code>find</code> Helper</a></h2>
+<p>The <code>map()</code> method executes the provided function once for each array element and returns the <strong>value of the first element passing the test by provided function</strong>. Otherwise it returns <code>undefined</code>.</p>
+<pre><code class="language-javascript">let users = [
+  { name: 'Jill' },
+  { name: 'Alex' },
+  { name: 'Bill' }
+];
+
+// loop the array by using for loop
+let user = '';
+for (let i = 0; i &lt; users.length; i++) {
+  if (users[i].name === 'Alex') {
+    user = users[i];
+    break;
+  }
+}
+
+// loop the array by using find() method
+let user = users.find(user =&gt; user.name === 'Alex');
+</code></pre>
+<p>Note that the <code>find()</code> method doesn’t change the original array. Let’s see another example dealing objects with <code>find()</code>.</p>
+<pre><code class="language-javascript">function Car(model) {
+  this.model = model;
+}
+
+let cars = [
+  new Car('Buick'),
+  new Car('Camaro'),
+  new Car('Focus')
+];
+
+cars.find(car =&gt; car.model === 'Focus');
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFindHelper.html#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="usind-find-to-match-posts-and-comment"><a class="header" href="#usind-find-to-match-posts-and-comment">Usind <code>find()</code> to Match posts and comment</a></h2>
+<pre><code class="language-javascript">let posts = [
+  { id: 1, title: 'New Post' },
+  { id: 2, title: 'Old Post' }
+];
+
+let comment = { postId:1, content: 'Great Post' };
+
+function postForComment(posts, comments) {
+  return posts.find(post =&gt; post.id === comment.postId);
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFindHelper.html#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-finding-admin-users"><a class="header" href="#exercise-finding-admin-users">[Exercise] Finding Admin Users</a></h2>
+<h3 id="question-8"><a class="header" href="#question-8">Question</a></h3>
+<p>Find the user in the users’s array who is an admin. Assign this user to the variable <code>admin</code>.</p>
+<pre><code class="language-javascript">var users = [
+  { id: 1, admin: false },
+  { id: 2, admin: false },
+  { id: 3, admin: true }
+];
+
+var admin;
+</code></pre>
+<h3 id="solution-8"><a class="header" href="#solution-8">Solution</a></h3>
+<pre><code class="language-javascript">let users = [
+  { id: 1, admin: false },
+  { id: 2, admin: false },
+  { id: 3, admin: true }
+];
+
+let admin = users.find(user =&gt; user.admin === true);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFindHelper.html#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-whats-your-balance"><a class="header" href="#exercise-whats-your-balance">[Exercise] What’s Your Balance?</a></h2>
+<h3 id="question-9"><a class="header" href="#question-9">Question</a></h3>
+<p>Find the account with a balance of 12 and assign it to the variable <code>account</code>.</p>
+<pre><code class="language-javascript">var accounts = [
+  { balance: -10 },
+  { balance: 12 },
+  { balance: 0 }
+];
+
+var account;
+</code></pre>
+<h3 id="solution-9"><a class="header" href="#solution-9">Solution</a></h3>
+<pre><code class="language-javascript">let accounts = [
+  { balance: -10 },
+  { balance: 12 },
+  { balance: 0 }
+];
+
+let account = accounts.find(account =&gt; account.balance === 12);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFindHelper.html#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-custom-findwhere-helper"><a class="header" href="#exercise-custom-findwhere-helper">[Exercise] Custom <code>findWhere</code> Helper</a></h2>
+<h3 id="question-10"><a class="header" href="#question-10">Question</a></h3>
+<p>The most common <code>find</code> operation is to an object that has a given property. Rather than writing out a full function every time, it would be great if we has a shorthand syntax to find an object like this: <code>findWhere(ladders, { height: '20 feet' });</code></p>
+<p>The object <code>{ ladders: '20 feet' }</code> should be used as the search criteria - we would want to find a ladder whose <code>height</code> property was <code>20 feet</code>;</p>
+<p>Write a <code>findWhere</code> function that achieves this shorthand approach. The <code>findWhere</code> should return the found object.</p>
+<pre><code class="language-javascript">var ladders = [
+  { id: 1, height: 20 },
+  { id: 3, height: 25 }
+];
+
+// result: { id: 3, height: 25 }
+findWhere(ladders, { height: 25 });
+</code></pre>
+<p><strong>Hint</strong>:</p>
+<p>The hard part of this is figuring out the name of the proeprty on the criteria. You can use <code>Object.keys(criteria)[0]</code> to figure out the name of the property on the object. For example, <code>Object.keys({ height: '20 feet' })</code> would return <code>height</code>. You could then check to see if a given element in the array had a property equal to the criteria’s value with something like <code>element[property] === criteria[property]</code>.</p>
+<h3 id="solution-10"><a class="header" href="#solution-10">Solution</a></h3>
+<pre><code class="language-javascript">function findWhere(array, criteria) {
+  let prop = Object.keys(criteria)[0];  // keep the criteria value
+
+  return array.find(element =&gt; element[prop] === criteria[prop]);
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheFindHelper.html#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="section-06-the-every-and-some-helper"><a class="header" href="#section-06-the-every-and-some-helper">Section 06: The <code>every</code> and <code>some</code> Helper</a></h1>
+<ul>
+<li><a href="es6/TheEveryAndSomeHelper.html#the-every-and-some-helper">The <code>every</code> and <code>some</code> Helper</a></li>
+<li><a href="es6/TheEveryAndSomeHelper.html#every-and-some-in-practice"><code>every()</code> and <code>some()</code> in Practice</a></li>
+<li><a href="es6/TheEveryAndSomeHelper.html#exercise-finding-submitted-users">[Exercise] Finding Submitted Users</a></li>
+<li><a href="es6/TheEveryAndSomeHelper.html#exercise-in-progress-network-requests">[Exercise] In Progress Network Requests</a></li>
+</ul>
+<h2 id="the-every-and-some-helper"><a class="header" href="#the-every-and-some-helper">The <code>every</code> and <code>some</code> Helper</a></h2>
+<p>The <code>every()</code> and <code>some()</code> helper will checks the elements in an array pass the provided function or not.</p>
+<ul>
+<li>The <code>every()</code> method checks if all elements in an array pass a test (provided as a function).</li>
+<li>The <code>some()</code> method checks if any of the elements in an array pass a test (provided as a function).</li>
+</ul>
+<p>The <code>every()</code> method executes the provided function once for each array element and returns the <strong>value of the first element passing the test by provided function</strong>. Otherwise it returns <code>undefined</code>.</p>
+<pre><code class="language-javascript">let computers = [
+  { name: 'Apple', ram: 24 },
+  { name: 'Compaq', ram: 4 },
+  { name: 'Acer', ram: 32}
+];
+
+// loop the array by using for loop
+let allComputersCanRunProgram = true;
+let onlySomeComputersCanRunProgram = false;
+
+for (let i = 0; i &lt; computers.length; i++) {
+  let computer = computers[i];
+
+  if (computer.ram &lt; 16) {
+    allComputersCanRunProgram = false;
+  } else {
+    onlySomeComputersCanRunProgram = true;
+  }
+}
+
+// loop the array by using every() and some() method
+let allComputersCanRunProgram = computers.every(computer =&gt; computer.ram &gt; 16);
+let onlySomeComputersCanRunProgram = computers.some(computer =&gt; computer.ram &gt; 16);
+</code></pre>
+<p>Note that the <code>every()</code> and <code>some()</code> methods don’t change the original array. Moreover, the <code>some()</code> method will return and doesn’t check remaining element whenever there is an element in that array pass the test.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/TheEveryAndSomeHelper.html#section-06-the-every-and-some-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="every-and-some-in-practice"><a class="header" href="#every-and-some-in-practice"><code>every()</code> and <code>some()</code> in Practice</a></h2>
+<p>We would use <code>every()</code> or <code>some()</code> method to create the criteria for if-statement in practice.</p>
+<pre><code class="language-javascript">class Field {
+  constructor(value) {
+    this.value = value;
+  }
+
+  validate() {
+    return this.value.length &gt; 0;
+  }
+}
+
+let username = new Field(&quot;2cool&quot;);
+let password = new Field(&quot;my_password&quot;);
+let birthdate = new Field(&quot;10/10/2010&quot;);
+
+let fields = [username, password, birthdate];
+let formIsValid = fields.every(field =&gt;  field.validate());
+
+if (formIsValid) {
+  // allow user to submit!
+} else {
+  // show an error message.
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheEveryAndSomeHelper.html#section-06-the-every-and-some-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-finding-submitted-users"><a class="header" href="#exercise-finding-submitted-users">[Exercise] Finding Submitted Users</a></h2>
+<h3 id="question-11"><a class="header" href="#question-11">Question</a></h3>
+<p>Given an array of users, return <code>true</code> if every user has submitted a request form. Assign the result to the variable <code>hasSumbmitted</code>.</p>
+<pre><code class="language-javascript">var users = [
+  { id: 21, hasSubmitted: true },
+  { id: 62, hasSubmitted: false },
+  { id: 4, hasSubmitted: true }
+];
+
+var hasSubmitted;
+</code></pre>
+<h3 id="solution-11"><a class="header" href="#solution-11">Solution</a></h3>
+<pre><code class="language-javascript">let users = [
+  { id: 21, hasSubmitted: true },
+  { id: 62, hasSubmitted: false },
+  { id: 4, hasSubmitted: true }
+];
+
+let hasSubmitted = users.every(user =&gt; user.hasSubmitted);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheEveryAndSomeHelper.html#section-06-the-every-and-some-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-in-progress-network-requests"><a class="header" href="#exercise-in-progress-network-requests">[Exercise] In Progress Network Requests</a></h2>
+<h3 id="question-12"><a class="header" href="#question-12">Question</a></h3>
+<p>Given an array of network objects representing network requests, assign the boolean <code>true</code> to the variable <code>inProgress</code> if any network request has a <code>status</code> of <code>pending</code>.</p>
+<pre><code class="language-javascript">var requests = [
+  { url: '/photos', status: 'complete' },
+  { url: '/albums', status: 'pending' },
+  { url: '/users', status: 'failed' }
+];
+
+var inProgress;
+</code></pre>
+<h3 id="solution-12"><a class="header" href="#solution-12">Solution</a></h3>
+<pre><code class="language-javascript">let requests = [
+  { url: '/photos', status: 'complete' },
+  { url: '/albums', status: 'pending' },
+  { url: '/users', status: 'failed' }
+];
+
+let inProgress = requests.some(request =&gt; request.status === 'pending');
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheEveryAndSomeHelper.html#section-06-the-every-and-some-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="section-07-the-reduce-helper"><a class="header" href="#section-07-the-reduce-helper">Section 07: The <code>reduce</code> Helper</a></h1>
+<ul>
+<li><a href="es6/TheReduceHelper.html#the-reduce-helper">The <code>reduce</code> Helper</a></li>
+<li><a href="es6/TheReduceHelper.html#about-the-reducer-function">About The Reducer Function</a></li>
+<li><a href="es6/TheReduceHelper.html#exercise-distance-traveled">[Exercise] Distance Traveled</a></li>
+<li><a href="es6/TheReduceHelper.html#exercise-reducing-properties">[Exercise] Reducing Properties</a></li>
+<li><a href="es6/TheReduceHelper.html#exercise-custom-unique-helper">[Exercise] Custom <code>Unique</code> Helper</a></li>
+</ul>
+<h2 id="the-reduce-helper"><a class="header" href="#the-reduce-helper">The <code>reduce</code> Helper</a></h2>
+<p>The <code>reduce()</code> method executes the provided <strong>reducer function</strong> on each array element and return the value from the accumulator. It would reduces the array to a single value.</p>
+<pre><code class="language-javascript">let numbers = [ 10, 20 , 30 ];
+
+// loop the array by using for loop
+let sum = 0;
+for (let i = 0; i &lt; numbers.length; i++) {
+  sum += numbers[i];
+}
+
+// loop the array by using reduce helper
+let sum = numbers.reduce((value, number) =&gt; value + number, 0);
+</code></pre>
+<p>Note that the <code>reduce()</code> method doesn’t change the original array. Let’s try the more complicated example.</p>
+<pre><code class="language-javascript">let primaryColors = [
+  { color: 'red' },
+  { color: 'yellow' },
+  { color: 'blue' }
+];
+
+let colors = primaryColors.reduce((previous, primaryColor) =&gt; {
+  previous.push(primaryColor.color);
+  return previous;
+}, []);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheReduceHelper.html#section-07-the-reduce-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="about-the-reducer-function"><a class="header" href="#about-the-reducer-function">About The Reducer Function</a></h2>
+<p>The reducer function takes four arguments:</p>
+<ul>
+<li>Accumulator: <code>accumulator</code></li>
+<li>Current Value: <code>currentValue</code></li>
+<li>Current Index: <code>currentIndex</code> (Optional)</li>
+<li>Source Array: <code>array</code> (Optional)</li>
+</ul>
+<p>The first time the callback function is called, <code>accumulator</code> and <code>currentValue</code> can be one of two values.</p>
+<ul>
+<li>If <code>initialValue</code> is provided in the call to <code>reduce()</code>, then <code>accumulator</code> will be equal to <code>initialValue</code>, and <code>currentValue</code> will be equal to the first value in the array.</li>
+<li>If no <code>initialValue</code> is provided, then <code>accumulator</code> will be equal to the first value in the array, and currentValue will be equal to the second.</li>
+</ul>
+<br/>
+<div align="right">
+  <b><a href="es6/TheReduceHelper.html#section-07-the-reduce-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-distance-traveled"><a class="header" href="#exercise-distance-traveled">[Exercise] Distance Traveled</a></h2>
+<h3 id="question-13"><a class="header" href="#question-13">Question</a></h3>
+<p>Use the <code>reduce</code> helper to find the sum of all the distances traveled. Assign the result to the variable <code>totalDistance</code>.</p>
+<pre><code class="language-javascript">var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+var totalDistance;
+</code></pre>
+<h3 id="solution-13"><a class="header" href="#solution-13">Solution</a></h3>
+<pre><code class="language-javascript">let trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+let totalDistance = trips.reduce((total, trip) =&gt; total + trip.distance, 0);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheReduceHelper.html#section-07-the-reduce-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-reducing-properties"><a class="header" href="#exercise-reducing-properties">[Exercise] Reducing Properties</a></h2>
+<h3 id="question-14"><a class="header" href="#question-14">Question</a></h3>
+<p>Use the <code>reduce</code> helper to create an object that tallies the number of sitting and standing desks. The object returned should have the form <code>{ sitting: 3, standing: 2 }</code>. The initial value has been provided to you.</p>
+<pre><code class="language-javascript">var desks = [
+  { type: 'sitting' },
+  { type: 'standing' },
+  { type: 'sitting' },
+  { type: 'sitting' },
+  { type: 'standing' }
+];
+
+var deskTypes = desks.reduce(function() {
+
+}, { sitting: 0, standing: 0 });
+</code></pre>
+<h3 id="solution-14"><a class="header" href="#solution-14">Solution</a></h3>
+<pre><code class="language-javascript">let desks = [
+  { type: 'sitting' },
+  { type: 'standing' },
+  { type: 'sitting' },
+  { type: 'sitting' },
+  { type: 'standing' }
+];
+
+let deskTypes = desks.reduce((obj, desk) =&gt; {
+  obj[Object.values(desk)] += 1;
+  return obj;
+}, { sitting: 0, standing: 0 });
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheReduceHelper.html#section-07-the-reduce-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-custom-unique-helper"><a class="header" href="#exercise-custom-unique-helper">[Exercise] Custom <code>Unique</code> Helper</a></h2>
+<h3 id="question-15"><a class="header" href="#question-15">Question</a></h3>
+<p>Write a function called <code>unique</code> that will remove all the duplicate values from an array. For example, given the following array <code>var numbers = [1, 1, 2, 3, 4, 4];</code>. Your function should return <code>[1, 2, 3, 4]</code>.</p>
+<p>*<em>Hint</em>: Use the <code>reduce</code> and <code>find</code> helpers.</p>
+<h3 id="solution-15"><a class="header" href="#solution-15">Solution</a></h3>
+<pre><code class="language-javascript">function unique(array) {
+  return array.reduce((acc, num) =&gt; {
+    acc.find(existNum =&gt; num === existNum) ? acc : acc.push(num);
+    return acc;
+  }, []);
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TheReduceHelper.html#section-07-the-reduce-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-08-const-and-let"><a class="header" href="#section-08-const-and-let">Section 08: <code>const</code> and <code>let</code></a></h1>
+<ul>
+<li><a href="es6/ConstAndLet.html#the-keyword-const-and-let">The Keyword <code>const</code> and <code>let</code></a></li>
+<li><a href="es6/ConstAndLet.html#exercise-a-constant-exercise-of-letting-variables-be-variables">[Exercise] A Constant Exercise of Letting Variables Be Variables</a></li>
+<li><a href="es6/ConstAndLet.html#exercise-constlet-refactoring">[Exercise] Const/Let Refactoring</a></li>
+<li><a href="es6/ConstAndLet.html#Hoisting">Hoisting</a></li>
+<li><a href="es6/ConstAndLet.html#LoopScope">LoopScope</a></li>
+<li><a href="es6/ConstAndLet.html#Implicit-Scope-Creation">Implicit Scope Creation</a></li>
+<li><a href="es6/ConstAndLet.html#Read-Only-const">Read-Only const</a></li>
+</ul>
+<h2 id="the-keyword-const-and-let"><a class="header" href="#the-keyword-const-and-let">The Keyword <code>const</code> and <code>let</code></a></h2>
+<p>Block-scoped binding constructs. let is the new var. const is single-assignment. Static restrictions prevent use before assignment.</p>
+<pre><code class="language-javascript">function f() {
+  {
+    let x;
+    {
+      // okay, block scoped name
+      const x = &quot;sneaky&quot;;
+      // error, const
+      x = &quot;foo&quot;;
+    }
+    // error, already declared in block
+    let x = &quot;inner&quot;;
+  }
+}
+</code></pre>
+<ol>
+<li>Var</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Var keyword was previously used for declaring variable in javascript.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Variables declared with var can be <strong>re-initialised and re-declared</strong> too.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It is not recommended to use var after release of let and const.</li>
+</ul>
+<pre><code class="language-javascript">    var a = 10;
+
+    for(var i=0;i&lt;5;i++){
+    		var a = 20;
+    		console.log(a); //Returns 20
+    }
+
+    console.log(a); // Returns 20
+</code></pre>
+<ol start="2">
+<li>LET</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+“let” is used when you have to change the value of the variable later in the code.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It has block scope.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It can be <strong>re-initialised but not re-declared</strong>.</li>
+</ul>
+<pre><code class="language-javascript">    let a = 10;
+
+    // re-initialization
+    a = 30; // Updating a value to 30.
+
+    //re-declartion
+    let a = 20; // Throws Error
+
+    // Block 1
+    {
+    	 let c = 10;
+    	 console.log(c); // c=10
+    }
+
+    console.log(c); // Throws Error, c not defined.
+</code></pre>
+<ol start="3">
+<li>CONST</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Const is used to define a constant variable which can’t be changed throught the code.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It has block scope.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+You can <strong>neither be re-initiased nor re-declared</strong>.</li>
+</ul>
+<pre><code class="language-javascript">    const a = 10;
+    // re-initialization
+    a = 30; // Throws Error, CONST variable can't be changed
+
+    //re-declartion
+    const a = 20; // Throws Error
+
+    // Block 1
+    {
+    	 const c = 10;
+    	 console.log(c); // c=10
+    }
+
+    console.log(c); // Throws Error, c not defined.
+</code></pre>
+<p>Next Example:</p>
+<pre><code class="language-javascript">const name = 'Jane';
+let title = 'Software Engineer';
+let hourlyWage = 40;
+
+// some time later
+title = 'Senior Software Engineer';
+hourlyWage = 45;
+</code></pre>
+<p>We should always use <code>const</code> and <code>let</code> to declare variables instead of using <code>var</code>. Use the <code>const</code> and <code>let</code> make our codes more legible.</p>
+<ul>
+<li>The keyword <code>let</code> declare variables and the value of the variable will change over time.</li>
+<li>The keyword <code>const</code> declare variables and the value of the variable will never change.</li>
+</ul>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-a-constant-exercise-of-letting-variables-be-variables"><a class="header" href="#exercise-a-constant-exercise-of-letting-variables-be-variables">[Exercise] A Constant Exercise of Letting Variables Be Variables</a></h2>
+<h3 id="question-16"><a class="header" href="#question-16">Question</a></h3>
+<p>Imagine that you are building an application to manage a user’s Facebook profile. A profile might have a <code>name</code>, <code>age</code>, and <code>dateOfBirth</code>.</p>
+<p>Declare three variables with these same names, making sure to use <code>const</code> or <code>let</code> depending on whether you expect the value to change over time.</p>
+<h3 id="solution-16"><a class="header" href="#solution-16">Solution</a></h3>
+<pre><code class="language-javascript">const name = 'Peter';
+const dateOfBirth = '900422';
+let age = 25;
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-constlet-refactoring"><a class="header" href="#exercise-constlet-refactoring">[Exercise] Const/Let Refactoring</a></h2>
+<h3 id="question-17"><a class="header" href="#question-17">Question</a></h3>
+<p>The following code uses <code>var</code> instead of <code>const</code> and <code>let</code>. Refactor the function to use the new keywords. Be sure to consider whether the variable should be declared using <code>const</code> or <code>let</code> depending on whether the variable gets reassigned or not.</p>
+<pre><code class="language-javascript">var statuses = [
+  { code: 'OK', response: 'Request successful' },
+  { code: 'FAILED', response: 'There was an error with your request' },
+  { code: 'PENDING', response: 'Your reqeust is still pending' }
+];
+var message = '';
+var currentCode = 'OK';
+
+for (var i = 0; i &lt; statuses.length; i++) {
+  if (statuses[i].code === currentCode) {
+    message = statuses[i].response;
+  }
+}
+</code></pre>
+<h3 id="solution-17"><a class="header" href="#solution-17">Solution</a></h3>
+<pre><code class="language-javascript">const statuses = [
+  { code: 'OK', response: 'Request successful' },
+  { code: 'FAILED', response: 'There was an error with your request' },
+  { code: 'PENDING', response: 'Your reqeust is still pending' }
+];
+let message = '';
+let currentCode = 'OK';
+
+for (let i = 0; i &lt; statuses.length; i++) {
+  if (statuses[i].code === currentCode) {
+    message = statuses[i].response;
+  }
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="hoisting"><a class="header" href="#hoisting">Hoisting</a></h2>
+<p>Unlike var declarations which are hoisted to the top of their enclosing scope let and const declarations may only be accessed after they’ve been declared. let and const variables are said to be in the scope’s TDZ (temporal dead zone) before they’ve been declared, and any attempt to read or write them beforehand will generate an error.
+⚠️ Most transpilers currently don’t handle this behaviour fully to-spec, so the above example will probably only error in a native ES6 environment.</p>
+<pre><code class="language-javascript">{
+  console.log(foo); // 'foo'
+  console.log(bar); // ReferenceError: bar is in the 'TDZ'
+  var foo = 'foo';
+  let bar = 'bar';
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="loopscope"><a class="header" href="#loopscope">LoopScope</a></h2>
+<p>When <strong>let is used in a for</strong> loop header a new i is scoped for each iteration of the loop. <strong>This makes writing async code</strong> in loops more intuitive since the closure doesn’t need to be created manually. This can also help with traditionally counter-intuituve tasks such as applying click event handlers in a loop.</p>
+<pre><code class="language-javascript">for (var i=1; i&lt;=5; i++) {
+    setTimeout(function(){
+        console.log(i);
+    }, i*100);
+}
+// 6,6,6,6,6
+</code></pre>
+<pre><code class="language-javascript">for (let i=1; i&lt;=5; i++) {
+    setTimeout(function(){
+        console.log(i);
+    }, i*100);
+}
+// 1,2,3,4,5
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="implicit-scope-creation"><a class="header" href="#implicit-scope-creation">Implicit-Scope-Creation</a></h2>
+<p>Using let within an if block implicitly creates a new scope. This is a hazard of using let. The new scope is easily spotted in the simple example above, but when code becomes more complicated hunting for new scopes created by let could become a cognitive burden. A rule of thumb is to place let declarations at the top of their enclosing block to clearly signpost their use and also avoid being bitten by the TDZ.</p>
+<pre><code class="language-javascript">if ( foo ) {
+    // We're in the same scope as outside the 'if'
+}
+if ( foo ) {
+    // We're in a new scope
+    let a = 1;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="read-only-const"><a class="header" href="#read-only-const">Read-Only-const</a></h2>
+<p>As mentioned, reassign a value to a constant will silently fail while redeclaring the constant will throw an error.</p>
+<pre><code class="language-javascript">const foo = 'foo';
+foo = 'bar' // Silently fails, foo is still equal to 'foo'
+const foo = 'bar' // TypeError, foo has already been defined
+</code></pre>
+<p>However constants are not immutable, therefore the properties of non-primitive values defined as a constant may be manipulated freely.</p>
+<pre><code class="language-javascript">const foo = {a: 1};
+foo.a = 2;
+foo.a; // 2
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ConstAndLet.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="section-09-template-strings"><a class="header" href="#section-09-template-strings">Section 09: Template Strings</a></h1>
+<ul>
+<li><a href="es6/TemplateStrings.html#the-template-strings">The Template Strings</a></li>
+<li><a href="es6/TemplateStrings.html#exercise-template-strings-in-practice">[Exercise] Template Strings in Practice</a></li>
+<li><a href="es6/TemplateStrings.html#exercise-name-helpers">[Exercise] Name Helpers</a></li>
+</ul>
+<h2 id="the-template-strings"><a class="header" href="#the-template-strings">The Template Strings</a></h2>
+<pre><code class="language-javascript">function getMessage() {
+  const year = new Data().getFullYear();
+
+  return `The year is ${year}.`;
+}
+
+getMessage();
+</code></pre>
+<p>The template strings use back-ticks symbol rather than the single or double quotes we’re used to with regular strings. We can use template strings whenever we’re using strings where we have to mix tons of different variables</p>
+<br/>
+<div align="right">
+  <b><a href="es6/TemplateStrings.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-template-strings-in-practice"><a class="header" href="#exercise-template-strings-in-practice">[Exercise] Template Strings in Practice</a></h2>
+<h3 id="question-18"><a class="header" href="#question-18">Question</a></h3>
+<p>Refactor the function to use template strings</p>
+<pre><code class="language-javascript">function doubleMessage(number) {
+  return &quot;Your number doubled is &quot; + (2 * number);
+}
+</code></pre>
+<h3 id="solution-18"><a class="header" href="#solution-18">Solution</a></h3>
+<pre><code class="language-javascript">function doubleMessage(number) {
+  return `Your number doubled is ${2 * number}`;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TemplateStrings.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-name-helpers"><a class="header" href="#exercise-name-helpers">[Exercise] Name Helpers</a></h2>
+<h3 id="question-19"><a class="header" href="#question-19">Question</a></h3>
+<p>Refactor the function to use template strings.</p>
+<pre><code class="language-javascript">function fullName(firstName, lastName) {
+  return firstName + lastName;
+}
+</code></pre>
+<h3 id="solution-19"><a class="header" href="#solution-19">Solution</a></h3>
+<pre><code class="language-javascript">function fullName(firstName, lastName) {
+  return `${firstName} ${lastName}`;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/TemplateStrings.html#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functional-programming"><a class="header" href="#functional-programming">Functional Programming</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-10-arrow-functions"><a class="header" href="#section-10-arrow-functions">Section 10: Arrow Functions</a></h1>
+<ul>
+<li><a href="es6/ArrowFunctions.html#fat-arrow-functions">Fat Arrow Functions</a></li>
+<li><a href="es6/ArrowFunctions.html#when-to-use-arrow-functions">When to Use Arrow Functions?</a></li>
+<li><a href="es6/ArrowFunctions.html#exercise-refactoring-keyword-functions">[Exercise] Refactoring Keyword Functions</a></li>
+<li><a href="es6/ArrowFunctions.html#exercise-arrow-functions-arent-always-a-solution">[Exercise] Arrow Functions Aren’t Always a Solution</a></li>
+<li><a href="es6/ArrowFunctions.html#Review">Review</a></li>
+</ul>
+<h2 id="fat-arrow-functions"><a class="header" href="#fat-arrow-functions">Fat Arrow Functions</a></h2>
+<p>We used to write the ECMAScript 5 function with <code>function</code> keyword. In the ECMAScript 6, we can use the arrow function instead.
+An arrow function is a syntactically compact alternative to a regular function expression <strong>without its own binding to this, super.</strong>  Unlike functions, arrows share the same lexical this as their surrounding code.</p>
+<pre><code class="language-javascript">// Lexical this
+var bob = {
+  _name: &quot;Bob&quot;,
+  _friends: [],
+  printFriends() {
+    this._friends.forEach(f =&gt;
+      console.log(this._name + &quot; knows &quot; + f));
+  }
+}
+</code></pre>
+<p><strong>Using Regular Function Express (ES5)</strong></p>
+<pre><code class="language-javascript">    // Example 1
+    function add(a, b){
+    	return a+b;
+    }
+
+    add(5, 10);
+
+    // Example 2
+
+    const x = [1, 2, 3, 4, 5];
+
+    const square = x.map(function(x){
+    	return x*x;
+    });
+
+    console.log(sqaure);
+
+    //Using Arrow Functions (ES6)
+    // Example 1
+    const add = (a, b) =&gt; {
+    		return a+b;
+    }
+    add(5, 10)
+    //Example 2
+    const x = [1, 2, 3, 4, 5];
+    const square = x.map(num =&gt; num*num);
+    console.log(sqaure);
+</code></pre>
+<p>Next: </p>
+<pre><code class="language-javascript">// ECMAScript 5: The `funcion` keyword
+const add = function(a, b) {
+  return a + b;
+}
+
+// ECMAScript 6: Arrow Functions
+const add = (a, b) =&gt; a + b;
+</code></pre>
+<p>Also, we can use arrow functions with the array methods.</p>
+<pre><code class="language-javascript">const numbers = [1, 2, 3];
+numbers.map(number =&gt; 2 * number);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ArrowFunctions.html#section-10-arrow-functions">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="when-to-use-arrow-functions"><a class="header" href="#when-to-use-arrow-functions">When to Use Arrow Functions?</a></h2>
+<p>Note that the arrow functions will <strong>bind the value of <code>this</code> to the surrounding context</strong>. Let’s write an object that’s going to represent a team of people.</p>
+<pre><code class="language-javascript">// the value of `this` of function is lost
+const team = {
+  members: ['Jane', 'Bill'],
+  teamName: 'Super Squad',
+  teamSummary: function() {
+    return this.members.map(function(member) {
+      return `${member} is on team ${this.teamName}`;
+    });
+  }
+}
+</code></pre>
+<p>In above codes, the value of <code>this</code> of function is lost and we have to use <code>bind</code> helper. The <code>bind(this)</code> will bind the context to the current context. Let’s refactor the function-keyword function using the arrow function.</p>
+<pre><code class="language-javascript">const team = {
+  members: ['Jane', 'Bill'],
+  teamName: 'Super Squad',
+  teamSummary: function() {
+    return this.members.map(member =&gt; {
+      return `${member} is on team ${this.teamName}`;
+    });
+  }
+}
+</code></pre>
+<p>In the above codes, the arrow funtions make use of what is called <strong>Lexical This</strong>. (The word <code>lexical</code> means the placement of <code>this</code> term depends on how it’s interpreted or how it’s evaluated.)</p>
+<p>Note that <code>this</code> is automatically set equal to <code>this</code> in the surrounding context which in our case is equal to the <code>team</code>.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/ArrowFunctions.html#section-10-arrow-functions">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-refactoring-keyword-functions"><a class="header" href="#exercise-refactoring-keyword-functions">[Exercise] Refactoring Keyword Functions</a></h2>
+<h3 id="question-20"><a class="header" href="#question-20">Question</a></h3>
+<p>The function below uses the <code>function</code> keyword. There’s nothing wrong with using the <code>function</code> keyword here, but it might look a bit nicer if we refactor it to use the fat arrow syntax instead.</p>
+<p>Refactor the code below to use a fat arrow function. Remember the rules of fat arrow functions:</p>
+<ol>
+<li>If the function has a single expression in its body, the curly braces and <code>return</code> keyword can be removed.</li>
+<li>If the function has a single argument, the parentheses around the argument list can be removed</li>
+</ol>
+<pre><code class="language-javascript">const fibonacci = function(n) {
+  if (n &lt; 3) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+</code></pre>
+<h3 id="solution-20"><a class="header" href="#solution-20">Solution</a></h3>
+<pre><code class="language-javascript">const fibonacci = n =&gt; (n &lt; 3) ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ArrowFunctions.html#section-10-arrow-functions">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-arrow-functions-arent-always-a-solution"><a class="header" href="#exercise-arrow-functions-arent-always-a-solution">[Exercise] Arrow Functions Aren’t Always a Solution</a></h2>
+<h3 id="question-21"><a class="header" href="#question-21">Question</a></h3>
+<p>Arrow functions bind the value of <code>this</code> to the surrounding context, and sometimes this isn’t the behavior we expect.</p>
+<p>The code below has an object that represents a users profile. The profile has a <code>name</code> currently. Add another key to this object called <code>getName</code>.  <code>getName</code> should be a function that returns the profiles name, using <code>this.name</code>. Does the solution work with a fat arrow function or will you have to use a function keyword instead?</p>
+<pre><code class="language-javascript">const profile = {
+  name: 'Alex'
+};
+</code></pre>
+<h3 id="solution-21"><a class="header" href="#solution-21">Solution</a></h3>
+<pre><code class="language-javascript">const profile = {
+  name: 'Alex',
+  getName: function() { return this.name; }
+};
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ArrowFunctions.html#section-10-arrow-functions">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="review"><a class="header" href="#review">Review</a></h2>
+<h3 id="single-expression"><a class="header" href="#single-expression">Single Expression</a></h3>
+<p>When the arrow function body is a single expression it is implicitly returned.</p>
+<pre><code class="language-javascript">var add = (a,b) =&gt; a+b;
+</code></pre>
+<h3 id="single-argument"><a class="header" href="#single-argument">Single Argument</a></h3>
+<p>When the arrow function has only one argument the parens around the parameters can be omitted.</p>
+<pre><code class="language-javascript">var odd = n =&gt; n % 2;
+</code></pre>
+<h3 id="no-arguments"><a class="header" href="#no-arguments">No Arguments</a></h3>
+<p>When the arrow function has no arguments you need an empty parens ().</p>
+<pre><code class="language-javascript">var random = () =&gt; Math.random();
+</code></pre>
+<h3 id="multiple-expressions"><a class="header" href="#multiple-expressions">Multiple Expressions</a></h3>
+<p>When the arrow function body has multiple expressions then they must be wrapped in {} and the return statement may not be omitted.</p>
+<pre><code class="language-javascript">var shout = s =&gt; {
+  s = s.toUpperCase();
+  s = s + '!';
+  return s;
+}
+</code></pre>
+<h3 id="lexical-this"><a class="header" href="#lexical-this">Lexical this</a></h3>
+<p>The arrow function’s this value is bound to the enclosing scope, so no more need for var self = this.</p>
+<pre><code class="language-javascript">function Counter () {
+  this.count = 0;
+  setInterval(() =&gt; this.count++, 1000);
+}
+
+var counter = new Counter();
+</code></pre>
+<p>Concise Functional Iteration</p>
+<p>Arrow functions can be used to write iteration, map, reduce and filter operations quite concisely.</p>
+<pre><code class="language-javascript">var data = ['one', 'two', 'three'];
+var processed = data
+  .map(s =&gt; s.length)
+  .filter(length =&gt; length &lt; 5);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/ArrowFunctions.html#section-10-arrow-functions">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h2 id="default-arguments"><a class="header" href="#default-arguments">Default Arguments</a></h2>
+<p>Default argument or default parameter is the new feature in ES6. It allows you to set a default value for your function parameter/argument if no value or undefined of is passed.</p>
+<p>Handling Default Argument with ES5</p>
+<pre><code class="language-javascript">    function add(a, b){
+    		return a + b;
+    }
+    add() // NaN
+    // Handling Default Argument without ES6.
+    function add(a, b){
+    	const a = (typeof(a) !== 'undefined') ? a : 5;
+    	const b = (typeof(b) !== 'undefined') ? b : 10;
+      return a+b;
+    }
+    add() // Returns 15
+</code></pre>
+<p>When no parameter is passed you can see we have to explicitly handle the error by setting default values of a &amp; b. This doesn’t look like a favourable way of handling default arguments.</p>
+<p>Handling Default Argument with ES6</p>
+<pre><code class="language-javascript">    function add(a=5, b=10){
+    	return a+b;
+    }
+    add(); // a=5, b=10, sum = 15;
+    add(2, 3); // a=2, b=3, sum = 5;
+    add(4); // a=4, b=10, sum=14 ;
+</code></pre>
+<p>Default value of A and B will be only used when no parameter is passed.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-12-default-function-arguments"><a class="header" href="#section-12-default-function-arguments">Section 12: Default Function Arguments</a></h1>
+<ul>
+<li><a href="es6/DefaultFunctionArguments.html#specifying-or-using-cases-of-default-arguments">Specifying or Using Cases of Default Arguments</a></li>
+<li><a href="es6/DefaultFunctionArguments.html#exercise-using-default-arguments">[Exercise] Using Default Arguments</a></li>
+<li><a href="es6/DefaultFunctionArguments.html#exercise-dumping-unused-code">[Exercise] Dumping Unused Code</a></li>
+</ul>
+<h2 id="specifying-or-using-cases-of-default-arguments"><a class="header" href="#specifying-or-using-cases-of-default-arguments">Specifying or Using Cases of Default Arguments</a></h2>
+<p>The default arguments is the syntax sugar for us to initialize functions with default values and the default values will be used when the arguments is either omitted or <code>undefined</code> in a function call.</p>
+<pre><code class="language-javascript">function makeAjaxRequest(url, method = 'GET') {
+  // logic to make the request
+  ...
+}
+
+makeAjaxRequest('https://www.google.com/');
+makeAjaxRequest('https://www.google.com/', 'POST');
+</code></pre>
+<p>There is a more complex usage of default arguments.</p>
+<pre><code class="language-javascript">function User(id) {
+  this.id = id;
+}
+
+function generateId() {
+  return Math.random * 9999999;
+}
+
+function createAdminUser(user = new User(generateId())) {
+  user.admin = true;
+  return user;
+}
+
+// create a new user when call function
+createAdminUser();
+
+// use the given user instead of creating new one
+const user = new User(generateId());
+createAdminUser(user);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/DefaultFunctionArguments.html#section-12-default-function-arguments">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-using-default-arguments"><a class="header" href="#exercise-using-default-arguments">[Exercise] Using Default Arguments</a></h2>
+<h3 id="question-22"><a class="header" href="#question-22">Question</a></h3>
+<p>Refactor the following code to use default function arguments.  Be sure to remove any unused code after you refactor it.</p>
+<pre><code class="language-javascript">function sum(a, b) {
+  if (a === undefined) { a = 0; }
+  if (b === undefined) { b = 0; }
+
+  return a + b;
+}
+</code></pre>
+<h3 id="solution-22"><a class="header" href="#solution-22">Solution</a></h3>
+<pre><code class="language-javascript">function sum(a = 0, b = 0) {
+  return a + b;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/DefaultFunctionArguments.html#section-12-default-function-arguments">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-dumping-unused-code"><a class="header" href="#exercise-dumping-unused-code">[Exercise] Dumping Unused Code</a></h2>
+<h3 id="question-23"><a class="header" href="#question-23">Question</a></h3>
+<p>Refactor the following code to use default function arguments.  Be sure to remove any unused code after you refactor it.</p>
+<pre><code class="language-javascript">function addOffset(style) {
+  if (!style) { style = {}; }
+
+  style.offset = '10px';
+  return style;
+}
+</code></pre>
+<h3 id="solution-23"><a class="header" href="#solution-23">Solution</a></h3>
+<pre><code class="language-javascript">function addOffset(style = {}) {
+  style.offset = '10px';
+
+  return style;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/DefaultFunctionArguments.html#section-12-default-function-arguments">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="section-11-enhanced-object-literals"><a class="header" href="#section-11-enhanced-object-literals">Section 11: Enhanced Object Literals</a></h1>
+<ul>
+<li><a href="es6/EnhancedObjectLiterals.html#enhanced-object-literals">Enhanced Object Literals</a></li>
+<li><a href="es6/EnhancedObjectLiterals.html#exercise-multiple-properties-with-enhanced-notation">[Exercise] Multiple Properties with Enhanced Notation</a></li>
+<li><a href="es6/EnhancedObjectLiterals.html#exercise-condensing-code-with-enhanced-literals">[Exercise] Condensing Code with Enhanced Literals</a></li>
+<li><a href="es6/EnhancedObjectLiterals.html#exercise-literals-in-functions">[Exercise] Literals in Functions</a></li>
+<li><a href="es6/EnhancedObjectLiterals.html#exercise-refactor-to-use-enhanced-literal-notation">[Exercise] Refactor to Use Enhanced Literal Notation</a></li>
+</ul>
+<h2 id="enhanced-object-literals"><a class="header" href="#enhanced-object-literals">Enhanced Object Literals</a></h2>
+<p>With the Enhanced Object Literals feature, we can make object handling even easier in all modern browsers. Let’s see the example below.</p>
+<pre><code class="language-javascript">// without Enhanced Object Literals
+function createBookShop(inventory) {
+  return {
+    inventory: inventory,
+    inventoryValue: function() {
+      return this.inventory.reduce((total, book) =&gt; total + book.price, 0);
+    },
+    priceForTitle: function(title) {
+      return this.inventory.find(book =&gt; book.title === title).price;
+    }
+  };
+}
+
+// with Enhanced Object Literals
+function createBookShop(inventory) {
+  return {
+    inventory,
+    inventoryValue() {
+      return this.inventory.reduce((total, book) =&gt; total + book.price, 0);
+    },
+    priceForTitle(title) {
+      return this.inventory.find(book =&gt; book.title === title).price;
+    }
+  };
+}
+
+const inventory = [
+  { title: 'Harry Potter', price: 10 },
+  { title: 'Eloquent JavaScript', price: 15 }
+];
+
+const bookShop = createBookShop(inventory);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/EnhancedObjectLiterals.html#section-11-enhanced-object-literals">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-multiple-properties-with-enhanced-notation"><a class="header" href="#exercise-multiple-properties-with-enhanced-notation">[Exercise] Multiple Properties with Enhanced Notation</a></h2>
+<h3 id="question-24"><a class="header" href="#question-24">Question</a></h3>
+<p>Refactor to use enhanced literal notation.</p>
+<pre><code class="language-javascript">const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red: red, blue: blue };
+</code></pre>
+<h3 id="solution-24"><a class="header" href="#solution-24">Solution</a></h3>
+<pre><code class="language-javascript">const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red, blue };
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/EnhancedObjectLiterals.html#section-11-enhanced-object-literals">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-condensing-code-with-enhanced-literals"><a class="header" href="#exercise-condensing-code-with-enhanced-literals">[Exercise] Condensing Code with Enhanced Literals</a></h2>
+<h3 id="question-25"><a class="header" href="#question-25">Question</a></h3>
+<p>Refactor the following to use enhance object literal syntax.</p>
+<pre><code class="language-javascript">const fields = ['firstName', 'lastName', 'phoneNumber'];
+const props = { fields: fields };
+</code></pre>
+<h3 id="solution-25"><a class="header" href="#solution-25">Solution</a></h3>
+<pre><code class="language-javascript">const fields = ['firstName', 'lastName', 'phoneNumber'];
+const props = { fields };
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/EnhancedObjectLiterals.html#section-11-enhanced-object-literals">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-literals-in-functions"><a class="header" href="#exercise-literals-in-functions">[Exercise] Literals in Functions</a></h2>
+<h3 id="question-26"><a class="header" href="#question-26">Question</a></h3>
+<p>Refactor to use enhanced literal notation.</p>
+<pre><code class="language-javascript">const canvasDimensions = function(width, initialHeight) {
+  const height = initialHeight * 9 /16;
+  return {
+    width: width,
+    height: height
+  };
+}
+</code></pre>
+<h3 id="solution-26"><a class="header" href="#solution-26">Solution</a></h3>
+<pre><code class="language-javascript">const canvasDimensions = function(width, initialHeight) {
+  const height = initialHeight * 9 /16;
+  return { width, height };
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/EnhancedObjectLiterals.html#section-11-enhanced-object-literals">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-refactor-to-use-enhanced-literal-notation"><a class="header" href="#exercise-refactor-to-use-enhanced-literal-notation">[Exercise] Refactor to Use Enhanced Literal Notation</a></h2>
+<h3 id="question-27"><a class="header" href="#question-27">Question</a></h3>
+<p>Refactor to use enhanced literal notation.</p>
+<pre><code class="language-javascript">const color = 'red';
+
+const Car = {
+  color: color,
+  drive() {
+    return 'Vroom!';
+  },
+  getColor() {
+    return this.color;
+  }
+};
+</code></pre>
+<h3 id="solution-27"><a class="header" href="#solution-27">Solution</a></h3>
+<pre><code class="language-javascript">const color = 'red';
+
+const Car = {
+  color,
+  drive() { return 'Vroom!' },
+  getColor() { return this.color }
+};
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/EnhancedObjectLiterals.html#section-11-enhanced-object-literals">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="operators"><a class="header" href="#operators">Operators</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-13-rest-and-spread-operators"><a class="header" href="#section-13-rest-and-spread-operators">Section 13: Rest and Spread Operators</a></h1>
+<ul>
+<li><a href="es6/RestAndSpreadOperator.html#the-rest-operators-">The Rest Operators <code>...</code></a></li>
+<li><a href="es6/RestAndSpreadOperator.html#the-spread-operators">The Spread Operators</a></li>
+<li><a href="es6/RestAndSpreadOperator.html#exercise-many-many-arguments">[Exercise] Many, Many Arguments</a></li>
+<li><a href="es6/RestAndSpreadOperator.html#exercise-spreadin-arrays">[Exercise] Spreadin’ Arrays</a></li>
+<li><a href="es6/RestAndSpreadOperator.html#exercise-mixing-rest-and-spread">[Exercise] Mixing Rest and Spread</a></li>
+</ul>
+<h2 id="the-rest-operators-"><a class="header" href="#the-rest-operators-">The Rest Operators <code>...</code></a></h2>
+<p>The rest operator <code>...</code> is used to gathering together variables. It can be used in function arguments whenever we want to capture a list of variables or a list of arguments.</p>
+<pre><code class="language-javascript">function addNumbers(...numbers) {
+  return numbers.reduce((sum, number) =&gt; sum + number, 0);
+}
+
+addNumbers([1, 2, 3, 4, 5]);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/RestAndSpreadOperator.html#section-13-rest-and-spread-operators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="the-spread-operators"><a class="header" href="#the-spread-operators">The Spread Operators</a></h2>
+<p>The spread operator <code>...</code> is used to flattening or spreading gathering variables.</p>
+<pre><code class="language-javascript">const defaultColors = ['red', 'green'];
+const userFavoriteColors = ['orange', 'yellow'];
+
+// use concat() method
+// ['red', 'green', 'orange', 'yellow']
+colors = defaultColors.concat(userFavoriteColors);
+
+// use spread operators
+colors = [...defaultColors, ...userFavoriteColors];
+</code></pre>
+<p>We can also mix and match the spread and rest operators.</p>
+<pre><code class="language-javascript">function validShoppingList(...items) {
+  if (item.indexOf('milk') &lt; 0) {
+    return ['milk', ...items];
+  }
+  return items;
+}
+
+validShoppingList('oranges', 'bread', 'eggs');
+</code></pre>
+<p>Imaging that we’re going to update the legacy API in a JavaScript library. We can also use rest and spread operators to catch the balance.</p>
+<pre><code class="language-javascript">const MathLibrary = {
+  calculateProduct(...rest) {
+    console.log('Please use the multiply method instead');
+    return .this.multiply(...rest);
+  },
+  multiply(a, b) {
+    return a * b;
+  }
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/RestAndSpreadOperator.html#section-13-rest-and-spread-operators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-many-many-arguments"><a class="header" href="#exercise-many-many-arguments">[Exercise] Many, Many Arguments</a></h2>
+<h3 id="question-28"><a class="header" href="#question-28">Question</a></h3>
+<p>Refactor the following function to use the rest operator. Remember, an argument using the rest operator does <strong>not</strong> need to be called <code>'rest'</code>.</p>
+<pre><code class="language-javascript">function product(a, b, c, d, e) {
+  var numbers = [a, b, c, d, e];
+
+  return numbers.reduce(function(acc, number) {
+    return acc * number;
+  }, 1)
+}
+</code></pre>
+<h3 id="solution-28"><a class="header" href="#solution-28">Solution</a></h3>
+<pre><code class="language-javascript">function product(...numbers) {
+  return numbers.reduce(function(acc, number) {
+    return acc * number;
+  }, 1)
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/RestAndSpreadOperator.html#section-13-rest-and-spread-operators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-spreadin-arrays"><a class="header" href="#exercise-spreadin-arrays">[Exercise] Spreadin’ Arrays</a></h2>
+<h3 id="question-29"><a class="header" href="#question-29">Question</a></h3>
+<p>Refactor the following to use the spread operator.</p>
+<pre><code class="language-javascript">function join(array1, array2) {
+  return array1.concat(array2);
+}
+</code></pre>
+<h3 id="solution-29"><a class="header" href="#solution-29">Solution</a></h3>
+<pre><code class="language-javascript">function join(array1, array2) {
+  return [...array1, ...array2];
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/RestAndSpreadOperator.html#section-13-rest-and-spread-operators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-mixing-rest-and-spread"><a class="header" href="#exercise-mixing-rest-and-spread">[Exercise] Mixing Rest and Spread</a></h2>
+<h3 id="question-30"><a class="header" href="#question-30">Question</a></h3>
+<p>Refactor the following to use only the rest operator.</p>
+<pre><code class="language-javascript">function unshift(array, a, b, c, d, e) {
+  return [a, b, c, d, e].concat(array);
+}
+</code></pre>
+<h3 id="solution-30"><a class="header" href="#solution-30">Solution</a></h3>
+<pre><code class="language-javascript">function unshift(array, ...rest) {
+  return [...rest, ...array];
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/RestAndSpreadOperator.html#section-13-rest-and-spread-operators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-14-destructuring"><a class="header" href="#section-14-destructuring">Section 14: Destructuring</a></h1>
+<ul>
+<li><a href="es6/Destructuring.html#destructuring">Destructuring</a></li>
+<li><a href="es6/Destructuring.html#destructuring-arguments-object">Destructuring Arguments Object</a></li>
+<li><a href="es6/Destructuring.html#destructuring-arrays">Destructuring Arrays</a></li>
+<li><a href="es6/Destructuring.html#destructuring-both">Destructuring Both</a></li>
+<li><a href="es6/Destructuring.html#exercise-destructuring-in-practice">[Exercise] Destructuring in Practice</a></li>
+<li><a href="es6/Destructuring.html#exercise-array-destructuring-in-practice">[Exercise] Array Destructuring in Practice</a></li>
+<li><a href="es6/Destructuring.html#exercise-recursion-with-destructuring">[Exercise] Recursion with Destructuring</a></li>
+</ul>
+<h2 id="destructuring"><a class="header" href="#destructuring">Destructuring</a></h2>
+<p>Destructuring is a convenient way of extracting multiple values from data stored in nested objects and arrays. It can be used to unpack values from arrays, or properties from objects, into distinct variables.</p>
+<pre><code class="language-javascript">let expense = {
+  type: 'Businsess',
+  amount: '$45 USD'
+};
+
+// assign variables without destructuring assignment
+const type = expense.type;
+const amount = expense.amount;
+
+// assign variables with destructuring assignment
+const { type, amount } = expense;
+</code></pre>
+<p>The curly braces in the destructuring syntax means when they were on the left hand side of the equals sign, it should declare variables called <code>type</code> and <code>amount</code> and want it to reference the <code>expense.type</code> and <code>expense.amount</code> propertys.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="destructuring-arguments-object"><a class="header" href="#destructuring-arguments-object">Destructuring Arguments Object</a></h2>
+<pre><code class="language-javascript">let savedFiled = {
+  extension: 'jpg',
+  name: 'repost',
+  size: 14040
+};
+
+function fileSummary({ name, extension, size }, { color }) {
+  return `${color} The file ${name}.${extension} is of size ${size}`;
+}
+
+fileSummary(saveFiled, { color: 'red' });
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="destructuring-arrays"><a class="header" href="#destructuring-arrays">Destructuring Arrays</a></h2>
+<pre><code class="language-javascript">const companies = [
+  'Google',
+  'Facebook',
+  'Uber'
+];
+
+const [ name, name2, ...rest ] = companies;
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="destructuring-both"><a class="header" href="#destructuring-both">Destructuring Both</a></h2>
+<pre><code class="language-javascript">const companies = [
+  { name: 'Google', location: 'Mountain View' },
+  { name: 'Facebook', location: 'Menlo Park' },
+  { name: 'Uber', location: 'San Francisco' }
+];
+
+// result: 'Mountain View'
+const [{ location }] = companies;
+console.log(location);
+</code></pre>
+<pre><code class="language-javascript">const Google = {
+  locations: ['Mountain View', 'New York', 'London']
+};
+
+// result: 'Mountain View'
+const { locations: [ location ] } = Google;
+console.log(location);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-destructuring-in-practice"><a class="header" href="#exercise-destructuring-in-practice">[Exercise] Destructuring in Practice</a></h2>
+<h3 id="question-31"><a class="header" href="#question-31">Question</a></h3>
+<p>The snippet of code below duplicates references to <code>profile</code> inside of the <code>isEngineer</code> function. Perhaps we can reduce the amount of code used for referencing the <code>title</code> and <code>department</code> properties. Refactor this code to use destructuring. Can you get the body of the <code>isEngineer</code> function down to a single line?</p>
+<pre><code class="language-javascript">const profile = {
+  title: 'Engineer',
+  department: 'Engineering'
+};
+
+function isEngineer(profile) {
+  var title = profile.title;
+  var department = profile.department;
+  return title === 'Engineer' &amp;&amp; department === 'Engineering';
+}
+</code></pre>
+<h3 id="solution-31"><a class="header" href="#solution-31">Solution</a></h3>
+<pre><code class="language-javascript">const profile = {
+  title: 'Engineer',
+  department: 'Engineering'
+};
+
+function isEngineer({ title, department }) {
+  return title === 'Engineer' &amp;&amp; department === 'Engineering';
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-array-destructuring-in-practice"><a class="header" href="#exercise-array-destructuring-in-practice">[Exercise] Array Destructuring in Practice</a></h2>
+<h3 id="question-32"><a class="header" href="#question-32">Question</a></h3>
+<p>The <code>classes</code> variable holds an array of arrays, where each array represents a single class that a student is enrolled in. Convert this array of arrays into an array of objects, where each object has the keys <code>subject</code>, <code>time</code>, and <code>teacher</code> and assign the result to <code>classesAsObject</code>.  Use array destructuring and the map helper.</p>
+<p>An array for a class has the form <code>[subject, time, teacher]</code>.</p>
+<p>The resulting data structure should look something like the following:</p>
+<pre><code class="language-javascript">const classesAsObject = [{ subject: 'Geography', time: '2PM', teacher: 'Mrs. Larsen' }]
+</code></pre>
+<pre><code class="language-javascript">const classes = [
+  [ 'Chemistry', '9AM', 'Mr. Darnick' ],
+  [ 'Physics', '10:15AM', 'Mrs. Lithun'],
+  [ 'Math', '11:30AM', 'Mrs. Vitalis' ]
+];
+
+const classesAsObject;
+</code></pre>
+<h3 id="solution-32"><a class="header" href="#solution-32">Solution</a></h3>
+<pre><code class="language-javascript">const classes = [
+  [&quot;Chemistry&quot;, &quot;9AM&quot;, &quot;Mr. Darnick&quot;],
+  [&quot;Physics&quot;, &quot;10:15AM&quot;, &quot;Mrs. Lithun&quot;],
+  [&quot;Math&quot;, &quot;11:30AM&quot;, &quot;Mrs. Vitalis&quot;],
+];
+
+const classesAsObject = classes.map(([ subject, time, teacher ]) =&gt; ({ subject, time, teacher }));
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-recursion-with-destructuring"><a class="header" href="#exercise-recursion-with-destructuring">[Exercise] Recursion with Destructuring</a></h2>
+<h3 id="question-33"><a class="header" href="#question-33">Question</a></h3>
+<p>Use array destructuring, recursion, and the rest/spread operators to create a function <code>double</code> that will return a new array with all values inside of it multiplied by two. <strong>Do not use any array helpers!</strong> Sure, the <code>map</code>, <code>forEach</code>, or <code>reduce</code> helpers would make this extremely easy but give it a shot the hard way anyways:)</p>
+<p><strong>Input</strong>: <code>double([1, 2, 3])</code>
+<strong>Output</strong>: <code>[2, 4, 6]</code></p>
+<p><strong>Hint</strong>: Don’t forget that with recursion you must add a base case so you don’t get an infinite call stack. For example, if ’const <code>[ number, ...rest ] = numbers</code> and number is undefined do you need to keep walking through the array?</p>
+<h3 id="solution-33"><a class="header" href="#solution-33">Solution</a></h3>
+<pre><code class="language-javascript">const numbers = [1, 2, 3];
+
+function double([number, ...rest]) {
+  return rest.length === 0 ? [number * 2] : [number * 2, ...double(rest)];
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Destructuring.html#section-14-destructuring">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="object-oriented-programming"><a class="header" href="#object-oriented-programming">Object Oriented Programming</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-15-classes"><a class="header" href="#section-15-classes">Section 15: Classes</a></h1>
+<ul>
+<li><a href="es6/Classes.html#prototype-inheritance">Prototype Inheritance</a></li>
+<li><a href="es6/Classes.html#refactor-with-class-keyword">Refactor with <code>class</code> Keyword</a></li>
+<li><a href="es6/Classes.html#exercise-game-classes">[Exercise] Game Classes</a></li>
+<li><a href="es6/Classes.html#exercise-subclassing-monsters">[Exercise] Subclassing Monsters</a></li>
+</ul>
+<h2 id="prototype-inheritance"><a class="header" href="#prototype-inheritance">Prototype Inheritance</a></h2>
+<p>JavaScript doesn’t really have the true object inheritance and it has what is called <strong>“Prototype Inheritance”</strong>. Let’s see what we need to do whenever we want inherit an object from another object.</p>
+<pre><code class="language-javascript">// create the Car object
+function Car(options) {
+  this.title = options.title;
+}
+
+Car.prototype.drive = function() {
+  return 'vroom';
+}
+
+// create the Toyota object and make inheritance from Car object
+function Toyota(options) {
+  Car.call(this, options);
+  this.color = options.color;
+}
+
+Toyota.prototype = Object.create(Car.prototype);
+Toyota.prototype.constructor = Toyato;
+Toyota.prototype.honk = function() {
+  return 'beep';
+}
+
+const car = new Car({ title: 'Focus' });
+const toyota = new Toyota({ color: 'red', title: 'Daily Driver' });
+car.drive();
+toyota.drive();
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Classes.html#section-15-classes">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="refactor-with-class-keyword"><a class="header" href="#refactor-with-class-keyword">Refactor with <code>class</code> Keyword</a></h2>
+<p>ECMAScript 6 provides us the <code>class</code> keyword to implement inheritance easily. But it’s important to know that whenever we use <code>class</code> keyword, we’re still making use of prototype inheritance under the hood.</p>
+<pre><code class="language-javascript">// create the Car class
+class Car {
+  constructor({ title }) {
+    this.title = title;
+  }
+
+  drive() {
+    return 'vroom';
+  }
+}
+
+// create the Toyota class and make inheritance from Car class
+class Toyota extends Car {
+  constructor(options) {
+    super(options);
+    this.title = options.title;
+  }
+
+  honk() {
+    return 'beep';
+  }
+}
+
+const car = new Car({ title: 'Focus' });
+const toyota = new Toyota({ color: 'red', title: 'Daily Driver' });
+car.drive();
+toyota.drive();
+</code></pre>
+<p>The subclass <code>Toyota</code> is inheriting or extending from class <code>Car</code>. Both <code>Toyota</code> and <code>Car</code> have defined the constructor method and we need to call the <code>super()</code> method inside the constructor of subclass <code>Toyota</code>. The <code>super()</code> method will execute a method on the parent class with same exact name.</p>
+<p align="center">
+  <img src="https://i.imgur.com/XxOu5Nz.png" alt="Class Inheritance and Super() Method" height="250px">
+</p>
+<br/>
+<div align="right">
+  <b><a href="es6/Classes.html#section-15-classes">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-game-classes"><a class="header" href="#exercise-game-classes">[Exercise] Game Classes</a></h2>
+<h3 id="question-34"><a class="header" href="#question-34">Question</a></h3>
+<p>You are a game developer tasked with setting up some basic classes for a new game you are working on. Create a class called <code>Monster</code>.  In the constructor, you’ll need to do some basic setup for Monster whenever they are created.</p>
+<ul>
+<li>Initialize the Monster’s health to <code>100</code>.</li>
+<li>The constructor will be called with an <code>options</code> object that has a <code>name</code> property. Assign the <code>name</code> to the Monster</li>
+</ul>
+<h3 id="solution-34"><a class="header" href="#solution-34">Solution</a></h3>
+<pre><code class="language-javascript">class Monster {
+  constructor(options) {
+    this.health = 100;
+    this.name = options.name;
+  }
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Classes.html#section-15-classes">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-subclassing-monsters"><a class="header" href="#exercise-subclassing-monsters">[Exercise] Subclassing Monsters</a></h2>
+<h3 id="question-35"><a class="header" href="#question-35">Question</a></h3>
+<p>Now that you have a monster created, create a subclass of the <code>Monster</code> called <code>Snake</code>.</p>
+<ul>
+<li>The Snake should have a <code>bite</code> method. The only argument to this method is another instance of a Snake.</li>
+<li>The instance of Snake that is passed in should have their health deducated by 10.</li>
+</ul>
+<h3 id="solution-35"><a class="header" href="#solution-35">Solution</a></h3>
+<pre><code class="language-javascript">class Monster {
+  constructor(options) {
+    this.health = 100;
+    this.name = options.name;
+  }
+}
+
+class Snake extends Monster {
+  constructor(options) {
+    super(options);
+  }
+
+  bite(snake) {
+    snake.health -= 10;
+  }
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Classes.html#section-15-classes">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="concurrency"><a class="header" href="#concurrency">Concurrency</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="section-16-generators"><a class="header" href="#section-16-generators">Section 16: Generators</a></h1>
+<ul>
+<li><a href="es6/Generators.html#section-16-generators">Section 16: Generators</a>
+<ul>
+<li><a href="es6/Generators.html#the-for--of---loop">The <code>for ... of ... </code> Loop</a></li>
+<li><a href="es6/Generators.html#create-a-generator">Create a Generator</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="the-for--of---loop"><a class="header" href="#the-for--of---loop">The <code>for ... of ... </code> Loop</a></h2>
+<p>The <code>for ... of ...</code> loop iterate through arrays of data.</p>
+<pre><code class="language-javascript">// Example 1
+const colors = ['red', 'green', 'blue'];
+
+for (let color of colors) {
+  console.log(color);
+}
+
+// Example 2
+const numbers = [1, 2, 3, 4];
+let total = 0;
+
+for (let number of numbers) {
+  total += number;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/Generators.html#section-16-generators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="create-a-generator"><a class="header" href="#create-a-generator">Create a Generator</a></h2>
+<p>A Generator is a function that can be entered and exited multiple times. We can create a generator by adding an asterisk symbol <code>*</code> right after the <code>function</code> keyword or left before the function name.</p>
+<pre><code class="language-javascript">function* shopping() {
+  // stuff on the sidewalk
+  // walking down the sidewalk
+  // go into the store with cash
+  const stuffFromStore = yield 'cash';
+
+  // walking to laundry place
+  const cleanClothes = yield 'laundry';
+
+  // walking back home
+  return [stuffFromStore, cleanClothes];
+}
+
+// stuff in the store
+const gen = shopping();
+gen.next(); // leaving our house
+// walked into the store
+// walking up and down the aisles...
+// purchase our stuff
+
+gen.next('groceries'); // leaving the store with groceries
+gen.next('clean clothes');
+</code></pre>
+<p>Note that the <code>yield</code> let us define the different execution state inside the generator. Each <code>yield</code> will return an object like <code>{value: anyType, done: boolean}</code>.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/Generators.html#section-16-generators">[ ↥ Back To Top ]</a></b>
+</div>
+<br/><div style="break-before: page; page-break-before: always;"></div><h1 id="section-17-promises-and-fetch"><a class="header" href="#section-17-promises-and-fetch">Section 17: Promises and Fetch</a></h1>
+<ul>
+<li><a href="es6/PromisesAndFetch.html#code-execution-in-javascript">Code Execution in JavaScript</a></li>
+<li><a href="es6/PromisesAndFetch.html#terminology-of-promises">Terminology of Promises</a></li>
+<li><a href="es6/PromisesAndFetch.html#use-promises">Use Promises</a></li>
+<li><a href="es6/PromisesAndFetch.html#ajax-requests-with-fetch-helper">Ajax Requests with <code>fetch</code>() Helper</a></li>
+</ul>
+<h2 id="code-execution-in-javascript"><a class="header" href="#code-execution-in-javascript">Code Execution in JavaScript</a></h2>
+<p>Before answer the question about “What’s Promise?”, we need to know how does JavaScript execute codes.</p>
+<br/>
+<div align="right">
+  <b><a href="es6/PromisesAndFetch.html#section-17-promises-and-fetch">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="terminology-of-promises"><a class="header" href="#terminology-of-promises">Terminology of Promises</a></h2>
+<p>For supporting asynchronous programming, JavaScript uses a callback. However, the callback implementation has a major problem which is called as Callback hell. Promises come to rescue to solve the problem of callback hell.</p>
+<p>Promises are a pattern that greatly simplifies asynchronous programming by making the code look synchronous and avoid problems associated with callbacks.</p>
+<p>A Promise has three states.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+pending: Initial state, neither fulfilled nor rejected.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+fulfilled: It means that the operation completed successfully.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+rejected: It means that the operation failed.</li>
+</ul>
+<p align="center">
+  <img src="https://i.imgur.com/NJBcnWP.png" alt="Three States of Promises" height="250px">
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dipakkr/ES6-Guide/master/assets/promises.png" alt="ES6 : Promises" height="250px">
+</p>
+<ul>
+<li><code>unresolved</code></li>
+<li><code>resolved</code></li>
+<li><code>rejected</code></li>
+</ul>
+<br/>
+<div align="right">
+  <b><a href="es6/PromisesAndFetch.html#section-17-promises-and-fetch">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="use-promises"><a class="header" href="#use-promises">Use Promises</a></h2>
+<p>The vast majority of use promises is working with Ajax requests but we can make promises without Ajax requests. Moreover, the promises are used to solve the issue of asynchronous code. Note that the trick to dealing with asynchronous code is through <strong>how we call <code>resolve()</code> and <code>reject()</code></strong>.</p>
+<p>There are important note about finally:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+A finally handler has no arguments. In finally we don’t know whether the promise is successful or not. That’s all right, as our task is usually to perform “general” finalizing procedures. Please take a look at the example above: as you can see, the finally handler has no arguments, and the promise outcome is handled by the next handler.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+A finally handler “passes through” the result or error to the next suitable handler.
+For instance, here the result is passed through finally to then:</li>
+</ul>
+<pre><code class="language-javascript">let promise = new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(&quot;Resolved&quot;);
+      //reject(new Error(&quot;Whoops!&quot;));       resolve(&quot;Resolved&quot;);
+    }, 3000);
+  });
+</code></pre>
+<pre><code class="language-javascript">  promise
+     .then((result) =&gt; console.log(`Finally finished: ${result}!`)) // &lt;-- .then shows &quot;value&quot;
+     .then((error) =&gt; console.log(`I was also ran: ${error}!`)) // &lt;-- .then shows &quot;value&quot;    
+    .catch(function(error) {
+          console.log(error);
+    })
+      // runs when the promise is settled, doesn't matter successfully or not
+    .finally(console.log(&quot;stop loading indicator&quot;))  // triggers first
+    ;  
+</code></pre>
+<pre><code class="language-javascript">new Promise((resolve, reject) =&gt; {
+  throw new Error(&quot;error&quot;);
+})
+  .finally(() =&gt; console.log(&quot;Promise ready&quot;)) // triggers first
+  .catch(err =&gt; console.log(err));  // &lt;-- .catch shows the error
+</code></pre>
+<h3 id="re-resolve-a-promise"><a class="header" href="#re-resolve-a-promise">Re-resolve a promise?</a></h3>
+<p>What’s the output of the code below?</p>
+<pre><code class="language-javascript">let promise = new Promise(function(resolve, reject) {
+  resolve(1);
+
+  setTimeout(() =&gt; resolve(2), 1000);
+});
+
+promise.then(console.log);
+// Output: 1
+</code></pre>
+<p>Next:</p>
+<pre><code class="language-javascript">function delay(ms) {
+  return new Promise(resolve =&gt; setTimeout(resolve, ms));
+}
+
+delay(3000).then(() =&gt; console.log('runs after 3 seconds'));
+// Output: runs after 3 seconds
+</code></pre>
+<p>This feature allows us to integrate custom objects with promise chains without having to inherit from Promise.</p>
+<pre><code class="language-javascript">class Thenable {
+  constructor(num) {
+    this.num = num;
+  }
+  then(resolve, reject) {
+    //console.log(resolve); // function() { native code }
+    setTimeout(() =&gt; resolve(this.num * 2), 1000); // (**)
+  }
+}
+new Promise(resolve =&gt; resolve(1))
+  .then(result =&gt; {
+    return new Thenable(result); // (*)
+  })
+  .then(console.log); // shows 2 after 1000ms
+  // Output: 2
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/PromisesAndFetch.html#section-17-promises-and-fetch">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="ajax-requests-with-fetch-helper"><a class="header" href="#ajax-requests-with-fetch-helper">Ajax Requests with <code>fetch</code>() Helper</a></h2>
+<p>The <code>fetch()</code> helper is the feature that is just like promises implemented inside the browsers already.</p>
+<pre><code class="language-javascript">url = 'http://jsonplaceholder.typicode.com/posts/'
+fetch(url)
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data))
+  .then(function(text) {
+    // ...and here's the content of the remote file
+    console.log(text); // {&quot;name&quot;: &quot;iliakan&quot;, &quot;isAdmin&quot;: true}
+  });
+</code></pre>
+<h3 id="promise-all"><a class="header" href="#promise-all">Promise All</a></h3>
+<p>Let’s say we want many promises to execute in parallel and wait until all of them are ready.</p>
+<p>For instance, download several URLs in parallel and process the content once they are all done.</p>
+<p>That’s what Promise.all is for.</p>
+<pre><code class="language-javascript">Promise.all([
+  new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; resolve(1), 1000)
+  }),
+  2,
+  3
+]).then(console.log); // 1, 2, 3
+</code></pre>
+<p>Next:</p>
+<pre><code class="language-javascript">Promise.all([
+  new Promise(resolve =&gt; setTimeout(() =&gt; resolve(1), 3000)), // 1
+  new Promise(resolve =&gt; setTimeout(() =&gt; resolve(2), 2000)), // 2
+  new Promise(resolve =&gt; setTimeout(() =&gt; resolve(3), 1000))  // 3
+]).then(console.log); // 1,2,3 when promises are ready: each promise contributes an array member
+
+</code></pre>
+<h3 id="promiseallsettled"><a class="header" href="#promiseallsettled">Promise.allSettled</a></h3>
+<p>Promise.allSettled just waits for all promises to settle, regardless of the result. The resulting array has:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+{status:“fulfilled”, value:result} for successful responses,</li>
+<li><input disabled="" type="checkbox" checked=""/>
+{status:“rejected”, reason:error} for errors.</li>
+</ul>
+<pre><code class="language-javascript">let urls = [
+  'https://api.github.com/users/iliakan',
+  'https://api.github.com/users/remy',
+  'https://no-such-url'
+];
+
+Promise.allSettled(urls.map(url =&gt; fetch(url)))
+  .then(results =&gt; { // (*)
+    results.forEach((result, num) =&gt; {
+      if (result.status == &quot;fulfilled&quot;) {
+        console.log(`${urls[num]}: ${result.value.status}`);
+      }
+      if (result.status == &quot;rejected&quot;) {
+        console.log(`${urls[num]}: ${result.reason}`);
+      }
+    });
+  });
+
+/*[
+  {status: 'fulfilled', value: ...response...},
+  {status: 'fulfilled', value: ...response...},
+  {status: 'rejected', reason: ...error object...}
+]*/
+</code></pre>
+<h3 id="polyfill"><a class="header" href="#polyfill">Polyfill</a></h3>
+<p>If the browser doesn’t support Promise.allSettled, it’s easy to polyfill:</p>
+<pre><code class="language-javascript">if (!Promise.allSettled) {
+  const rejectHandler = reason =&gt; ({ status: 'rejected', reason });
+
+  const resolveHandler = value =&gt; ({ status: 'fulfilled', value });
+
+  Promise.allSettled = function (promises) {
+    const convertedPromises = promises.map(p =&gt; Promise.resolve(p).then(resolveHandler, rejectHandler));
+    return Promise.all(convertedPromises);
+  };
+}
+</code></pre>
+<h3 id="promiserace"><a class="header" href="#promiserace">Promise.race</a></h3>
+<p>Similar to Promise.all, but waits only for the first settled promise and gets its result (or error).</p>
+<pre><code class="language-javascript">Promise.race([
+  new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve(1), 1000)),
+  new Promise((resolve, reject) =&gt; setTimeout(() =&gt; reject(new Error(&quot;Whoops!&quot;)), 2000)),
+  new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve(3), 3000))
+]).then(console.log); // OUtput 1
+</code></pre>
+<h3 id="promiseany"><a class="header" href="#promiseany">Promise.any</a></h3>
+<p>Similar to Promise.race, but waits only for the first fulfilled promise and gets its result. If all of the given promises are rejected, then the returned promise is rejected with AggregateError – a special error object that stores all promise errors in its errors property.</p>
+<pre><code class="language-javascript">Promise.any([
+  new Promise((resolve, reject) =&gt; setTimeout(() =&gt; reject(new Error(&quot;Whoops!&quot;)), 1000)),
+  new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve(1), 2000)),
+  new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve(3), 3000))
+]).then(console.log); // 1
+</code></pre>
+<p>The method is used for compatibility, when a function is expected to return a promise.</p>
+<p>For example, the loadCached function below fetches a URL and remembers (caches) its content. For future calls with the same URL it immediately gets the previous content from cache, but uses Promise.resolve to make a promise of it, so the returned value is always a promise:</p>
+<pre><code class="language-javascript">let cache = new Map();
+function loadCached(url) {
+  if (cache.has(url)) {
+    return Promise.resolve(cache.get(url)); // (*)
+  }
+  return fetch(url)
+    .then(response =&gt; response.text())
+    .then(text =&gt; {
+      cache.set(url,text);
+      return text;
+    });
+}
+</code></pre>
+<h3 id="unhandled-rejection"><a class="header" href="#unhandled-rejection">Unhandled rejection</a></h3>
+<pre><code class="language-javascript">let promise = Promise.reject(new Error(&quot;Promise Failed!&quot;));
+setTimeout(() =&gt; promise.catch(err =&gt; console.log('caught')), 1000);
+</code></pre>
+<h3 id="fetch"><a class="header" href="#fetch">Fetch</a></h3>
+<pre><code class="language-javascript">fetch('/article/promise-chaining/user.json')
+  .then(response =&gt; response.json())
+  .then(user =&gt; fetch(`https://api.github.com/users/${user.name}`))
+  .then(response =&gt; response.json())
+  .then(githubUser =&gt; new Promise(function(resolve, reject) { // (*)
+    let img = document.createElement('img');
+    img.src = githubUser.avatar_url;
+    img.className = &quot;promise-avatar-example&quot;;
+    document.body.append(img);
+    setTimeout(() =&gt; {
+      img.remove();
+      resolve(githubUser); // (**)
+    }, 3000);
+  }))
+  // triggers after 3 seconds
+  .then(githubUser =&gt; console.log(`Finished showing ${githubUser.name}`));
+</code></pre>
+<p>Because the <code>fetch()</code> helper only catch when the network request flat out fails. It’s really highly recommend that still use Ajax utility libraries like <code>axios</code> or <code>jQuery</code>.</p>
+<pre><code class="language-javascript">Promise.all([
+  fetch('/template.html'),
+  fetch('/style.css'),
+  fetch('/data.json')
+]).then(render); // render method needs results of all fetches
+</code></pre>
+<p>Next:</p>
+<pre><code class="language-javascript">let urls = [
+  'https://api.github.com/users/iliakan',
+  'https://api.github.com/users/remy',
+  'https://api.github.com/users/jeresig'
+];
+
+// map every url to the promise of the fetch
+let requests = urls.map(url =&gt; fetch(url));
+
+// Promise.all waits until all jobs are resolved
+Promise.all(requests)
+  .then(responses =&gt; responses.forEach(
+    response =&gt; console.log(`${response.url}: ${response.status}`)
+  ));
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="es6/PromisesAndFetch.html#section-17-promises-and-fetch">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="glossery"><a class="header" href="#glossery">Glossery</a></h2>
+<p><strong>TDZ (temporal dead zone)</strong>: like const and let
+<strong>The Rest Operators</strong>: <code>...</code>
+<strong>Spread</strong>: colors = […defaultColors, …userFavoriteColors];
+<strong>Generator</strong>: function*, yield</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

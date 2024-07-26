@@ -1,0 +1,685 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introductory - js-all-in-one(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="INTRO.html" class="active"><strong aria-hidden="true">2.</strong> Introductory</a></li><li class="chapter-item expanded "><a href="es6/ES6.html"><strong aria-hidden="true">3.</strong> ES6</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/BeforeWeGetStarted.html"><strong aria-hidden="true">3.1.</strong> Before We Get Started</a></li><li class="chapter-item "><a href="es6/Helper.html"><strong aria-hidden="true">3.2.</strong> Helpers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/TheForEachHelper.html"><strong aria-hidden="true">3.2.1.</strong> The forEach</a></li><li class="chapter-item "><a href="es6/TheMapHelper.html"><strong aria-hidden="true">3.2.2.</strong> The map</a></li><li class="chapter-item "><a href="es6/TheFilterHelper.html"><strong aria-hidden="true">3.2.3.</strong> The filter</a></li><li class="chapter-item "><a href="es6/TheFindHelper.html"><strong aria-hidden="true">3.2.4.</strong> The find</a></li><li class="chapter-item "><a href="es6/TheEveryAndSomeHelper.html"><strong aria-hidden="true">3.2.5.</strong> The every and some Helper</a></li><li class="chapter-item "><a href="es6/TheReduceHelper.html"><strong aria-hidden="true">3.2.6.</strong> The reduce Helper</a></li></ol></li><li class="chapter-item "><a href="es6/Variable.html"><strong aria-hidden="true">3.3.</strong> Variables</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/ConstAndLet.html"><strong aria-hidden="true">3.3.1.</strong> const and let</a></li><li class="chapter-item "><a href="es6/TemplateStrings.html"><strong aria-hidden="true">3.3.2.</strong> Template Strings</a></li></ol></li><li class="chapter-item "><a href="es6/FP.html"><strong aria-hidden="true">3.4.</strong> Functional Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/ArrowFunctions.html"><strong aria-hidden="true">3.4.1.</strong> Arrow Functions</a></li><li class="chapter-item "><a href="es6/DefaultArguments.html"><strong aria-hidden="true">3.4.2.</strong> DefaultArguments</a></li><li class="chapter-item "><a href="es6/DefaultFunctionArguments.html"><strong aria-hidden="true">3.4.3.</strong> Default Function Arguments</a></li><li class="chapter-item "><a href="es6/EnhancedObjectLiterals.html"><strong aria-hidden="true">3.4.4.</strong> Enhanced Object Literals</a></li></ol></li><li class="chapter-item "><a href="es6/Operator.html"><strong aria-hidden="true">3.5.</strong> Operators</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/RestAndSpreadOperator.html"><strong aria-hidden="true">3.5.1.</strong> Rest and Spread Operators</a></li><li class="chapter-item "><a href="es6/Destructuring.html"><strong aria-hidden="true">3.5.2.</strong> Destructuring</a></li></ol></li><li class="chapter-item "><a href="es6/OOP.html"><strong aria-hidden="true">3.6.</strong> Object Oriented Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/Classes.html"><strong aria-hidden="true">3.6.1.</strong> Classes</a></li></ol></li><li class="chapter-item "><a href="es6/concurrency.html"><strong aria-hidden="true">3.7.</strong> Concurrency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="es6/Generators.html"><strong aria-hidden="true">3.7.1.</strong> Generators</a></li><li class="chapter-item "><a href="es6/PromisesAndFetch.html"><strong aria-hidden="true">3.7.2.</strong> Promises and Fetch</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Glossery.html"><strong aria-hidden="true">4.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">js-all-in-one(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/edit/main/workspace/./workspace//INTRO.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="js--the-complete-developers-guide"><a class="header" href="#js--the-complete-developers-guide">JS : The Complete Developer’s Guide</a></h1>
+<p align="center">
+  <img src="https://i.imgur.com/KTEorEU.png" alt="ES6 : The Complete Developer's Guide" height="250px">
+</p>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<ul>
+<li><a href="#Introductory">Introductory</a></li>
+<li><a href="#Types">Types</a></li>
+<li><a href="#Equality">Equality</a></li>
+<li><a href="#Function">Function</a></li>
+<li><a href="#Closure">Closure</a></li>
+<li><a href="#This">This</a></li>
+<li><a href="#Prototypes">Prototype</a></li>
+<li><a href="#References">References</a></li>
+<li><a href="#Recap">Recap</a></li>
+</ul>
+<h2 id="introductory"><a class="header" href="#introductory">Introductory</a></h2>
+<p>JavaScript is a programming language initially designed to interact with elements of web pages. Within web browsers, JavaScript consists of three main parts:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+ECMAScript provides the core functionality.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+The Document Object Model <a href="https://www.javascripttutorial.net/javascript-dom/">(DOM)</a> provides interfaces for interacting with elements on web pages</li>
+<li><input disabled="" type="checkbox" checked=""/>
+The Browser Object Model <a href="https://www.javascripttutorial.net/javascript-bom">(BOM)</a> provides the browser API for interacting with the web browser.</li>
+</ul>
+<p>JavaScript can run on both web browsers and servers. A popular <strong>JavaScript server-side environment is Node.js</strong>. Unlike client-side JavaScript, server-side JavaScript executes on the server and allows you to access databases, file systems, etc.</p>
+<p>To define a variable in JavaScript, you use var keyword. For example:</p>
+<pre><code class="language-javascript">var x = 10;
+var y = 20;
+</code></pre>
+<p>ES6 added a new way to declare a variable with the let keyword:</p>
+<pre><code class="language-javascript">let x = 10;
+let y = 20;
+</code></pre>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<h3 id="primitive-types"><a class="header" href="#primitive-types">Primitive Types</a></h3>
+<blockquote>
+<p><code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>Null</code>, <code>Undefined</code>, and <code>Symbol</code>(es6)</p>
+</blockquote>
+<h3 id="number"><a class="header" href="#number">Number</a></h3>
+<p>Whenever you are handling numbers in any programming language you need to be aware of the idiosyncrasies of how the language handles numbers. Here are a few critical pieces of information about numbers in JavaScript that you should be aware of.</p>
+<h3 id="core-type"><a class="header" href="#core-type">Core Type</a></h3>
+<p>JavaScript has only one number type. It is a double-precision 64-bit <code>Number</code>. Below we discuss its limitations along with a recommended solution.</p>
+<h3 id="decimal"><a class="header" href="#decimal">Decimal</a></h3>
+<p>For those familiar with doubles / float in other languages, you would know that binary floating point numbers <em>do not</em> map correctly to Decimal numbers. A trivial (and famous) example with JavaScript’s built in numbers is shown below:</p>
+<pre><code class="language-js">console.log(.1 + .2); // 0.30000000000000004
+</code></pre>
+<blockquote>
+<p>For true decimal math use <code>big.js</code> mentioned below.</p>
+</blockquote>
+<h3 id="integer"><a class="header" href="#integer">Integer</a></h3>
+<p>The integer limits represented by the built in number type are <code>Number.MAX_SAFE_INTEGER</code> and <code>Number.MIN_SAFE_INTEGER</code>.</p>
+<p>[[MAX_SAFE_INTEGER]]</p>
+<pre><code class="language-js">console.log({max: Number.MAX_SAFE_INTEGER, min: Number.MIN_SAFE_INTEGER});
+// {max: 9007199254740991, min: -9007199254740991}
+</code></pre>
+<p><strong>Safe</strong> in this context refers to the fact that the value <em>cannot be the result of a rounding error</em>.</p>
+<p>The unsafe values are <code>+1 / -1</code> away from these safe values and any amount of addition / subtraction will <em>round</em> the result.</p>
+<pre><code class="language-js">console.log(Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2); // true!
+console.log(Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2); // true!
+
+console.log(Number.MAX_SAFE_INTEGER);      // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER + 1);  // 9007199254740992 - Correct
+console.log(Number.MAX_SAFE_INTEGER + 2);  // 9007199254740992 - Rounded!
+console.log(Number.MAX_SAFE_INTEGER + 3);  // 9007199254740994 - Rounded - correct by luck
+console.log(Number.MAX_SAFE_INTEGER + 4);  // 9007199254740996 - Rounded!
+</code></pre>
+<p>To check safety you can use ES6 <code>Number.isSafeInteger</code>:</p>
+<pre><code class="language-js">// Safe value
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER)); // true
+
+// Unsafe value
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1)); // false
+
+// Because it might have been rounded to it due to overflow
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 10)); // false
+</code></pre>
+<blockquote>
+<p>JavaScript will eventually get <a href="https://developers.google.com/web/updates/2018/05/bigint">BigInt</a> support. For now, if you want arbitrary precision integer math use <code>big.js</code> mentioned below.</p>
+</blockquote>
+<h3 id="bigjs"><a class="header" href="#bigjs">big.js</a></h3>
+<p>Whenever you use math for financial calculations (e.g. GST calculation, money with cents, addition etc) use a library like <a href="https://github.com/MikeMcl/big.js/">big.js</a> which is designed for</p>
+<ul>
+<li>Perfect decimal math</li>
+<li>Safe out of bound integer values</li>
+</ul>
+<p>Installation is simple:</p>
+<pre><code class="language-bash">npm install big.js @types/big.js
+</code></pre>
+<p>Quick Usage example:</p>
+<pre><code class="language-js">import { Big } from 'big.js';
+
+export const foo = new Big('111.11111111111111111111');
+export const bar = foo.plus(new Big('0.00000000000000000001'));
+
+// To get a number:
+const x: number = Number(bar.toString()); // Loses the precision
+</code></pre>
+<blockquote>
+<p>Do not use this library for math used for UI / performance intensive purposes e.g charts, canvas drawing etc.</p>
+</blockquote>
+<h3 id="nan"><a class="header" href="#nan">NaN</a></h3>
+<p>When some number calculation is not representable by a valid number, JavaScript returns a special <code>NaN</code> value. A  classic example is imaginary numbers:</p>
+<pre><code class="language-js">console.log(Math.sqrt(-1)); // NaN
+</code></pre>
+<p>Note: Equality checks <strong>don’t</strong> work on <code>NaN</code> values. Use <code>Number.isNaN</code> instead:</p>
+<pre><code class="language-js">// Don't do this
+console.log(NaN === NaN); // false!!
+
+// Do this
+console.log(Number.isNaN(NaN)); // true
+</code></pre>
+<h3 id="infinity"><a class="header" href="#infinity">Infinity</a></h3>
+<p>The outer bounds of values representable in Number are available as static <code>Number.MAX_VALUE</code> and <code>-Number.MAX_VALUE</code> values.</p>
+<pre><code class="language-js">console.log(Number.MAX_VALUE);  // 1.7976931348623157e+308
+console.log(-Number.MAX_VALUE); // -1.7976931348623157e+308
+</code></pre>
+<p>Values outside the range where precision isn’t changed are clamped to these limits e.g.</p>
+<pre><code class="language-js">console.log(Number.MAX_VALUE + 1 == Number.MAX_VALUE);   // true!
+console.log(-Number.MAX_VALUE - 1 == -Number.MAX_VALUE); // true!
+</code></pre>
+<p>Values outside the range where precision is changed resolve to special values <code>Infinity</code>/<code>-Infinity</code> e.g.</p>
+<pre><code class="language-js">console.log(Number.MAX_VALUE + 1e292);  // Infinity
+console.log(-Number.MAX_VALUE - 1e292); // -Infinity
+</code></pre>
+<p>Of-course, these special infinity values also show up with arithmetic that requires it e.g.</p>
+<pre><code class="language-js">console.log( 1 / 0); // Infinity
+console.log(-1 / 0); // -Infinity
+</code></pre>
+<p>You can use these <code>Infinity</code> values manually or using static members of the <code>Number</code> class as shown below:</p>
+<pre><code class="language-js">console.log(Number.POSITIVE_INFINITY === Infinity);  // true
+console.log(Number.NEGATIVE_INFINITY === -Infinity); // true
+</code></pre>
+<p>Fortunately comparison operators (<code>&lt;</code> / <code>&gt;</code>) work reliably on infinity values:</p>
+<pre><code class="language-js">console.log( Infinity &gt;  1); // true
+console.log(-Infinity &lt; -1); // true
+</code></pre>
+<h3 id="infinitesimal"><a class="header" href="#infinitesimal">Infinitesimal</a></h3>
+<p>The smallest non-zero value representable in Number is available as static <code>Number.MIN_VALUE</code></p>
+<pre><code class="language-js">console.log(Number.MIN_VALUE);  // 5e-324
+</code></pre>
+<p>Values smaller than <code>MIN_VALUE</code> (“underflow values”) are converted to 0.</p>
+<pre><code class="language-js">console.log(Number.MIN_VALUE / 10);  // 0
+</code></pre>
+<blockquote>
+<p>Further intuition: Just like values bigger than <code>Number.MAX_VALUE</code> get clamped to INFINITY, values smaller than <code>Number.MIN_VALUE</code> get clamped to <code>0</code>.</p>
+</blockquote>
+<h3 id="truthy"><a class="header" href="#truthy">Truthy</a></h3>
+<p>JavaScript has a concept of <code>truthy</code> i.e. things that evaluate like <code>true</code> would in certain positions (e.g. <code>if</code> conditions and the boolean <code>&amp;&amp;</code> <code>||</code> operators). The following things are truthy in JavaScript. An example is any number other than <code>0</code> e.g.</p>
+<pre><code class="language-typescript">if (123) { // Will be treated like `true`
+  console.log('Any number other than 0 is truthy');
+}
+</code></pre>
+<p>Something that isn’t truthy is called <code>falsy</code>.</p>
+<p>Here’s a handy table for your reference.</p>
+<div class="table-wrapper"><table><thead><tr><th>Variable Type</th><th>When it is <em>falsy</em></th><th>When it is <em>truthy</em></th></tr></thead><tbody>
+<tr><td><code>boolean</code></td><td><code>false</code></td><td><code>true</code></td></tr>
+<tr><td><code>string</code></td><td><code>''</code> (empty string)</td><td>any other string</td></tr>
+<tr><td><code>number</code></td><td><code>0</code>  <code>NaN</code></td><td>any other number</td></tr>
+<tr><td><code>null</code></td><td>always</td><td>never</td></tr>
+<tr><td><code>undefined</code></td><td>always</td><td>never</td></tr>
+<tr><td>Any other Object including empty ones like <code>{}</code>,<code>[]</code></td><td>never</td><td>always</td></tr>
+</tbody></table>
+</div>
+<h3 id="being-explicit"><a class="header" href="#being-explicit">Being explicit</a></h3>
+<blockquote>
+<p>The <code>!!</code> pattern</p>
+</blockquote>
+<p>Quite commonly it helps to be explicit that the intent is to treat the value as a <code>boolean</code> and convert it into a <em>true boolean</em> (one of <code>true</code>|<code>false</code>). You can easily convert values to a true boolean by prefixing it with <code>!!</code> e.g. <code>!!foo</code>. Its just <code>!</code> used <em>twice</em>. The first <code>!</code> converts the variable (in this case <code>foo</code>) to a boolean but inverts the logic (<em>truthy</em> -<code>!</code>&gt; <code>false</code>, <em>falsy</em> -<code>!</code>&gt; <code>true</code>). The second one toggles it again to match the nature of the original object (e.g. <em>truthy</em> -<code>!</code>&gt; <code>false</code> -<code>!</code>&gt; <code>true</code>).</p>
+<p>It is common to use this pattern in lots of places e.g.</p>
+<pre><code class="language-js">// Direct variables
+const hasName = !!name;
+
+// As members of objects
+const someObj = {
+  hasName: !!name
+}
+
+// e.g. in ReactJS JSX
+{!!someName &amp;&amp; &lt;div&gt;{someName}&lt;/div&gt;}
+</code></pre>
+<h2 id="empty-types"><a class="header" href="#empty-types">Empty Types</a></h2>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+NaN</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Infinity</li>
+</ul>
+<h2 id="bigint"><a class="header" href="#bigint">BigInt</a></h2>
+<p>Although, the other way around is proposed by the developers of <strong>JSBI library</strong>.
+This library implements big numbers using its own methods. We can use them instead of native bigints.</p>
+<pre><code class="language-js">console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+const bigInt = 1234567890123456789012345678901234567890n;
+const sameBigint = BigInt(&quot;1234567890123456789012345678901234567890&quot;);
+</code></pre>
+<h2 id="equality"><a class="header" href="#equality">Equality</a></h2>
+<p>One thing to be careful about in JavaScript is the difference between <code>==</code> and <code>===</code>. As JavaScript tries to
+be resilient against programming errors <code>==</code> tries to do type coercion between two variables e.g. converts a
+string to a number so that you can compare with a number as shown below:</p>
+<p>However, the choices JavaScript makes are not always ideal. For example, in the below example the first statement is false
+because <code>&quot;&quot;</code> and <code>&quot;0&quot;</code> are both strings and are clearly not equal. However, in the second case both <code>0</code> and the
+empty string (<code>&quot;&quot;</code>) are falsy (i.e. behave like <code>false</code>) and are therefore equal with respect to <code>==</code>. Both statements
+are false when you use <code>===</code>.</p>
+<p>[[Error_Equality]] [[Error_TS2367]]</p>
+<!-- skip -->
+<pre><code class="language-typescript">console.log(5 == &quot;5&quot;); // true   , TS Error
+console.log(5 === &quot;5&quot;); // false , TS Error
+console.log(&quot;&quot; == &quot;0&quot;); // false , TS Error
+console.log(0 == &quot;&quot;); // true , TS Error
+console.log(&quot;&quot; === &quot;0&quot;); // false , TS Error
+console.log(0 === &quot;&quot;); // false , TS Error
+
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2367: This comparison appears to be unintentional because the types 'number' and 'string' have no overlap.
+</code></pre>
+<blockquote>
+<p>Note that <code>string == number</code> and <code>string === number</code> are both compile time errors in TypeScript, so you don’t normally need to worry about this.</p>
+</blockquote>
+<p>Similar to <code>==</code> vs. <code>===</code>, there is <code>!=</code> vs. <code>!==</code></p>
+<p>So ProTip: Always use <code>===</code> and <code>!==</code> except for null checks, which we cover later.</p>
+<h2 id="structural-equality"><a class="header" href="#structural-equality">Structural Equality</a></h2>
+<p>If you want to compare two objects for structural equality <code>==</code>/<code>===</code> are <em><strong>not</strong></em> sufficient. e.g. </p>
+<p><code>&gt;tags:</code> #Important [[Error_Equality]] [[Error_TS2839]]</p>
+<!-- skip -->
+<pre><code class="language-js">console.log({a:123} == {a:123}); // False
+console.log({a:123} === {a:123}); // False
+</code></pre>
+<p>To do such checks use the <a href="https://www.npmjs.com/package/deep-equal">deep-equal</a> npm package e.g. </p>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2839: This condition will always return 'false' since JavaScript compares objects by reference, not value.
+</code></pre>
+<p>[[Library_Deep-Equal]]</p>
+<pre><code class="language-typescript">import * as deepEqual from &quot;deep-equal&quot;;
+
+console.log(deepEqual({a:123},{a:123})); // True
+</code></pre>
+<p>However, quite commonly you don’t need deep checks and all you really need is to check by some <code>id</code> e.g. </p>
+<pre><code class="language-typescript">type IdDisplay = {
+  id: string,
+  display: string
+}
+const list: IdDisplay[] = [
+  {
+    id: 'foo',
+    display: 'Foo Select'
+  },
+  {
+    id: 'bar',
+    display: 'Bar Select'
+  },
+]
+
+const fooIndex = list.map(i =&gt; i.id).indexOf('foo');
+console.log(fooIndex); // Output 0
+</code></pre>
+<h2 id="function"><a class="header" href="#function">Function</a></h2>
+<p>by defining a function will have access to the objects like:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Call</li>
+<li><input disabled="" type="checkbox" checked=""/>
+prototype</li>
+<li><input disabled="" type="checkbox" checked=""/>
+arguments</li>
+</ul>
+<h2 id="closure"><a class="header" href="#closure">Closure</a></h2>
+<p>The best thing that JavaScript ever got was closures. A function in JavaScript has access to any variables defined in the outer scope. Closures are best explained with examples:</p>
+<pre><code class="language-typescript">function outerFunction(arg:String) {
+    var variableInOuterFunction = arg;
+
+    function bar() {
+        console.log(variableInOuterFunction); // Access a variable from the outer scope
+    }
+
+    // Call the local function to demonstrate that it has access to arg
+    bar();
+}
+
+outerFunction(&quot;hello closure&quot;); // Result: hello closure
+</code></pre>
+<p>You can see that the inner function has access to a variable (variableInOuterFunction) from the outer scope. The variables in the outer function have been closed by (or bound in) the inner function. Hence the term <strong>closure</strong>. The concept in itself is simple enough and pretty intuitive.</p>
+<p>Now the awesome part: The inner function can access the variables from the outer scope <em>even after the outer function has returned</em>. This is because the variables are still bound in the inner function and not dependent on the outer function. Again let’s look at an example:</p>
+<pre><code class="language-typescript">function outerFunction(arg) {
+    var variableInOuterFunction = arg;
+    return function() {
+        console.log(variableInOuterFunction);
+    }
+}
+
+var innerFunction = outerFunction(&quot;hello closure!&quot;);
+
+// Note the outerFunction has returned
+innerFunction(); // logs hello closure!
+</code></pre>
+<h3 id="reason-why-its-awesome"><a class="header" href="#reason-why-its-awesome">Reason why it’s awesome</a></h3>
+<p>It allows you to compose objects easily e.g. the revealing module pattern:</p>
+<pre><code class="language-typescript">function createCounter() {
+    let val = 0;
+    return {
+        increment() { val++ },
+        getVal() { return val }
+    }
+}
+
+let counter = createCounter();
+counter.increment();
+console.log(counter.getVal()); // 1
+counter.increment();
+console.log(counter.getVal()); // 2
+</code></pre>
+<p>At a high level it is also what makes something like Node.js possible.</p>
+<pre><code class="language-typescript">// Pseudo code to explain the concept
+server.on(function handler(req, res) {
+    loadData(req.id).then(function(data) {
+        // the `res` has been closed over and is available
+        res.send(data);
+    })
+});
+</code></pre>
+<h2 id="this"><a class="header" href="#this">This</a></h2>
+<p>Any access to <code>this</code> keyword within a function is controlled by how the function is actually called. It is commonly referred to as the “calling context.”</p>
+<p>Here is an example:</p>
+<p>[[Error_TS2683]]</p>
+<pre><code class="language-typescript">function foo() {
+  console.log(this);
+}
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md"> error TS2683: 'this' implicitly has type 'any' because it does not have a type annotation.
+</code></pre>
+<pre><code class="language-typescript">foo(); // logs out the global e.g. `window` in browsers
+let bar = {
+  foo
+}
+bar.foo(); // Logs out `bar` as `foo` was called on `bar`
+</code></pre>
+<p>So be mindful of your usage of <code>this</code>. If you want to disconnect <code>this</code> in a class from the calling context use an arrow function, <a href="../arrow-functions.html">more on that later</a>.</p>
+<p><a href="../fp/call_method.html">This keyword in functions and containers</a></p>
+<h2 id="prototypes"><a class="header" href="#prototypes">Prototypes</a></h2>
+<p>In JavaScript, the prototype is a fundamental concept that underpins the language’s object-oriented nature. It serves as the mechanism through which objects inherit features from one another. <strong>Every JavaScript object has a prototype</strong>, except for the most primitive types like <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>Null</code>, <code>Undefined</code>, and <code>Symbol</code>. These primitive types do not have a prototype because they are not objects; however, they do have a prototype when they are wrapped in object form.</p>
+<h3 id="how-prototypes-work"><a class="header" href="#how-prototypes-work">How Prototypes Work</a></h3>
+<ul>
+<li>
+<p><strong>Prototype Chains</strong>: When you attempt to access a property or method on an object, <em>JavaScript first checks if the property exists on the object itself. If it doesn’t, JavaScript looks for the property on the object’s prototype.</em> This process continues up the prototype chain until the property is found or the end of the chain is reached <strong>(<code>Object.prototype</code>)</strong>. If the property is not found anywhere in the chain, <code>undefined</code> is returned.</p>
+</li>
+<li>
+<p><strong>Constructor Functions and Prototypes</strong>: Constructor functions in JavaScript have a special property called <code>prototype</code>. When <strong>you create an object using a constructor function</strong>, <em>the object inherits</em> <strong>the properties and methods attached</strong> <em>to the constructor’s <code>prototype</code>.</em></p>
+</li>
+</ul>
+<h3 id="setting-and-using-prototypes"><a class="header" href="#setting-and-using-prototypes">Setting and Using Prototypes</a></h3>
+<ul>
+<li><strong>Using Constructors</strong>: You can define a constructor function and attach methods to its <code>prototype</code> property. Objects created with this constructor will inherit these methods.</li>
+</ul>
+<pre><code class="language-javascript">function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name}.`);
+};
+ 
+const john = new Person('John');
+john.sayHello(); // Outputs: Hello, my name is John.
+</code></pre>
+<ul>
+<li><strong>Using <code>Object.create()</code></strong>: Another way to set an object’s prototype is by using <code>Object.create()</code>, which takes an existing object and returns a new object with the specified object as its prototype.</li>
+</ul>
+<pre><code class="language-javascript">const personProto = {
+  greet() {
+    console.log('Hello!');
+  }
+};
+
+const jim = Object.create(personProto);
+jim.greet(); // Outputs: Hello!
+</code></pre>
+<h2 id="prototypes-and-inheritance"><a class="header" href="#prototypes-and-inheritance">Prototypes and Inheritance</a></h2>
+<p>Prototypes enable a form of inheritance in JavaScript, allowing objects to share properties and methods. This is particularly useful for <strong>creating relationships between objects</strong>, such as having a <code>Car</code> object inherit from a <code>Vehicle</code> object, which in turn inherits from <code>Object.prototype</code>.</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Beyond literals, any Object in JavaScript (including functions, arrays, regexp etc) are references. This means the following</p>
+<h3 id="mutations-are-across-all-references"><a class="header" href="#mutations-are-across-all-references">Mutations are across all references</a></h3>
+<p>[[Error_TS2339]]</p>
+<pre><code class="language-js">var foo = {};
+var bar = foo; // bar is a reference to the same object
+
+foo.baz = 123;
+console.log(bar.baz); // JS Result: 123, TS Result : Error
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2339: Property 'baz' does not exist on type '{}'.
+</code></pre>
+<h3 id="equality-is-for-references"><a class="header" href="#equality-is-for-references">Equality is for references</a></h3>
+<p>[[Error_TS2304]]</p>
+<pre><code class="language-js">var foo = {};
+var bar = foo; // bar is a reference
+var baz = {}; // baz is a *new object* distinct from `foo`
+
+console.log(foo === bar); //JS, TS Result: true
+console.log(foo === baz); //JS, TS Result: false
+</code></pre>
+<p><code>&gt; Output:</code></p>
+<pre><code class="language-md">error TS2304: Cannot find name 'someglobal'.
+</code></pre>
+<h2 id="recap"><a class="header" href="#recap">Recap</a></h2>
+<h3 id="your-javascript-is-typescript"><a class="header" href="#your-javascript-is-typescript">Your JavaScript is TypeScript</a></h3>
+<p>There were (and will continue to be) a lot of competitors in <em>Some syntax</em> to <em>JavaScript</em> compilers. TypeScript is different from them in that <em>Your JavaScript is TypeScript</em>. Here’s a diagram:</p>
+<p><img src="https://raw.githubusercontent.com/armanriazi/typescript-all-in-one/master/images/venn.png" alt="JavaScript is TypeScript" /></p>
+<p>However, it does mean that <em>you need to learn JavaScript</em> (the good news is <em>you <strong>only</strong> need to learn JavaScript</em>). TypeScript is just standardizing all the ways you provide <em>good documentation</em> on JavaScript.</p>
+<ul>
+<li>Just giving you a new syntax doesn’t help catch bugs - but might help you write cleaner / less bugs (e.g. CoffeeScript).</li>
+<li>Creating a new language abstracts you too far from your runtimes and communities - but might help on-board you easier if its an already familiar flavour (e.g. Dart - closer for Java / C# devs).</li>
+</ul>
+<p>TypeScript is just JavaScript with docs.</p>
+<blockquote>
+<p>JSNext is open to interpretation - not everything proposed for the next version of JS actually makes it to browsers. TypeScript only adds support for proposals once they reach <a href="https://tc39.es/process-document/">stage 3</a>.</p>
+</blockquote>
+<h3 id="making-javascript-better"><a class="header" href="#making-javascript-better">Making JavaScript Better</a></h3>
+<p>TypeScript will try to protect you from portions of JavaScript that never worked (so you don’t need to remember this stuff):</p>
+<pre><code class="language-typescript">[] + []; // JavaScript will give you &quot;&quot; (which makes little sense), TypeScript will error
+
+//
+// other things that are nonsensical in JavaScript
+// - don't give a runtime error (making debugging hard)
+// - but TypeScript will give a compile time error (making debugging unnecessary)
+//
+{} + []; // JS : 0, TS Error
+[] + {}; // JS : &quot;[object Object]&quot;, TS Error
+{} + {}; // JS : NaN or [object Object][object Object] depending upon browser, TS Error
+&quot;hello&quot; - 1; // JS : NaN, TS Error
+
+function add(a,b) {
+  return
+    a + b; // JS : undefined, TS Error 'unreachable code detected'
+}
+</code></pre>
+<p>Essentially TypeScript is linting JavaScript. Just doing a better job at it than other linters that don’t have <em>type information</em>.</p>
+<h3 id="you-still-need-to-learn-javascript"><a class="header" href="#you-still-need-to-learn-javascript">You still need to learn JavaScript</a></h3>
+<p>That said TypeScript is very pragmatic about the fact that <em>you do write JavaScript</em> so there are some things about JavaScript that you still need to know in order to not be caught off-guard. Let’s discuss them next.</p>
+<blockquote>
+<p>Note: TypeScript is a superset of JavaScript. Just with documentation that can actually be used by compilers / IDEs ;)</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="AboutMe.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="es6/ES6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="AboutMe.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="es6/ES6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

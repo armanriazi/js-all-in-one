@@ -1,0 +1,476 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>const and let - js-all-in-one(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="../INTRO.html"><strong aria-hidden="true">2.</strong> Introductory</a></li><li class="chapter-item expanded "><a href="../es6/ES6.html"><strong aria-hidden="true">3.</strong> ES6</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/BeforeWeGetStarted.html"><strong aria-hidden="true">3.1.</strong> Before We Get Started</a></li><li class="chapter-item "><a href="../es6/Helper.html"><strong aria-hidden="true">3.2.</strong> Helpers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/TheForEachHelper.html"><strong aria-hidden="true">3.2.1.</strong> The forEach</a></li><li class="chapter-item "><a href="../es6/TheMapHelper.html"><strong aria-hidden="true">3.2.2.</strong> The map</a></li><li class="chapter-item "><a href="../es6/TheFilterHelper.html"><strong aria-hidden="true">3.2.3.</strong> The filter</a></li><li class="chapter-item "><a href="../es6/TheFindHelper.html"><strong aria-hidden="true">3.2.4.</strong> The find</a></li><li class="chapter-item "><a href="../es6/TheEveryAndSomeHelper.html"><strong aria-hidden="true">3.2.5.</strong> The every and some Helper</a></li><li class="chapter-item "><a href="../es6/TheReduceHelper.html"><strong aria-hidden="true">3.2.6.</strong> The reduce Helper</a></li></ol></li><li class="chapter-item expanded "><a href="../es6/Variable.html"><strong aria-hidden="true">3.3.</strong> Variables</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../es6/ConstAndLet.html" class="active"><strong aria-hidden="true">3.3.1.</strong> const and let</a></li><li class="chapter-item "><a href="../es6/TemplateStrings.html"><strong aria-hidden="true">3.3.2.</strong> Template Strings</a></li></ol></li><li class="chapter-item "><a href="../es6/FP.html"><strong aria-hidden="true">3.4.</strong> Functional Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/ArrowFunctions.html"><strong aria-hidden="true">3.4.1.</strong> Arrow Functions</a></li><li class="chapter-item "><a href="../es6/DefaultArguments.html"><strong aria-hidden="true">3.4.2.</strong> DefaultArguments</a></li><li class="chapter-item "><a href="../es6/DefaultFunctionArguments.html"><strong aria-hidden="true">3.4.3.</strong> Default Function Arguments</a></li><li class="chapter-item "><a href="../es6/EnhancedObjectLiterals.html"><strong aria-hidden="true">3.4.4.</strong> Enhanced Object Literals</a></li></ol></li><li class="chapter-item "><a href="../es6/Operator.html"><strong aria-hidden="true">3.5.</strong> Operators</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/RestAndSpreadOperator.html"><strong aria-hidden="true">3.5.1.</strong> Rest and Spread Operators</a></li><li class="chapter-item "><a href="../es6/Destructuring.html"><strong aria-hidden="true">3.5.2.</strong> Destructuring</a></li></ol></li><li class="chapter-item "><a href="../es6/OOP.html"><strong aria-hidden="true">3.6.</strong> Object Oriented Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/Classes.html"><strong aria-hidden="true">3.6.1.</strong> Classes</a></li></ol></li><li class="chapter-item "><a href="../es6/concurrency.html"><strong aria-hidden="true">3.7.</strong> Concurrency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/Generators.html"><strong aria-hidden="true">3.7.1.</strong> Generators</a></li><li class="chapter-item "><a href="../es6/PromisesAndFetch.html"><strong aria-hidden="true">3.7.2.</strong> Promises and Fetch</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../Glossery.html"><strong aria-hidden="true">4.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">js-all-in-one(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/edit/main/workspace/./workspace//es6/ConstAndLet.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="section-08-const-and-let"><a class="header" href="#section-08-const-and-let">Section 08: <code>const</code> and <code>let</code></a></h1>
+<ul>
+<li><a href="#the-keyword-const-and-let">The Keyword <code>const</code> and <code>let</code></a></li>
+<li><a href="#exercise-a-constant-exercise-of-letting-variables-be-variables">[Exercise] A Constant Exercise of Letting Variables Be Variables</a></li>
+<li><a href="#exercise-constlet-refactoring">[Exercise] Const/Let Refactoring</a></li>
+<li><a href="#Hoisting">Hoisting</a></li>
+<li><a href="#LoopScope">LoopScope</a></li>
+<li><a href="#Implicit-Scope-Creation">Implicit Scope Creation</a></li>
+<li><a href="#Read-Only-const">Read-Only const</a></li>
+</ul>
+<h2 id="the-keyword-const-and-let"><a class="header" href="#the-keyword-const-and-let">The Keyword <code>const</code> and <code>let</code></a></h2>
+<p>Block-scoped binding constructs. let is the new var. const is single-assignment. Static restrictions prevent use before assignment.</p>
+<pre><code class="language-javascript">function f() {
+  {
+    let x;
+    {
+      // okay, block scoped name
+      const x = &quot;sneaky&quot;;
+      // error, const
+      x = &quot;foo&quot;;
+    }
+    // error, already declared in block
+    let x = &quot;inner&quot;;
+  }
+}
+</code></pre>
+<ol>
+<li>Var</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Var keyword was previously used for declaring variable in javascript.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Variables declared with var can be <strong>re-initialised and re-declared</strong> too.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It is not recommended to use var after release of let and const.</li>
+</ul>
+<pre><code class="language-javascript">    var a = 10;
+
+    for(var i=0;i&lt;5;i++){
+    		var a = 20;
+    		console.log(a); //Returns 20
+    }
+
+    console.log(a); // Returns 20
+</code></pre>
+<ol start="2">
+<li>LET</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+“let” is used when you have to change the value of the variable later in the code.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It has block scope.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It can be <strong>re-initialised but not re-declared</strong>.</li>
+</ul>
+<pre><code class="language-javascript">    let a = 10;
+
+    // re-initialization
+    a = 30; // Updating a value to 30.
+
+    //re-declartion
+    let a = 20; // Throws Error
+
+    // Block 1
+    {
+    	 let c = 10;
+    	 console.log(c); // c=10
+    }
+
+    console.log(c); // Throws Error, c not defined.
+</code></pre>
+<ol start="3">
+<li>CONST</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Const is used to define a constant variable which can’t be changed throught the code.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+It has block scope.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+You can <strong>neither be re-initiased nor re-declared</strong>.</li>
+</ul>
+<pre><code class="language-javascript">    const a = 10;
+    // re-initialization
+    a = 30; // Throws Error, CONST variable can't be changed
+
+    //re-declartion
+    const a = 20; // Throws Error
+
+    // Block 1
+    {
+    	 const c = 10;
+    	 console.log(c); // c=10
+    }
+
+    console.log(c); // Throws Error, c not defined.
+</code></pre>
+<p>Next Example:</p>
+<pre><code class="language-javascript">const name = 'Jane';
+let title = 'Software Engineer';
+let hourlyWage = 40;
+
+// some time later
+title = 'Senior Software Engineer';
+hourlyWage = 45;
+</code></pre>
+<p>We should always use <code>const</code> and <code>let</code> to declare variables instead of using <code>var</code>. Use the <code>const</code> and <code>let</code> make our codes more legible.</p>
+<ul>
+<li>The keyword <code>let</code> declare variables and the value of the variable will change over time.</li>
+<li>The keyword <code>const</code> declare variables and the value of the variable will never change.</li>
+</ul>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-a-constant-exercise-of-letting-variables-be-variables"><a class="header" href="#exercise-a-constant-exercise-of-letting-variables-be-variables">[Exercise] A Constant Exercise of Letting Variables Be Variables</a></h2>
+<h3 id="question"><a class="header" href="#question">Question</a></h3>
+<p>Imagine that you are building an application to manage a user’s Facebook profile. A profile might have a <code>name</code>, <code>age</code>, and <code>dateOfBirth</code>.</p>
+<p>Declare three variables with these same names, making sure to use <code>const</code> or <code>let</code> depending on whether you expect the value to change over time.</p>
+<h3 id="solution"><a class="header" href="#solution">Solution</a></h3>
+<pre><code class="language-javascript">const name = 'Peter';
+const dateOfBirth = '900422';
+let age = 25;
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-constlet-refactoring"><a class="header" href="#exercise-constlet-refactoring">[Exercise] Const/Let Refactoring</a></h2>
+<h3 id="question-1"><a class="header" href="#question-1">Question</a></h3>
+<p>The following code uses <code>var</code> instead of <code>const</code> and <code>let</code>. Refactor the function to use the new keywords. Be sure to consider whether the variable should be declared using <code>const</code> or <code>let</code> depending on whether the variable gets reassigned or not.</p>
+<pre><code class="language-javascript">var statuses = [
+  { code: 'OK', response: 'Request successful' },
+  { code: 'FAILED', response: 'There was an error with your request' },
+  { code: 'PENDING', response: 'Your reqeust is still pending' }
+];
+var message = '';
+var currentCode = 'OK';
+
+for (var i = 0; i &lt; statuses.length; i++) {
+  if (statuses[i].code === currentCode) {
+    message = statuses[i].response;
+  }
+}
+</code></pre>
+<h3 id="solution-1"><a class="header" href="#solution-1">Solution</a></h3>
+<pre><code class="language-javascript">const statuses = [
+  { code: 'OK', response: 'Request successful' },
+  { code: 'FAILED', response: 'There was an error with your request' },
+  { code: 'PENDING', response: 'Your reqeust is still pending' }
+];
+let message = '';
+let currentCode = 'OK';
+
+for (let i = 0; i &lt; statuses.length; i++) {
+  if (statuses[i].code === currentCode) {
+    message = statuses[i].response;
+  }
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="hoisting"><a class="header" href="#hoisting">Hoisting</a></h2>
+<p>Unlike var declarations which are hoisted to the top of their enclosing scope let and const declarations may only be accessed after they’ve been declared. let and const variables are said to be in the scope’s TDZ (temporal dead zone) before they’ve been declared, and any attempt to read or write them beforehand will generate an error.
+⚠️ Most transpilers currently don’t handle this behaviour fully to-spec, so the above example will probably only error in a native ES6 environment.</p>
+<pre><code class="language-javascript">{
+  console.log(foo); // 'foo'
+  console.log(bar); // ReferenceError: bar is in the 'TDZ'
+  var foo = 'foo';
+  let bar = 'bar';
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="loopscope"><a class="header" href="#loopscope">LoopScope</a></h2>
+<p>When <strong>let is used in a for</strong> loop header a new i is scoped for each iteration of the loop. <strong>This makes writing async code</strong> in loops more intuitive since the closure doesn’t need to be created manually. This can also help with traditionally counter-intuituve tasks such as applying click event handlers in a loop.</p>
+<pre><code class="language-javascript">for (var i=1; i&lt;=5; i++) {
+    setTimeout(function(){
+        console.log(i);
+    }, i*100);
+}
+// 6,6,6,6,6
+</code></pre>
+<pre><code class="language-javascript">for (let i=1; i&lt;=5; i++) {
+    setTimeout(function(){
+        console.log(i);
+    }, i*100);
+}
+// 1,2,3,4,5
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="implicit-scope-creation"><a class="header" href="#implicit-scope-creation">Implicit-Scope-Creation</a></h2>
+<p>Using let within an if block implicitly creates a new scope. This is a hazard of using let. The new scope is easily spotted in the simple example above, but when code becomes more complicated hunting for new scopes created by let could become a cognitive burden. A rule of thumb is to place let declarations at the top of their enclosing block to clearly signpost their use and also avoid being bitten by the TDZ.</p>
+<pre><code class="language-javascript">if ( foo ) {
+    // We're in the same scope as outside the 'if'
+}
+if ( foo ) {
+    // We're in a new scope
+    let a = 1;
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="read-only-const"><a class="header" href="#read-only-const">Read-Only-const</a></h2>
+<p>As mentioned, reassign a value to a constant will silently fail while redeclaring the constant will throw an error.</p>
+<pre><code class="language-javascript">const foo = 'foo';
+foo = 'bar' // Silently fails, foo is still equal to 'foo'
+const foo = 'bar' // TypeError, foo has already been defined
+</code></pre>
+<p>However constants are not immutable, therefore the properties of non-primitive values defined as a constant may be manipulated freely.</p>
+<pre><code class="language-javascript">const foo = {a: 1};
+foo.a = 2;
+foo.a; // 2
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../es6/Variable.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../es6/TemplateStrings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../es6/Variable.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../es6/TemplateStrings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

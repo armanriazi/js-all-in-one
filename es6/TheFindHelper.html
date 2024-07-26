@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The find - js-all-in-one(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="../INTRO.html"><strong aria-hidden="true">2.</strong> Introductory</a></li><li class="chapter-item expanded "><a href="../es6/ES6.html"><strong aria-hidden="true">3.</strong> ES6</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/BeforeWeGetStarted.html"><strong aria-hidden="true">3.1.</strong> Before We Get Started</a></li><li class="chapter-item expanded "><a href="../es6/Helper.html"><strong aria-hidden="true">3.2.</strong> Helpers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/TheForEachHelper.html"><strong aria-hidden="true">3.2.1.</strong> The forEach</a></li><li class="chapter-item "><a href="../es6/TheMapHelper.html"><strong aria-hidden="true">3.2.2.</strong> The map</a></li><li class="chapter-item "><a href="../es6/TheFilterHelper.html"><strong aria-hidden="true">3.2.3.</strong> The filter</a></li><li class="chapter-item expanded "><a href="../es6/TheFindHelper.html" class="active"><strong aria-hidden="true">3.2.4.</strong> The find</a></li><li class="chapter-item "><a href="../es6/TheEveryAndSomeHelper.html"><strong aria-hidden="true">3.2.5.</strong> The every and some Helper</a></li><li class="chapter-item "><a href="../es6/TheReduceHelper.html"><strong aria-hidden="true">3.2.6.</strong> The reduce Helper</a></li></ol></li><li class="chapter-item "><a href="../es6/Variable.html"><strong aria-hidden="true">3.3.</strong> Variables</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/ConstAndLet.html"><strong aria-hidden="true">3.3.1.</strong> const and let</a></li><li class="chapter-item "><a href="../es6/TemplateStrings.html"><strong aria-hidden="true">3.3.2.</strong> Template Strings</a></li></ol></li><li class="chapter-item "><a href="../es6/FP.html"><strong aria-hidden="true">3.4.</strong> Functional Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/ArrowFunctions.html"><strong aria-hidden="true">3.4.1.</strong> Arrow Functions</a></li><li class="chapter-item "><a href="../es6/DefaultArguments.html"><strong aria-hidden="true">3.4.2.</strong> DefaultArguments</a></li><li class="chapter-item "><a href="../es6/DefaultFunctionArguments.html"><strong aria-hidden="true">3.4.3.</strong> Default Function Arguments</a></li><li class="chapter-item "><a href="../es6/EnhancedObjectLiterals.html"><strong aria-hidden="true">3.4.4.</strong> Enhanced Object Literals</a></li></ol></li><li class="chapter-item "><a href="../es6/Operator.html"><strong aria-hidden="true">3.5.</strong> Operators</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/RestAndSpreadOperator.html"><strong aria-hidden="true">3.5.1.</strong> Rest and Spread Operators</a></li><li class="chapter-item "><a href="../es6/Destructuring.html"><strong aria-hidden="true">3.5.2.</strong> Destructuring</a></li></ol></li><li class="chapter-item "><a href="../es6/OOP.html"><strong aria-hidden="true">3.6.</strong> Object Oriented Programming</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/Classes.html"><strong aria-hidden="true">3.6.1.</strong> Classes</a></li></ol></li><li class="chapter-item "><a href="../es6/concurrency.html"><strong aria-hidden="true">3.7.</strong> Concurrency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../es6/Generators.html"><strong aria-hidden="true">3.7.1.</strong> Generators</a></li><li class="chapter-item "><a href="../es6/PromisesAndFetch.html"><strong aria-hidden="true">3.7.2.</strong> Promises and Fetch</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../Glossery.html"><strong aria-hidden="true">4.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">js-all-in-one(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-all-in-one/edit/main/workspace/./workspace//es6/TheFindHelper.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="section-05-the-find-helper"><a class="header" href="#section-05-the-find-helper">Section 05: The <code>find</code> Helper</a></h1>
+<ul>
+<li><a href="#the-find-helper">The <code>find</code> Helper</a></li>
+<li><a href="#usind-find-to-match-posts-and-comment">Usind <code>find()</code> to Match posts and comment</a></li>
+<li><a href="#exercise-finding-admin-users">[Exercise] Finding Admin Users</a></li>
+<li><a href="#exercise-whats-your-balance">[Exercise] What’s Your Balance?</a></li>
+<li><a href="#exercise-custom-findwhere-helper">[Exercise] Custom <code>findWhere</code> Helper</a></li>
+</ul>
+<h2 id="the-find-helper"><a class="header" href="#the-find-helper">The <code>find</code> Helper</a></h2>
+<p>The <code>map()</code> method executes the provided function once for each array element and returns the <strong>value of the first element passing the test by provided function</strong>. Otherwise it returns <code>undefined</code>.</p>
+<pre><code class="language-javascript">let users = [
+  { name: 'Jill' },
+  { name: 'Alex' },
+  { name: 'Bill' }
+];
+
+// loop the array by using for loop
+let user = '';
+for (let i = 0; i &lt; users.length; i++) {
+  if (users[i].name === 'Alex') {
+    user = users[i];
+    break;
+  }
+}
+
+// loop the array by using find() method
+let user = users.find(user =&gt; user.name === 'Alex');
+</code></pre>
+<p>Note that the <code>find()</code> method doesn’t change the original array. Let’s see another example dealing objects with <code>find()</code>.</p>
+<pre><code class="language-javascript">function Car(model) {
+  this.model = model;
+}
+
+let cars = [
+  new Car('Buick'),
+  new Car('Camaro'),
+  new Car('Focus')
+];
+
+cars.find(car =&gt; car.model === 'Focus');
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="usind-find-to-match-posts-and-comment"><a class="header" href="#usind-find-to-match-posts-and-comment">Usind <code>find()</code> to Match posts and comment</a></h2>
+<pre><code class="language-javascript">let posts = [
+  { id: 1, title: 'New Post' },
+  { id: 2, title: 'Old Post' }
+];
+
+let comment = { postId:1, content: 'Great Post' };
+
+function postForComment(posts, comments) {
+  return posts.find(post =&gt; post.id === comment.postId);
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-finding-admin-users"><a class="header" href="#exercise-finding-admin-users">[Exercise] Finding Admin Users</a></h2>
+<h3 id="question"><a class="header" href="#question">Question</a></h3>
+<p>Find the user in the users’s array who is an admin. Assign this user to the variable <code>admin</code>.</p>
+<pre><code class="language-javascript">var users = [
+  { id: 1, admin: false },
+  { id: 2, admin: false },
+  { id: 3, admin: true }
+];
+
+var admin;
+</code></pre>
+<h3 id="solution"><a class="header" href="#solution">Solution</a></h3>
+<pre><code class="language-javascript">let users = [
+  { id: 1, admin: false },
+  { id: 2, admin: false },
+  { id: 3, admin: true }
+];
+
+let admin = users.find(user =&gt; user.admin === true);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-whats-your-balance"><a class="header" href="#exercise-whats-your-balance">[Exercise] What’s Your Balance?</a></h2>
+<h3 id="question-1"><a class="header" href="#question-1">Question</a></h3>
+<p>Find the account with a balance of 12 and assign it to the variable <code>account</code>.</p>
+<pre><code class="language-javascript">var accounts = [
+  { balance: -10 },
+  { balance: 12 },
+  { balance: 0 }
+];
+
+var account;
+</code></pre>
+<h3 id="solution-1"><a class="header" href="#solution-1">Solution</a></h3>
+<pre><code class="language-javascript">let accounts = [
+  { balance: -10 },
+  { balance: 12 },
+  { balance: 0 }
+];
+
+let account = accounts.find(account =&gt; account.balance === 12);
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+<h2 id="exercise-custom-findwhere-helper"><a class="header" href="#exercise-custom-findwhere-helper">[Exercise] Custom <code>findWhere</code> Helper</a></h2>
+<h3 id="question-2"><a class="header" href="#question-2">Question</a></h3>
+<p>The most common <code>find</code> operation is to an object that has a given property. Rather than writing out a full function every time, it would be great if we has a shorthand syntax to find an object like this: <code>findWhere(ladders, { height: '20 feet' });</code></p>
+<p>The object <code>{ ladders: '20 feet' }</code> should be used as the search criteria - we would want to find a ladder whose <code>height</code> property was <code>20 feet</code>;</p>
+<p>Write a <code>findWhere</code> function that achieves this shorthand approach. The <code>findWhere</code> should return the found object.</p>
+<pre><code class="language-javascript">var ladders = [
+  { id: 1, height: 20 },
+  { id: 3, height: 25 }
+];
+
+// result: { id: 3, height: 25 }
+findWhere(ladders, { height: 25 });
+</code></pre>
+<p><strong>Hint</strong>:</p>
+<p>The hard part of this is figuring out the name of the proeprty on the criteria. You can use <code>Object.keys(criteria)[0]</code> to figure out the name of the property on the object. For example, <code>Object.keys({ height: '20 feet' })</code> would return <code>height</code>. You could then check to see if a given element in the array had a property equal to the criteria’s value with something like <code>element[property] === criteria[property]</code>.</p>
+<h3 id="solution-2"><a class="header" href="#solution-2">Solution</a></h3>
+<pre><code class="language-javascript">function findWhere(array, criteria) {
+  let prop = Object.keys(criteria)[0];  // keep the criteria value
+
+  return array.find(element =&gt; element[prop] === criteria[prop]);
+}
+</code></pre>
+<br/>
+<div align="right">
+  <b><a href="#section-05-the-find-helper">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../es6/TheFilterHelper.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../es6/TheEveryAndSomeHelper.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../es6/TheFilterHelper.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../es6/TheEveryAndSomeHelper.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
