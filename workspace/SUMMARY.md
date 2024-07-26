@@ -17,6 +17,7 @@
     * [Template Strings](./es6/TemplateStrings.md)
     * [Functional Programming](./es6/FP.md)
         * [Arrow Functions](./es6/ArrowFunctions.md)
+        * [DefaultArguments](./es6/DefaultArguments.md)        
     * [Enhanced Object Literals](./es6/EnhancedObjectLiterals.md)
     * [Default Function Arguments](./es6/DefaultFunctionArguments.md)
     * [Rest and Spread Operators](./es6/RestAndSpreadOperator.md)

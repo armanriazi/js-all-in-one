@@ -53,7 +53,7 @@ Note that the `every()` and `some()` methods don't change the original array. Mo
 We would use `every()` or `some()` method to create the criteria for if-statement in practice.
 
 ```javascript
-class Field(value) {
+class Field {
   constructor(value) {
     this.value = value;
   }
@@ -68,7 +68,7 @@ let password = new Field("my_password");
 let birthdate = new Field("10/10/2010");
 
 let fields = [username, password, birthdate];
-let formIsValid = fields.every(field => return field.validate());
+let formIsValid = fields.every(field =>  field.validate());
 
 if (formIsValid) {
   // allow user to submit!
