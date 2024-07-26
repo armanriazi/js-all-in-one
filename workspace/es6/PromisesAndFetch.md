@@ -49,11 +49,7 @@ promise
   .catch(() => console.log("uh oh!!"));
 ```
 
-<br/>
-<div align="right">
-  <b><a href="#section-17-promises-and-fetch">[ ↥ Back To Top ]</a></b>
-</div>
-<br/>
+
 
 ## Ajax Requests with `fetch`() Helper
 

@@ -4,13 +4,6 @@
   <img src="https://i.imgur.com/KTEorEU.png" alt="ES6 : The Complete Developer's Guide" height="250px">
 </p>
 
-<div align="right">
-
-  [![](https://img.shields.io/badge/Udemy--EC5252.svg?logo=udemy&style=flat-square)](https://www.udemy.com/course/javascript-es6-tutorial/)
-  [![](https://img.shields.io/github/license/armanriazi/js-all-in-one?style=flat-square)](./LICENSE)
-
-</div>
-
 ## Contents
 
 - [Introductory](#Introductory)
