@@ -1,5 +1,3 @@
-
-
 ## Default Arguments
 
 Default argument or default parameter is the new feature in ES6. It allows you to set a default value for your function parameter/argument if no value or undefined of is passed.

@@ -78,3 +78,25 @@ for (let i=1; i<=5; i++) {
   }, i*100);
 }
 // 1,2,3,4,5
+
+console.log('------Next------');
+console.log('------Implicit-Scope-Creation------');
+
+// if ( foo1 ) {
+//     // We're in the same scope as outside the 'if'
+// }
+// if ( foo2 ) {
+//     // We're in a new scope
+//     let a = 1;
+// }
+console.log('');
+
+console.log('------Read-Only-const------');
+
+
+// const foobar = 'foo';
+// foobar = 'bar' // Silently fails, foo is still equal to 'foo'
+
+const fooo = {a: 1};
+fooo.a = 2;
+console.log(fooo);

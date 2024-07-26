@@ -5,8 +5,8 @@
 - [[Exercise] Const/Let Refactoring](#exercise-constlet-refactoring)
 - [Hoisting](#Hoisting)
 - [LoopScope](#LoopScope)
-- [Implicit-Scope-Creation](#Implicit-Scope-Creation)
-- [Read-Only-const](#Read-Only-const)
+- [Implicit Scope Creation](#Implicit-Scope-Creation)
+- [Read-Only const](#Read-Only-const)
 
 ## The Keyword `const` and `let`
 
@@ -249,6 +249,13 @@ if ( foo ) {
     let a = 1;
 }
 ```
+
+<br/>
+<div align="right">
+  <b><a href="#section-08-const-and-let">[ ↥ Back To Top ]</a></b>
+</div>
+<br/>
+
 
 ## Read-Only-const
 
