@@ -78,3 +78,26 @@ function double([number, ...rest]) {
   return rest.length === 0 ? [number * 2] : [number * 2, ...double(rest)];
 }
 console.log(double(numbers));
+
+console.log('------Next------');
+
+    var user = {
+    	name : 'Deepak',
+      username : 'dipakkr',
+      password : 12345
+    }
+
+    const {namee, username, password} = user;
+    console.log(namee);
+    console.log(username);
+    console.log(password);
+
+    //Example 2 - Array Destructing
+
+    const fruits = ["apple", "mango", "banana", "grapes"];
+
+    const [fruit1, fruit2, fruit3] = fruits;
+
+    console.log(fruit1); // apple
+    console.log(fruit2); // mango
+    console.log(fruit3); // banana

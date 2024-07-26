@@ -59,3 +59,25 @@ function product(...numbers) {
   }
   
 console.log(product(20,5));
+
+console.log("------------Next---------");
+
+function add(...args) {
+  let sum = 0;
+  for (let i of args) {
+    sum += i;
+  }
+  return sum;
+}
+
+console.log(add(3, 4, 5, 10, 20)); // 42
+
+console.log(add(1, 3, 4)); // 8
+
+
+
+console.log("------------Next---------");
+
+// const array = [1, 2, 3];
+// const copiedArray = ...array;
+// console.log(copiedArray); // [1, 2, 3]

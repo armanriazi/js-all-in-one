@@ -24,9 +24,9 @@
         * [Rest and Spread Operators](./es6/RestAndSpreadOperator.md)
         * [Destructuring](./es6/Destructuring.md)
     * [Object Oriented Programming](./es6/OOP.md)
-        * [Classes](./es6/Classes.md)
-        * [Generators](./es6/Generators.md)
+        * [Classes](./es6/Classes.md)        
     * [Concurrency](./es6/concurrency.md)
+        * [Generators](./es6/Generators.md)
         * [Promises and Fetch](./es6/PromisesAndFetch.md)
 * [Glossery](./Glossery.md)
 

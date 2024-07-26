@@ -1,6 +1,6 @@
 ///
 /// ```bash
-/// node ./src/js/prototype/prototype-ex1.js
+/// node ./src/js/oop/prototype/prototype-ex1.js
 /// ```
 ///
 

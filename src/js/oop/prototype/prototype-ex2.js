@@ -1,6 +1,6 @@
 ///
 /// ```bash
-/// node ./src/js/prototype/prototype-ex2.js
+/// node ./src/js/oop/prototype/prototype-ex2.js
 /// ```
 ///
 const personProto = {
