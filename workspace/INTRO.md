@@ -13,17 +13,17 @@
 
 ## Contents
 
-* [Introductory](#Introductory)
-* [Types](#Types)
-* [Equality](#Equality)
-* [Function](#Function)
-* [Closure](#Closure)
-* [This](#This)
-* [Prototype](#Prototypes)
-* [References](#References)
-* [Recap](#Recap)
+- [Introductory](#Introductory)
+- [Types](#Types)
+- [Equality](#Equality)
+- [Function](#Function)
+- [Closure](#Closure)
+- [This](#This)
+- [Prototype](#Prototypes)
+- [References](#References)
+- [Recap](#Recap)
 
-# Introductory 
+## Introductory 
 JavaScript is a programming language initially designed to interact with elements of web pages. Within web browsers, JavaScript consists of three main parts:
 
 - [x] ECMAScript provides the core functionality.
@@ -46,13 +46,13 @@ let x = 10;
 let y = 20;
 ```
 
-# Types
+## Types
 
-## Primitive Types
+### Primitive Types
 
 > `Number`, `String`, `Boolean`, `Null`, `Undefined`, and `Symbol`(es6)
 
-## Number
+### Number
 Whenever you are handling numbers in any programming language you need to be aware of the idiosyncrasies of how the language handles numbers. Here are a few critical pieces of information about numbers in JavaScript that you should be aware of.
 
 ### Core Type
@@ -207,7 +207,7 @@ console.log(Number.MIN_VALUE / 10);  // 0
 
 > Further intuition: Just like values bigger than `Number.MAX_VALUE` get clamped to INFINITY, values smaller than `Number.MIN_VALUE` get clamped to `0`.
 
-## Truthy
+### Truthy
 
 JavaScript has a concept of `truthy` i.e. things that evaluate like `true` would in certain positions (e.g. `if` conditions and the boolean `&&` `||` operators). The following things are truthy in JavaScript. An example is any number other than `0` e.g.
 
@@ -270,7 +270,7 @@ const sameBigint = BigInt("1234567890123456789012345678901234567890");
 ```
 
 
-# Equality
+## Equality
 
 One thing to be careful about in JavaScript is the difference between `==` and `===`. As JavaScript tries to
 be resilient against programming errors `==` tries to do type coercion between two variables e.g. converts a
@@ -355,7 +355,7 @@ const fooIndex = list.map(i => i.id).indexOf('foo');
 console.log(fooIndex); // Output 0
 ```
 
-# Function
+## Function
 
 by defining a function will have access to the objects like:
 
@@ -364,7 +364,7 @@ by defining a function will have access to the objects like:
 - [x] arguments
 
 
-# Closure
+## Closure
 
 The best thing that JavaScript ever got was closures. A function in JavaScript has access to any variables defined in the outer scope. Closures are best explained with examples:
 
@@ -401,7 +401,7 @@ var innerFunction = outerFunction("hello closure!");
 innerFunction(); // logs hello closure!
 ```
 
-## Reason why it's awesome
+### Reason why it's awesome
 It allows you to compose objects easily e.g. the revealing module pattern:
 
 ```typescript
@@ -433,7 +433,7 @@ server.on(function handler(req, res) {
 ```
 
 
-# This
+## This
 
 Any access to `this` keyword within a function is controlled by how the function is actually called. It is commonly referred to as the “calling context.”
 
@@ -468,16 +468,16 @@ So be mindful of your usage of `this`. If you want to disconnect `this` in a cla
 
 [arrow]:../arrow-functions.md
 
-# Prototypes
+## Prototypes
 In JavaScript, the prototype is a fundamental concept that underpins the language's object-oriented nature. It serves as the mechanism through which objects inherit features from one another. **Every JavaScript object has a prototype**, except for the most primitive types like `Number`, `String`, `Boolean`, `Null`, `Undefined`, and `Symbol`. These primitive types do not have a prototype because they are not objects; however, they do have a prototype when they are wrapped in object form.
 
-## How Prototypes Work
+### How Prototypes Work
 
 - **Prototype Chains**: When you attempt to access a property or method on an object, *JavaScript first checks if the property exists on the object itself. If it doesn't, JavaScript looks for the property on the object's prototype.* This process continues up the prototype chain until the property is found or the end of the chain is reached **(`Object.prototype`)**. If the property is not found anywhere in the chain, `undefined` is returned.
 
 - **Constructor Functions and Prototypes**: Constructor functions in JavaScript have a special property called `prototype`. When **you create an object using a constructor function**, *the object inherits* **the properties and methods attached** *to the constructor's `prototype`.*
 
-## Setting and Using Prototypes
+### Setting and Using Prototypes
 
 - **Using Constructors**: You can define a constructor function and attach methods to its `prototype` property. Objects created with this constructor will inherit these methods.
 
@@ -511,11 +511,11 @@ jim.greet(); // Outputs: Hello!
 
 Prototypes enable a form of inheritance in JavaScript, allowing objects to share properties and methods. This is particularly useful for **creating relationships between objects**, such as having a `Car` object inherit from a `Vehicle` object, which in turn inherits from `Object.prototype`.
 
-# References
+## References
 
 Beyond literals, any Object in JavaScript (including functions, arrays, regexp etc) are references. This means the following
 
-## Mutations are across all references
+### Mutations are across all references
 
 [[Error_TS2339]]
 
@@ -533,7 +533,7 @@ console.log(bar.baz); // JS Result: 123, TS Result : Error
 error TS2339: Property 'baz' does not exist on type '{}'.
 ```
 
-## Equality is for references
+### Equality is for references
 
 [[Error_TS2304]]
 
@@ -552,8 +552,8 @@ console.log(foo === baz); //JS, TS Result: false
 error TS2304: Cannot find name 'someglobal'.
 ```
 
-# Recap
-# Your JavaScript is TypeScript
+## Recap
+### Your JavaScript is TypeScript
 
 There were (and will continue to be) a lot of competitors in *Some syntax* to *JavaScript* compilers. TypeScript is different from them in that *Your JavaScript is TypeScript*. Here's a diagram:
 
@@ -568,7 +568,7 @@ TypeScript is just JavaScript with docs.
 
 > JSNext is open to interpretation - not everything proposed for the next version of JS actually makes it to browsers. TypeScript only adds support for proposals once they reach [stage 3](https://tc39.es/process-document/).
 
-## Making JavaScript Better
+### Making JavaScript Better
 
 TypeScript will try to protect you from portions of JavaScript that never worked (so you don't need to remember this stuff):
 
@@ -593,7 +593,7 @@ function add(a,b) {
 
 Essentially TypeScript is linting JavaScript. Just doing a better job at it than other linters that don't have *type information*.
 
-## You still need to learn JavaScript
+### You still need to learn JavaScript
 
 That said TypeScript is very pragmatic about the fact that *you do write JavaScript* so there are some things about JavaScript that you still need to know in order to not be caught off-guard. Let's discuss them next.
 
